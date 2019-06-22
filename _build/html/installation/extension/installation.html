@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Extension &#8212; datasentinel 1.0 documentation</title>
+
+    <link rel="stylesheet" href="../../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Components installation" href="../index.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="../index.html">Components installation</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Extension</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../../_sources/installation/extension/installation.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../../index.html">
+              <span class="title-text">
+                  datasentinel
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Components installation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Extension</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../../index.html">
+              <span class="title-text">
+                  datasentinel
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Components installation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Extension</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="extension">
+<h1>Extension<a class="headerlink" href="#extension" title="Permalink to this headline">¶</a></h1>
+<p>Datasentinel needs a special extension to be installed in each postgresql server.</p>
+<p>This little extension is to be added to the <strong>pg_stat_statements</strong> extension.</p>
+<div class="section" id="how-to-install-the-extension">
+<h2>How to install the extension<a class="headerlink" href="#how-to-install-the-extension" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The examples are done on a standard postgresql installation on a server running <strong>centos</strong> operating system</p>
+</div>
+<div class="section" id="install-the-libraries-and-headers-for-c-language">
+<h3>1. Install the libraries and headers for C language<a class="headerlink" href="#install-the-libraries-and-headers-for-c-language" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Version 9.6</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ yum install -y https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+$ yum install -y postgresql96-devel postgresql96-contrib
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Version 10</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ yum install -y https://yum.postgresql.org/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
+$ yum install -y postgresql10-devel postgresql10-contrib
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Version 11</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ yum install -y https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+$ yum install -y yum install centos-release-scl
+$ yum install -y postgresql11-devel postgresql11-llvmjit llvm-toolset-7
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-the-extension-source-files-from-datasentinel-application">
+<h3>2. Get the extension source files from <a class="reference external" href="https://app.datasentinel.io">Datasentinel application</a><a class="headerlink" href="#get-the-extension-source-files-from-datasentinel-application" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="compile-and-deploy-the-extension">
+<h3>3. Compile and deploy the extension<a class="headerlink" href="#compile-and-deploy-the-extension" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Version 9.6</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/pgsql-9.6/bin:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Version 10</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/pgsql-10/bin:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Version 11</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/pgsql-11/bin:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>All</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> datasentinel/src
+$ make
+$ make install
+</pre></div>
+</div>
+</div>
+<div class="section" id="modify-postgresql-conf">
+<h3>4. Modify postgresql.conf<a class="headerlink" href="#modify-postgresql-conf" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add the following lines</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">shared_preload_libraries</span> <span class="o">=</span> <span class="s1">&#39;pg_stat_statements,datasentinel&#39;</span>
+<span class="nv">track_activity_query_size</span> <span class="o">=</span> <span class="m">2048</span>
+pg_stat_statements.track <span class="o">=</span> all
+</pre></div>
+</div>
+</div>
+<div class="section" id="restart-postgresql">
+<h3>5. Restart postgresql<a class="headerlink" href="#restart-postgresql" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Version 9.6</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl restart postgresql
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Version 10</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl restart postgresql-10
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Version 11</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl restart postgresql-11
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-the-extensions-in-the-instance">
+<h3>6. Create the extensions in the instance<a class="headerlink" href="#create-the-extensions-in-the-instance" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CREATE EXTENSION pg_stat_statements<span class="p">;</span>
+CREATE EXTENSION datasentinel<span class="p">;</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">To verify that the extension is correctly installed, you can execute the following sql</div>
+<div class="line-block">
+<div class="line"><em>select query,pid, datasentinel_queryid(pid) from pg_stat_activity</em></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Extension</a><ul>
+<li><a class="reference internal" href="#how-to-install-the-extension">How to install the extension</a><ul>
+<li><a class="reference internal" href="#install-the-libraries-and-headers-for-c-language">1. Install the libraries and headers for C language</a></li>
+<li><a class="reference internal" href="#get-the-extension-source-files-from-datasentinel-application">2. Get the extension source files from Datasentinel application</a></li>
+<li><a class="reference internal" href="#compile-and-deploy-the-extension">3. Compile and deploy the extension</a></li>
+<li><a class="reference internal" href="#modify-postgresql-conf">4. Modify postgresql.conf</a></li>
+<li><a class="reference internal" href="#restart-postgresql">5. Restart postgresql</a></li>
+<li><a class="reference internal" href="#create-the-extensions-in-the-instance">6. Create the extensions in the instance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="../index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Components installation</div>
+         </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">datasentinel</div>
+      <div>
+        
+        <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Components installation</a></li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2019, datasentinel.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.1 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>
