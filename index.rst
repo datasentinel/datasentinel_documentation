@@ -1,22 +1,49 @@
-.. datasentinel documentation master file, created by
-   sphinx-quickstart on Sat Jun 15 14:18:13 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Documentation
+===========================
 
-Welcome to datasentinel's documentation!
-========================================
+.. figure:: images/datasentinel_logo.png
+   :alt: Performance tool for Postgresql
+   :align: center
+
+   Datasentinel is a unique and innovative performance tool for Postgresql.
+   
+   This documentation will show you how to install the on-premises platform and how to use Datasentinel.
+
+.. note::
+   | Datasentinel is available from PostgreSQL version **9.2**
+   | 
+   | The cloud application is available at `https://app.datasentinel.io <https://app.datasentinel.io>`_
+
+
+.. figure:: images/datasentinelHeader.png
+   :alt: Performance tool for Postgresql
+   :width: 100%
+   :align: center
+   :figclass: align-center
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :hidden:
 
    installation/index
 
+.. toctree::
+   :hidden:
 
-Indices and tables
-==================
+   agent/index
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-* :ref:`search`
+.. toctree::
+   :hidden:
+
+   features/index
+
+.. toctree::
+   :hidden:
+
+   faq
+   troubleshooting
+   token
+
+.. toctree::
+   :hidden:
+
+   release-notes

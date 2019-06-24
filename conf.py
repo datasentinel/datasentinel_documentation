@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'datasentinel'
-copyright = '2019, datasentinel'
-author = 'datasentinel'
+project = 'Datasentinel'
+copyright = '2019-2020, Datasentinel'
+author = 'Datasentinel'
 
 # The full version, including alpha/beta/rc tags
 release = '1.0'
@@ -48,9 +48,33 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
+html_static_path = ['_static']
 html_theme = 'sphinx_materialdesign_theme'
+html_title = 'Datasentinel'
+html_logo = '_static/datasentinel_logo_with_text.png'
+html_favicon = '_static/favicon.png'
+
+html_css_files = [
+    'datasentinel.css',
+]
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_theme_options = {
+    'header_links' : [
+        ('Home', 'index', False, 'home'),
+        ('Cloud app', "https://app.datasentinel.io", True, 'dashboard'),
+        ('Web', "https://www.datasentinel.io", True, 'link'),
+        ('Github', "https://github.com/datasentinel", True, 'link')
+    ],
+    'primary_color': 'indigo',
+    'fixed_drawer': True,
+    'fixed_header': False,
+    'header_waterfall': True,
+    'header_scroll': False,
+    'show_header_title': False,
+    'show_drawer_title': True,
+    'show_footer': True
+}
+

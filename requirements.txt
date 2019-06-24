@@ -1,3 +1,4 @@
 sphinx
 rinohtype
 sphinx-materialdesign-theme
+flask

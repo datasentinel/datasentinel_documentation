@@ -1,11 +1,12 @@
-Components installation
-========================================
+Installation
+============
+
+
+Datasentinel is composed of 1 repository (SaaS mode or on-premises) and agents which upload data.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
-   extension/installation
-
-
-
+   platform/installation
+   agent/installation
