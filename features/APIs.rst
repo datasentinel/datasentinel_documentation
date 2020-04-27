@@ -8,25 +8,27 @@ API
 **Endpoints**
 *************
 
-- APIs can be reached at **https://<<datasentinel_platform_server>>**
+- API can be reached at **https://<<datasentinel_platform_server>>**
 
 .. note::
    | If you use the SaaS architecture, the server is **app.datasentinel.io**
 
-.. note::
-   | **Always use UTC dates in you API calls**
 
+.. note::
+   | A toolkit, wich provides examples of use, is available on `Github <https://github.com/datasentinel/datasentinel_toolkit>`_
+   | 
+   | The toolit is installed by default on the **on-premises** platform (datasentinel user home directory)
 
 
 **User token generation**
 *************************
 
-In order to use datasentinel APIs, you need to generate an access token. 
+In order to use datasentinel API, you need to generate an access token. 
 **The access token is valid for 1 day**
 
 .. raw:: html
 
-   <h6><span style="margin-left:30px;font-weight:bold; color: #3f6ed8">GET</span>&nbsp;/ds-api/user-token/{organization}</h6>
+   <h6><span style="margin-left:30px;font-weight:bold; color: #45d6b5">POST</span>&nbsp;/ds-api/user-token/{organization}</h6>
 
 - Path parameter:
 
@@ -41,7 +43,7 @@ In order to use datasentinel APIs, you need to generate an access token.
 
 .. code:: bash
   
-  curl -u myUser:myPassword -k -X GET https://app.datasentinel.io/ds-api/user-token/myOrganization
+  curl -u myUser:myPassword -k -X POST https://app.datasentinel.io/ds-api/user-token/myOrganization
 
 
 - Response
@@ -51,6 +53,38 @@ In order to use datasentinel APIs, you need to generate an access token.
   {
     "user-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODAyMTYyMjQsImlhdCI6MTU4MDEyOTgxOSwiZGF0YWJhc2UiOiJNYWluIE9yZy4iLCJlbWFpbCI6InRlc3RAZGF0YXNlbnRpbmVsLmlvIiwidXNlciI6InRlc3QifQ.JMDvq2JPcqz9M0_it_0UtP9y79dClVwx9pDEzCl9HTk"
   }
+
+
+**Display User token**
+**********************
+
+.. raw:: html
+
+   <h6><span style="margin-left:30px;font-weight:bold; color: #3f6ed8"">GET</span>&nbsp;/ds-api/user-token?token={user-token}</h6>
+
+- Path parameter:
+
+   | The token
+
+
+- Example 
+
+.. code:: bash
+  
+  export TOKEN=<<user_token>>
+  curl -u myUser:myPassword -k -X GET https://app.datasentinel.io/ds-api/user-token?token=$TOKEN
+
+
+- Response
+
+.. code:: bash
+
+    {
+        "email": "contact@datasentinel.io",
+        "expire_time": "2020-04-28 13:58:53",
+        "organization_name": "ds-data",
+        "user": "datasentinel"
+    }
 
 **Workload report**
 *********************
@@ -62,20 +96,21 @@ In order to use datasentinel APIs, you need to generate an access token.
 
 .. raw:: html
 
-   <h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/activity/workload-report</span></h6>
+   <h6 ><span style="margin-left:30px;font-weight:bold;color: #ff8c69">PUT</span><span style="color:#ff8c69">&nbsp;/ds-api/activity/workload-report</span></h6>
 
 - Example 
 
 .. code:: bash
 
   export TOKEN=<<user_token>>
-  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request POST 'https://app.datasentinel.io/ds-api/activity/workload-report' -d @body.json -o myReport.pdf
+  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request PUT 'https://app.datasentinel.io/ds-api/activity/workload-report' -d @body.json -o myReport.pdf
 
 - Request example (body.json)
 
 .. code:: bash
 
   {
+      "utc_time": true,
       "from": "2020-02-28 00:00:00",
       "to": "2020-02-29 01:00:00",
       "filters": [
@@ -96,7 +131,9 @@ In order to use datasentinel APIs, you need to generate an access token.
 
 - Parameters:
 
-    | **Always use UTC dates**
+    | "utc_time" [Optional] Default: true
+    |  When false , the timezone taken into account will depend on the timezone of the platform  
+    |
     | "from": The start date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     | "end":  The end date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     |
@@ -145,6 +182,7 @@ In order to use datasentinel APIs, you need to generate an access token.
 .. code:: bash
 
     {
+      "utc_time": true,
       "from": "2020-01-29 06:00:00",
       "to": "2020-01-29 08:00:00 ",
       "filters": [
@@ -158,7 +196,9 @@ In order to use datasentinel APIs, you need to generate an access token.
 
 - Parameters:
 
-    | **Always use UTC dates**
+    | "utc_time" [Optional] Default: true
+    |  When false , the timezone taken into account will depend on the timezone of the platform  
+    |
     | "from": The start date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     | "end":  The end date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     |
@@ -233,6 +273,7 @@ In order to use datasentinel APIs, you need to generate an access token.
 .. code:: bash
 
     {
+      "utc_time": true,
       "from": "2020-01-20",
       "to": "2020-01-21",
       "filters": [
@@ -248,7 +289,9 @@ In order to use datasentinel APIs, you need to generate an access token.
 
 - Parameters:
 
-    | **Always use UTC dates**
+    | "utc_time" [Optional] Default: true
+    |  When false , the timezone taken into account will depend on the timezone of the platform  
+    |
     | "from": The start date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     | "end":  The end date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     |
@@ -339,6 +382,7 @@ In order to use datasentinel APIs, you need to generate an access token.
 .. code:: bash
 
     {
+      "utc_time": true,
       "from": "2020-021-20",
       "to": "2020-02-21",
       "filters": [  {
@@ -351,7 +395,9 @@ In order to use datasentinel APIs, you need to generate an access token.
 
 - Parameters:
 
-    | **Always use UTC dates**
+    | "utc_time" [Optional] Default: true
+    |  When false , the timezone taken into account will depend on the timezone of the platform  
+    |
     | "from": The start date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     | "end":  The end date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     |
@@ -431,6 +477,7 @@ In order to use datasentinel APIs, you need to generate an access token.
 
     {
       "query_md5_id": "",
+      "utc_time": true,
       "from": "2020-01-20",
       "to": "2020-01-21",
       "filters": [
@@ -446,7 +493,9 @@ In order to use datasentinel APIs, you need to generate an access token.
 
     | "query_md5_id": The query id (md5 value) computed by Datasentinel
     |
-    | **Always use UTC dates**
+    | "utc_time" [Optional] Default: true
+    |  When false , the timezone taken into account will depend on the timezone of the platform  
+    |
     | "from": The start date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     | "end":  The end date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     |
@@ -527,6 +576,7 @@ In order to use datasentinel APIs, you need to generate an access token.
 .. code:: bash
 
     {
+      "utc_time": true,
       "from": "2020-021-20",
       "to": "2020-02-21",
       "filters": [],
@@ -535,7 +585,9 @@ In order to use datasentinel APIs, you need to generate an access token.
 
 - Parameters:
 
-    | **Always use UTC dates**
+    | "utc_time" [Optional] Default: true
+    |  When false , the timezone taken into account will depend on the timezone of the platform  
+    |
     | "from": The start date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     | "end":  The end date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     |
@@ -588,6 +640,7 @@ In order to use datasentinel APIs, you need to generate an access token.
 .. code:: bash
 
     {
+      "utc_time": true,
       "from": "2020-01-29 06:00:00",
       "to": "2020-01-29 08:00:00 ",
       "filters": [
@@ -602,7 +655,9 @@ In order to use datasentinel APIs, you need to generate an access token.
 
 - Parameters:
 
-    | **Always use UTC dates**
+    | "utc_time" [Optional] Default: true
+    |  When false , the timezone taken into account will depend on the timezone of the platform  
+    |
     | "from": The start date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     | "end":  The end date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     |
@@ -611,7 +666,7 @@ In order to use datasentinel APIs, you need to generate an access token.
     | "compute" : optional field (default: details)
     |             2 possible values :
     |                 . summary : Overall activity per PostgreSQL instance
-    |                 . details : Detailed activity minute by minute, per PostgreSQL instance
+    |                 . details : Detailed activity per minute, per PostgreSQL instance
     |
     | "output":  the output can be csv or json (default: json)
 
@@ -680,6 +735,7 @@ In order to use datasentinel APIs, you need to generate an access token.
 .. code:: bash
 
     {
+      "utc_time": true,
       "from": "2020-01-29 06:00:00",
       "to": "2020-01-29 08:00:00 ",
       "filters": [
@@ -688,16 +744,24 @@ In order to use datasentinel APIs, you need to generate an access token.
           "value": "pg-sales-0223@:9342"
         }
       ],
+      "compute": "summary",
       "output": "json"
     }
 
 - Parameters:
 
-    | **Always use UTC dates**
+    | "utc_time" [Optional] Default: true
+    |  When false , the timezone taken into account will depend on the timezone of the platform  
+    |
     | "from": The start date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     | "end":  The end date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     |
     | "filters" is an optional array of tags ("tag" : Tag name, "value": Tag value) 
+    |
+    | "compute" : optional field (default: details)
+    |             2 possible values :
+    |                 . summary : Overall activity per PostgreSQL instance
+    |                 . details : Detailed activity per minute, per PostgreSQL instance
     |
     | "output":  the output can be csv or json (default: json)
 
@@ -754,6 +818,7 @@ In order to use datasentinel APIs, you need to generate an access token.
 .. code:: bash
 
     {
+      "utc_time": true,
       "from": "2020-01-29 06:00:00",
       "to": "2020-01-29 08:00:00 ",
       "filters": [
@@ -762,16 +827,24 @@ In order to use datasentinel APIs, you need to generate an access token.
           "value": "pg-sales-0223@:9342"
         }
       ],
+      "compute": "summary",
       "output": "json"
     }
 
 - Parameters:
 
-    | **Always use UTC dates**
+    | "utc_time" [Optional] Default: true
+    |  When false , the timezone taken into account will depend on the timezone of the platform  
+    |
     | "from": The start date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     | "end":  The end date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     |
     | "filters" is an optional array of tags ("tag" : Tag name, "value": Tag value) 
+    |
+    | "compute" : optional field (default: details)
+    |             2 possible values :
+    |                 . summary : Overall activity per PostgreSQL instance
+    |                 . details : Detailed activity per minute, per PostgreSQL instance
     |
     | "output":  the output can be csv or json (default: json)
 
@@ -880,6 +953,7 @@ In order to use datasentinel APIs, you need to generate an access token.
 .. code:: bash
 
     {
+      "utc_time": true,
       "from": "2020-01-29 06:00:00",
       "to": "2020-01-29 08:00:00 ",
       "filters": [
@@ -888,17 +962,24 @@ In order to use datasentinel APIs, you need to generate an access token.
           "value": "pg-sales-0223@:9342"
         }
       ],
+      "compute": "summary,
       "output": "json"
     }
 
 - Parameters:
 
-    | **Always use UTC dates**
+    | "utc_time" [Optional] Default: true
+    |  When false , the timezone taken into account will depend on the timezone of the platform  
+    |
     | "from": The start date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     | "end":  The end date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     |
     | "filters" is an optional array of tags ("tag" : Tag name, "value": Tag value) 
     |
+    | "compute" : optional field (default: details)
+    |             2 possible values :
+    |                 . summary : Overall activity per PostgreSQL instance
+    |                 . details : Detailed activity per hour, per PostgreSQL instance
     | "output":  the output can be csv or json (default: json)
 
 - Response
@@ -964,8 +1045,9 @@ In order to use datasentinel APIs, you need to generate an access token.
 .. code:: bash
 
   {
-    "from": "2020-02-02T07:26:34Z",
-    "to": "2020-02-03T07:24:34Z",
+    "utc_time": true,
+    "from": "2020-01-29 06:00:00",
+    "to": "2020-01-29 07:00:00",
     "filters": [ 
       { "tag": "pg_instance", "value": "pg-crm-2429@:9342" }
       ],
@@ -976,7 +1058,9 @@ In order to use datasentinel APIs, you need to generate an access token.
 
 - Parameters:
 
-    | **Always use UTC dates**
+    | "utc_time" [Optional] Default: true
+    |  When false , the timezone taken into account will depend on the timezone of the platform  
+    |
     | "from": The start date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     | "end":  The end date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     |
@@ -1089,8 +1173,9 @@ In order to use datasentinel APIs, you need to generate an access token.
 .. code:: bash
 
   {
-    "from": "2020-02-02T07:26:34Z",
-    "to": "2020-02-03T07:24:34Z",
+    "utc_time": true,
+    "from": "2020-01-29 06:00:00",
+    "to": "2020-01-29 07:00:00",
     "filters": [ 
       { "tag": "pg_instance", "value": "pg-crm-2429@:9342" }
       ],
@@ -1101,7 +1186,9 @@ In order to use datasentinel APIs, you need to generate an access token.
 
 - Parameters:
 
-    | **Always use UTC dates**
+    | "utc_time" [Optional] Default: true
+    |  When false , the timezone taken into account will depend on the timezone of the platform  
+    |
     | "from": The start date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     | "end":  The end date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
     |

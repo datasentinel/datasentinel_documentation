@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Connection API &#8212; Datasentinel</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/datasentinel.css" />
+    <link rel="stylesheet" href="../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Frequently asked questions" href="../faq.html" />
+    <link rel="prev" title="API" href="APIs.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Features</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Connection API</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/features/connection-api.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+          <a  class="mdl-navigation__link" href="../index.html">
+                  <i class="material-icons navigation-link-icon">home</i>
+                  Home
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://app.datasentinel.io">
+                  <i class="material-icons navigation-link-icon">dashboard</i>
+                  Cloud app
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://www.datasentinel.io">
+                  <i class="material-icons navigation-link-icon">link</i>
+                  Web
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://github.com/datasentinel">
+                  <i class="material-icons navigation-link-icon">link</i>
+                  Github
+              </a>
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <img class="logo" src="../_static/datasentinel_logo_with_text.png" alt="Datasentinel"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/platform/installation.html">On-premises platform installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/agent/installation.html">Agent installation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agent/index.html">Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../agent/CLI.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../agent/API.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../agent/faq_agent.html">Agent FAQ</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sessions-workload.html">Sessions workload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-management.html">User management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="APIs.html">API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Connection API</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../token.html">Token</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release notes</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <img class="logo" src="../_static/datasentinel_logo_with_text.png" alt="Datasentinel"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/platform/installation.html">On-premises platform installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/agent/installation.html">Agent installation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agent/index.html">Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../agent/CLI.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../agent/API.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../agent/faq_agent.html">Agent FAQ</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sessions-workload.html">Sessions workload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-management.html">User management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="APIs.html">API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Connection API</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../token.html">Token</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release notes</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="connection-api">
+<span id="id1"></span><h1>Connection API<a class="headerlink" href="#connection-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="endpoints">
+<h2><strong>Endpoints</strong><a class="headerlink" href="#endpoints" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>API can be reached at <strong>https://&lt;&lt;datasentinel_platform_server&gt;&gt;</strong></p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<div class="line-block">
+<div class="line">Connection API is only available for an <strong>on-premises</strong> installation and if you want to use the <strong>agentless</strong> feature</div>
+<div class="line"><br /></div>
+<div class="line">If you prefer installing each agent locally, then adding a connection is done at the agent level with the agent <a class="reference internal" href="../agent/CLI.html#agent-cli"><span class="std std-ref">CLI</span></a> or with agent <a class="reference internal" href="../agent/API.html#agent-apis"><span class="std std-ref">API</span></a>.</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">A toolkit, wich provides examples of use, is available on <a class="reference external" href="https://github.com/datasentinel/datasentinel_toolkit">Github</a></div>
+<div class="line"><br /></div>
+<div class="line">The toolit is installed by default on the <strong>on-premises</strong> platform (datasentinel user home directory)</div>
+</div>
+</div>
+</div>
+<div class="section" id="user-token-generation">
+<h2><strong>User token generation</strong><a class="headerlink" href="#user-token-generation" title="Permalink to this headline">¶</a></h2>
+<p>In order to use connection API, you need to generate an access token.
+<strong>The access token is valid for 1 day</strong></p>
+<h6><span style="margin-left:30px;font-weight:bold; color: #45d6b5">POST</span>&nbsp;/ds-api/user-token/{organization}</h6><ul>
+<li><p>Path parameter:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">The organization you belong to, only necessary if you use the SAAS architecture</div>
+<div class="line"><strong>If you have an on-premises installation, do not set the parameter</strong></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Authentication</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">You need to be authenticated with your username and password</div>
+<div class="line">The user must have <strong>data admin</strong> profile with <strong>admin</strong> privilege</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Example</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -u myUser:myPassword -k -X POST https://<span class="s">&lt;&lt;datasentinel_platform_server&gt;&gt;/d</span>s-api/user-token/myOrganization
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Response</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;user-token&quot;</span>: <span class="s2">&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODAyMTYyMjQsImlhdCI6MTU4MDEyOTgxOSwiZGF0YWJhc2UiOiJNYWluIE9yZy4iLCJlbWFpbCI6InRlc3RAZGF0YXNlbnRpbmVsLmlvIiwidXNlciI6InRlc3QifQ.JMDvq2JPcqz9M0_it_0UtP9y79dClVwx9pDEzCl9HTk&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="display-user-token">
+<h2><strong>Display User token</strong><a class="headerlink" href="#display-user-token" title="Permalink to this headline">¶</a></h2>
+<h6><span style="margin-left:30px;font-weight:bold; color: #3f6ed8"">GET</span>&nbsp;/ds-api/user-token?token={user-token}</h6><ul>
+<li><p>Path parameter:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">The token</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Example</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
+<span class="s">curl -u myUser:myPassword -k -X GET https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/user</span>-token?token<span class="o">=</span><span class="nv">$TOKEN</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Response</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;email&quot;</span>: <span class="s2">&quot;contact@datasentinel.io&quot;</span>,
+    <span class="s2">&quot;expire_time&quot;</span>: <span class="s2">&quot;2020-04-28 13:58:53&quot;</span>,
+    <span class="s2">&quot;organization_name&quot;</span>: <span class="s2">&quot;ds-data&quot;</span>,
+    <span class="s2">&quot;user&quot;</span>: <span class="s2">&quot;datasentinel&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-a-connection">
+<h2><strong>Add a connection</strong><a class="headerlink" href="#add-a-connection" title="Permalink to this headline">¶</a></h2>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/pool/pg-instances/{{pg_name}}</span></h6><ul class="simple">
+<li><p>Example</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request POST &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/pool/pg-instances/crm-production&#39; -d @body.json</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Request example (body.json)</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;pg-crm-2031&quot;</span>,
+  <span class="s2">&quot;port&quot;</span>: <span class="m">9342</span>,
+  <span class="s2">&quot;user&quot;</span>: <span class="s2">&quot;datasentinel&quot;</span>,
+  <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;password&quot;</span>,
+  <span class="s2">&quot;tags&quot;</span>: <span class="s2">&quot;datacenter=paris,provider=aws,environment=production&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul>
+<li><p>Parameters:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">pg_name: Unique connection identifier name</div>
+<div class="line"><br /></div>
+<div class="line">host : PostgreSQL host name</div>
+<div class="line">port: PostgreSQL port number</div>
+<div class="line"><br /></div>
+<div class="line">user: PostgreSQL user</div>
+<div class="line">password: PostgreSQL user password</div>
+<div class="line"><br /></div>
+<div class="line">tags: list of key,value pairs (completely customisable)</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Response</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;Connection created and connected!&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="display-connection">
+<h2><strong>Display connection</strong><a class="headerlink" href="#display-connection" title="Permalink to this headline">¶</a></h2>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: #3f6ed8">GET</span><span style="color:#3f6ed8">&nbsp;/ds-api/pool/pg-instances/{{pg_name}}</span></h6><ul class="simple">
+<li><p>Example</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request GET &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/pool/pg-instances/crm-production&#39;</span>
+</pre></div>
+</div>
+<ul>
+<li><p>Parameters:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">pg_name: Unique connection identifier name</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Response</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+      <span class="s2">&quot;connected&quot;</span>: true,
+      <span class="s2">&quot;enabled&quot;</span>: true,
+      <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;pg-crm-2031&quot;</span>,
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;crm-production&quot;</span>,
+      <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;password&quot;</span>,
+      <span class="s2">&quot;port&quot;</span>: <span class="m">9342</span>,
+      <span class="s2">&quot;tags&quot;</span>: <span class="s2">&quot;datacenter=paris,provider=aws,environment=production&quot;</span>,
+      <span class="s2">&quot;user&quot;</span>: <span class="s2">&quot;datasentinel&quot;</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-connection">
+<h2><strong>Update connection</strong><a class="headerlink" href="#update-connection" title="Permalink to this headline">¶</a></h2>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: #ff8c69">PUT</span><span style="color:#ff8c69">&nbsp;/ds-api/pool/pg-instances/{{pg_name}}</span></h6><ul class="simple">
+<li><p>Example</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request PUT &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/pool/pg-instances/crm-production&#39;  -d @body.json</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Request example (body.json)</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;pg-crm-2031&quot;</span>,
+  <span class="s2">&quot;port&quot;</span>: <span class="m">9342</span>,
+  <span class="s2">&quot;user&quot;</span>: <span class="s2">&quot;datasentinel&quot;</span>,
+  <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;password&quot;</span>,
+  <span class="s2">&quot;tags&quot;</span>: <span class="s2">&quot;datacenter=paris,provider=aws,environment=production&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul>
+<li><p>Parameters:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">pg_name: Unique connection identifier name</div>
+<div class="line"><br /></div>
+<div class="line">host : PostgreSQL host name</div>
+<div class="line">port: PostgreSQL port number</div>
+<div class="line"><br /></div>
+<div class="line">user: PostgreSQL user</div>
+<div class="line">password: PostgreSQL user password</div>
+<div class="line"><br /></div>
+<div class="line">tags: list of key,value pairs (completely customisable)</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Response</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;Connection updated!&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="disable-connection">
+<h2><strong>Disable connection</strong><a class="headerlink" href="#disable-connection" title="Permalink to this headline">¶</a></h2>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: gray">PATCH</span><span style="color:gray">&nbsp;/ds-api/pool/pg-instances/{{pg_name}}/disable</span></h6><ul class="simple">
+<li><p>Example</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request PATCH &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/pool/pg-instances/crm-production/disable&#39;</span>
+</pre></div>
+</div>
+<ul>
+<li><p>Parameters:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">pg_name: Unique connection identifier name</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Response</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;Connection disabled!&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enable-connection">
+<h2><strong>Enable connection</strong><a class="headerlink" href="#enable-connection" title="Permalink to this headline">¶</a></h2>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: gray">PATCH</span><span style="color:gray">&nbsp;/ds-api/pool/pg-instances/{{pg_name}}/enable</span></h6><ul class="simple">
+<li><p>Example</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request PATCH &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/pool/pg-instances/crm-production/enable&#39;</span>
+</pre></div>
+</div>
+<ul>
+<li><p>Parameters:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">pg_name: Unique connection identifier name</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Response</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;Connection enabled!&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-connection">
+<h2><strong>Delete connection</strong><a class="headerlink" href="#delete-connection" title="Permalink to this headline">¶</a></h2>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: gray">DELETE</span><span style="color:gray">&nbsp;/ds-api/pool/pg-instances/{{pg_name}}</span></h6><ul class="simple">
+<li><p>Example</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request DELETE &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/pool/pg-instances/crm-production&#39;</span>
+</pre></div>
+</div>
+<ul>
+<li><p>Parameters:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">pg_name: Unique connection identifier name</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Response</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;Connection deleted!&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Connection API</a><ul>
+<li><a class="reference internal" href="#endpoints"><strong>Endpoints</strong></a></li>
+<li><a class="reference internal" href="#user-token-generation"><strong>User token generation</strong></a></li>
+<li><a class="reference internal" href="#display-user-token"><strong>Display User token</strong></a></li>
+<li><a class="reference internal" href="#add-a-connection"><strong>Add a connection</strong></a></li>
+<li><a class="reference internal" href="#display-connection"><strong>Display connection</strong></a></li>
+<li><a class="reference internal" href="#update-connection"><strong>Update connection</strong></a></li>
+<li><a class="reference internal" href="#disable-connection"><strong>Disable connection</strong></a></li>
+<li><a class="reference internal" href="#enable-connection"><strong>Enable connection</strong></a></li>
+<li><a class="reference internal" href="#delete-connection"><strong>Delete connection</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="APIs.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>API</div>
+         </div>
+     </a>
+     <a id="button-next" href="../faq.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Frequently asked questions</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">Datasentinel</div>
+      <div>
+        
+        
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2019-2020, Datasentinel.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.1 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>
