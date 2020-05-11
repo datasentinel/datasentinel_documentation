@@ -17,7 +17,7 @@ API
 .. note::
    | A toolkit, wich provides examples of use, is available on `Github <https://github.com/datasentinel/datasentinel_toolkit>`_
    | 
-   | The toolit is installed by default on the **on-premises** platform (datasentinel user home directory)
+   | The toolkit is installed by default on the **on-premises** platform (/datasentinel/soft/datasentinel_toolkit)
 
 
 **User token generation**
