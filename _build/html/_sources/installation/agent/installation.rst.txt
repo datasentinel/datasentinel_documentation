@@ -203,8 +203,8 @@ Agent installation
          - delete proxy
          - show proxy
 
-9. APIs
-*******
+9. API
+******
 
 - All operations are available through direct APIs calls.
    

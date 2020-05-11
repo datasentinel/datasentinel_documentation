@@ -9,4 +9,5 @@ Datasentinel is composed of 1 repository (SaaS mode or on-premises) and agents w
    :caption: Contents:
 
    platform/installation
+   platform/agentbasedOrAgentless
    agent/installation

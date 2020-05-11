@@ -2,6 +2,32 @@
 Release notes
 ******************
 
+**May 11, 2020 (v1.6.0)**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. raw:: html
+
+   <h3>Features</h3>
+
+1. | New **Agentless** version allowing you to monitor all kinds of PostgreSQL instances
+   | - AWS RDS, Aurora 
+   | - Microsoft Azure database, hyperscale, 
+   | - Google Cloud SQL and other cloud providers. 
+   | 
+   | It can also be used in your own environment. (See which method to use :ref:`agentless`
+   | 
+   | Connections can be created either with the :ref:`connection_management`
+   | or with the :ref:`connection_api`
+
+.. _connection_management:
+
+User interface connection management
+************************************
+
+.. image:: images/agentless.gif
+   :alt: connection management
+   :width: 100%
+   :align: center
+
 **March 30, 2020 (v1.5.0)**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. raw:: html

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>On-premises platform installation &#8212; Datasentinel</title>
+    <title>Agent-based or Agentless? &#8212; Datasentinel</title>
 
     <link rel="stylesheet" href="../../_static/material-icons.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -25,8 +25,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Agent-based or Agentless?" href="agentbasedOrAgentless.html" />
-    <link rel="prev" title="Installation" href="../index.html" /> 
+    <link rel="next" title="Agent installation" href="../agent/installation.html" />
+    <link rel="prev" title="On-premises platform installation" href="installation.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
@@ -34,7 +34,7 @@
         
         <nav class="mdl-navigation breadcrumb">
             <a class="mdl-navigation__link" href="../index.html">Installation</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link is-active">On-premises platform installation</a>
+            <a class="mdl-navigation__link is-active">Agent-based or Agentless?</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -57,7 +57,7 @@
         
 <a id="button-show-source"
     class="mdl-button mdl-js-button mdl-button--icon"
-    href="../../_sources/installation/platform/installation.rst.txt" rel="nofollow">
+    href="../../_sources/installation/platform/agentbasedOrAgentless.rst.txt" rel="nofollow">
 <i class="material-icons">code</i>
 </a>
 <div class="mdl-tooltip" data-mdl-for="button-show-source">
@@ -107,8 +107,8 @@ Show Source
             <nav class="mdl-navigation">
                 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Installation</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">On-premises platform installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html">On-premises platform installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Agent-based or Agentless?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../agent/installation.html">Agent installation</a></li>
 </ul>
 </li>
@@ -164,8 +164,8 @@ Show Source
             <nav class="mdl-navigation">
                 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Installation</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">On-premises platform installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html">On-premises platform installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Agent-based or Agentless?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../agent/installation.html">Agent installation</a></li>
 </ul>
 </li>
@@ -206,207 +206,59 @@ Show Source
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="on-premises-platform-installation">
-<h1>On-premises platform installation<a class="headerlink" href="#on-premises-platform-installation" title="Permalink to this headline">¶</a></h1>
-<h3>Prerequisites</h3><p>You need to have a linux machine <strong>Red Hat or centos 7</strong>:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>&gt;= 8 CPUS</p></li>
-<li><p>&gt;= 16 GB RAM</p></li>
-<li><p>&gt;= 50 GB STORAGE</p></li>
-<li><p>Nginx web server preinstalled</p></li>
-</ul>
-</div></blockquote>
+  <div class="section" id="agent-based-or-agentless">
+<span id="agentless"></span><h1>Agent-based or Agentless?<a class="headerlink" href="#agent-based-or-agentless" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">The platform is composed of several components packaged in a single file <strong>install-datasentinel-platform.tar.gz</strong> (size 550 MB)</div>
-<div class="line">All the components are packaged under the user <strong>datasentinel</strong></div>
-<div class="line">Installation less than 5 minutes</div>
+<div class="line">If you use SAAS Datasentinel, you need to install agents locally on your servers (See <a class="reference internal" href="../agent/installation.html#agent-installation"><span class="std std-ref">Agent installation</span></a>)</div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../../_images/architecture.png"><img alt="../../_images/architecture.png" class="align-center" src="../../_images/architecture.png" style="width: 952.0px; height: 432.0px;" /></a>
-<div class="section" id="uncompress">
-<h2>1. Uncompress<a class="headerlink" href="#uncompress" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvzf <span class="o">{{</span> downloaded file name <span class="o">}}</span>.tar.gz
-</pre></div>
-</div>
-<p>2 files are created</p>
-<ul class="simple">
-<li><p>init_datasentinel.sh</p></li>
-<li><p>datasentinel-platform.tar.gz</p></li>
-</ul>
-</div>
-<div class="section" id="install">
-<h2>2. Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<h3>For an on-premises installation, you can use either the agent-based or the agentless feature </h3><div class="admonition note">
+<p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">Run the shell script</div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./init_datasentinel.sh
-</pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The script must be run as root</p>
-</div>
-<h3>The script does several actions</h3><ul class="simple">
-<li><p>Creation of a user and group <strong>datasentinel</strong></p></li>
-<li><p>Creation of a directory <strong>/datasentinel</strong></p></li>
-<li><p><strong>datasentinel-platform.tar.gz</strong> decompression to install all components</p></li>
-<li><p><strong>bash_profile</strong> and <strong>crontab</strong> entries creation</p></li>
-<li><p>Services deployment for automatic restart</p></li>
-<li><p>Start all components</p></li>
-</ul>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<div class="line-block">
-<div class="line">nginx uses a self-signed certificate located in <strong>/etc/nginx/certs</strong> directory</div>
-<div class="line">You can change it with your own certificate.</div>
+<div class="line">You can have a hybrid architecture that uses both methods</div>
 </div>
 </div>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<div class="line-block">
-<div class="line">The port 443 must be opened and accessible.</div>
-<div class="line">Also, be careful with your firewall configuration (selinux, firewalld) if any</div>
-</div>
-</div>
+<h3>The table below compares the differences between the 2 methods</h3><a class="reference internal image-reference" href="../../_images/comparison.png"><img alt="../../_images/comparison.png" class="align-center" src="../../_images/comparison.png" style="width: 677.25px; height: 711.0px;" /></a>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">At the end of the script, the datasentinel repository should be UP and RUNNING.</div>
-<div class="line"><br /></div>
-<div class="line">You should be able to connect to the user interface.</div>
-<div class="line">Open a brower and type <strong>https://&lt;&lt;your-hostname&gt;&gt;</strong></div>
-<div class="line">The login is <strong>datasentinel</strong></div>
-<div class="line">The password is given by datasentinel team</div>
+<div class="line">The agent-based feature needs agents to be installed locally on each server (See <a class="reference internal" href="../agent/installation.html#agent-installation"><span class="std std-ref">Agent installation</span></a>).</div>
+<div class="line">Agents send data (PUSH method) and use https to communicate with the platform</div>
 </div>
 </div>
-</div>
-<div class="section" id="components">
-<h2>3. Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
-<p>Datasentinel uses the following components:</p>
-<ul class="simple">
-<li><p>Nginx web server (Preinstalled)</p></li>
-<li><p>Datasentinel backend APIs</p></li>
-<li><p>Timeseries database influxdb</p></li>
-<li><p>Grafana Frontend (with a postgreSQL database)</p></li>
-<li><p>Datasentinel Frontend application</p></li>
-</ul>
+<a class="reference internal image-reference" href="../../_images/agent-based-archi.png"><img alt="../../_images/agent-based-archi.png" class="align-center" src="../../_images/agent-based-archi.png" style="width: 885.0px; height: 498.0px;" /></a>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">Each component is restarted automatically with a system service</div>
-<div class="line">located on <strong>/usr/lib/systemd/system</strong></div>
+<div class="line">In the agentless architecture, the platform collects data (PULL method)</div>
 </div>
 </div>
-</div>
-<div class="section" id="components-management">
-<h2>4. Components management<a class="headerlink" href="#components-management" title="Permalink to this headline">¶</a></h2>
-<p>Start</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl start datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend nginx
-</pre></div>
-</div>
-<p>Stop</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl stop datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend nginx
-</pre></div>
-</div>
-<p>Status details</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl status datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend nginx
-</pre></div>
-</div>
-<h3>An alias is present when connected as datasentinel to check all components availibility</h3><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>status_datasentinel
-</pre></div>
-</div>
-<p>Output</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>datasentinel_backend.service                                       loaded active running   Datasentinel backend APIs
-datasentinel_dispatcher.service                                    loaded active running   Datasentinel dispatcher
-datasentinel_influxdb.service                                      loaded active running   InfluxDB service
-datasentinel_grafana.service                                       loaded active running   Grafana daemon
-datasentinel_postgresql.service                                    loaded active running   PostgreSQL <span class="m">10</span> database server
-nginx.service                                                      loaded active running   The nginx HTTP and reverse proxy server
-</pre></div>
-</div>
-</div>
-<div class="section" id="useful-log-files">
-<h2>4. Useful log files<a class="headerlink" href="#useful-log-files" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<div class="line-block">
-<div class="line">Log files are located in the directory <strong>/datasentinel/log</strong> except the nginx log file</div>
-</div>
-</div>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 28%" />
-<col style="width: 72%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Log file</p></th>
-<th class="head"><p>Information</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>/var/log/https_datasentinel.log</p></td>
-<td><p>Nginx log access</p></td>
-</tr>
-<tr class="row-odd"><td><p>backend_apis.log</p></td>
-<td><p>API calls</p></td>
-</tr>
-<tr class="row-even"><td><p>backend_to_influx.log</p></td>
-<td><p>Log data copied to influxdb database</p></td>
-</tr>
-<tr class="row-odd"><td><p>dispatcher.log</p></td>
-<td><p>Agentless feature log file</p></td>
-</tr>
-<tr class="row-even"><td><p>compute.log</p></td>
-<td><p>Internal metrics compute done by datasentinel</p></td>
-</tr>
-<tr class="row-odd"><td><p>grafana.log</p></td>
-<td><p>Grafana log access</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<a class="reference internal image-reference" href="../../_images/agentless-archi.png"><img alt="../../_images/agentless-archi.png" class="align-center" src="../../_images/agentless-archi.png" style="width: 885.0px; height: 498.0px;" /></a>
 </div>
 
 
         </div>
         <div class="side-doc-outline">
             <div class="side-doc-outline--content"> 
-<div class="localtoc">
-    <p class="caption">
-      <span class="caption-text">Table Of Contents</span>
-    </p>
-    <ul>
-<li><a class="reference internal" href="#">On-premises platform installation</a><ul>
-<li><a class="reference internal" href="#uncompress">1. Uncompress</a></li>
-<li><a class="reference internal" href="#install">2. Install</a></li>
-<li><a class="reference internal" href="#components">3. Components</a></li>
-<li><a class="reference internal" href="#components-management">4. Components management</a></li>
-<li><a class="reference internal" href="#useful-log-files">4. Useful log files</a></li>
-</ul>
-</li>
-</ul>
-
-</div>
             </div>
         </div>
 
       <div class="clearer"></div>
     </div><div class="pagenation">
-     <a id="button-prev" href="../index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+     <a id="button-prev" href="installation.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
          <i class="pagenation-arrow-L material-icons">arrow_back</i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>Installation</div>
+            <div>On-premises platform installation</div>
          </div>
      </a>
-     <a id="button-next" href="agentbasedOrAgentless.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="../agent/installation.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
         <i class="pagenation-arrow-R material-icons">arrow_forward</i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Agent-based or Agentless?</div>
+            <div>Agent installation</div>
         </div>
      </a>
   </div>

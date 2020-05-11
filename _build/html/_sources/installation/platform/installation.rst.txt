@@ -20,7 +20,7 @@ You need to have a linux machine **Red Hat or centos 7**:
    | Installation less than 5 minutes
 
 .. image:: architecture.png
-   :scale: 80 %
+   :scale: 100 %
    :align: center
 
 1. Uncompress
@@ -126,10 +126,11 @@ Output
 .. code-block:: bash
 
    datasentinel_backend.service                                       loaded active running   Datasentinel backend APIs
+   datasentinel_dispatcher.service                                    loaded active running   Datasentinel dispatcher
    datasentinel_influxdb.service                                      loaded active running   InfluxDB service
    datasentinel_grafana.service                                       loaded active running   Grafana daemon
-   nginx.service                                                      loaded active running   The nginx HTTP and reverse proxy server
    datasentinel_postgresql.service                                    loaded active running   PostgreSQL 10 database server
+   nginx.service                                                      loaded active running   The nginx HTTP and reverse proxy server
 
 4. Useful log files
 ********************
@@ -146,6 +147,8 @@ Output
 | backend_apis.log                      | API calls                                                                                        |
 +---------------------------------------+--------------------------------------------------------------------------------------------------+
 | backend_to_influx.log                 | Log data copied to influxdb database                                                             |
++---------------------------------------+--------------------------------------------------------------------------------------------------+
+| dispatcher.log                        | Agentless feature log file                                                                       |
 +---------------------------------------+--------------------------------------------------------------------------------------------------+
 | compute.log                           | Internal metrics compute done by datasentinel                                                    |
 +---------------------------------------+--------------------------------------------------------------------------------------------------+
