@@ -298,7 +298,6 @@ datasentinel <span class="nb">set</span> token &lt;&lt;token_value&gt;&gt;
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create user datasentinel password <span class="s1">&#39;myPassword&#39;</span><span class="p">;</span>
 alter user datasentinel with superuser<span class="p">;</span>
-grant <span class="k">select</span> on pg_authid to datasentinel<span class="p">;</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -306,7 +305,6 @@ grant <span class="k">select</span> on pg_authid to datasentinel<span class="p">
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create user datasentinel password <span class="s1">&#39;myPassword&#39;</span><span class="p">;</span>
 grant pg_monitor,pg_read_all_settings,pg_read_all_stats to datasentinel<span class="p">;</span>
-grant <span class="k">select</span> on pg_authid to datasentinel<span class="p">;</span>
 </pre></div>
 </div>
 </div>

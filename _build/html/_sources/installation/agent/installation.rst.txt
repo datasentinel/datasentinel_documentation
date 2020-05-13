@@ -81,7 +81,6 @@ Agent installation
 
    create user datasentinel password 'myPassword';
    alter user datasentinel with superuser;
-   grant select on pg_authid to datasentinel;
 
 - Version 10, 11
 
@@ -89,7 +88,6 @@ Agent installation
 
    create user datasentinel password 'myPassword';
    grant pg_monitor,pg_read_all_settings,pg_read_all_stats to datasentinel;
-   grant select on pg_authid to datasentinel;
 
 
 6. pg_hba.conf
