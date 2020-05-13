@@ -4,8 +4,8 @@
 Agent-based or Agentless?
 *************************
 
-.. note::
-   | If you use SAAS Datasentinel, you need to install agents locally on your servers (See :ref:`agent-installation`)
+.. warning::
+   | If you use our SAAS platform, you need to install agents locally on your servers (See :ref:`agent-installation`)
 
 .. raw:: html
 

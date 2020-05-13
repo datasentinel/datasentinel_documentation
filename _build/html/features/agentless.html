@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>Install the extension &#8212; Datasentinel</title>
+    <title>Agentless &#8212; Datasentinel</title>
 
     <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -24,14 +24,17 @@
     <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Connection API" href="connection-api.html" />
+    <link rel="prev" title="API" href="APIs.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
-            <a class="mdl-navigation__link is-active">Install the extension</a>
+            <a class="mdl-navigation__link" href="index.html">Features</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Agentless</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -54,7 +57,7 @@
         
 <a id="button-show-source"
     class="mdl-button mdl-js-button mdl-button--icon"
-    href="../_sources/features/installation.rst.txt" rel="nofollow">
+    href="../_sources/features/agentless.rst.txt" rel="nofollow">
 <i class="material-icons">code</i>
 </a>
 <div class="mdl-tooltip" data-mdl-for="button-show-source">
@@ -118,13 +121,13 @@ Show Source
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Features</a><ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sessions-workload.html">Sessions workload</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user-management.html">User management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="APIs.html">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="agentless.html">Agentless</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Agentless</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection API</a></li>
 </ul>
 </li>
@@ -176,13 +179,13 @@ Show Source
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Features</a><ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sessions-workload.html">Sessions workload</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user-management.html">User management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="APIs.html">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="agentless.html">Agentless</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Agentless</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection API</a></li>
 </ul>
 </li>
@@ -205,185 +208,33 @@ Show Source
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="install-the-extension">
-<span id="extension"></span><h1>Install the extension<a class="headerlink" href="#install-the-extension" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="agentless">
+<span id="agentless-feature"></span><h1>Agentless<a class="headerlink" href="#agentless" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <div class="line-block">
-<div class="line">Datasentinel needs a special extension to be installed in order to enable sessions sampling every second.</div>
+<div class="line">The Agentless feature is not available if you use our SAAS platform</div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The examples are done with a standard postgresql installation on a server running <strong>centos 7</strong> operating system</p>
-</div>
-<div class="section" id="install-the-libraries">
-<h2>1. Install the libraries<a class="headerlink" href="#install-the-libraries" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Version &lt; 9.6  (Example done with 9.4)</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install -y https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-3.noarch.rpm
-yum install -y postgresql94-devel postgresql94-contrib
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 9.6</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install -y https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
-yum install -y postgresql96-devel postgresql96-contrib
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 10</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install -y https://yum.postgresql.org/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
-yum install -y postgresql10-devel postgresql10-contrib
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 11</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install -y https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
-yum install -y centos-release-scl
-yum install -y postgresql11-devel postgresql11-llvmjit llvm-toolset-7
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 12</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install -y https://download.postgresql.org/pub/repos/yum/12/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
-yum install -y centos-release-scl
-yum install -y postgresql12-devel postgresql12-llvmjit llvm-toolset-7
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>All (to compile the extension)</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install -y gcc
-</pre></div>
-</div>
-</div>
-<div class="section" id="download-source-files">
-<h2>2. Download source files<a class="headerlink" href="#download-source-files" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Download the source files from the user interface (Agents submenu)</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can also copy directly copy the file <strong>datasentinel-extension.tar.gz</strong> from the directory <strong>/datasentinel/download</strong></p>
-</div>
-</div>
-<div class="section" id="compile-and-deploy">
-<h2>3. Compile and deploy<a class="headerlink" href="#compile-and-deploy" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Version &lt; 9.6 (example done with 9.4)</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/pgsql-9.4/bin:<span class="nv">$PATH</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 9.6</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/pgsql-9.6/bin:<span class="nv">$PATH</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 10</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/pgsql-10/bin:<span class="nv">$PATH</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 11</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/pgsql-11/bin:<span class="nv">$PATH</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 12</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/pgsql-12/bin:<span class="nv">$PATH</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>All</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> datasentinel_extension/src
-make
-make install
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Once the extension is compiled in one server, you can manually copy the files below on others servers</p>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># example done with a standard postgresql 10 installed version</span>
-/usr/bin/mkdir -p /usr/pgsql-10/lib
-/usr/bin/mkdir -p /usr/pgsql-10/share/extension
-/usr/bin/mkdir -p /usr/pgsql-10/share/extension
-cp datasentinel.so /usr/pgsql-10/lib/
-chmod <span class="m">755</span> /usr/pgsql-10/lib/datasentinel.so
-cp datasentinel.control /usr/pgsql-10/share/extension/
-chmod <span class="m">644</span> /usr/pgsql-10/share/extension/datasentinel.control
-cp datasentinel--1.0.sql /usr/pgsql-10/share/extension/
-chmod <span class="m">644</span> /usr/pgsql-10/share/extension/datasentinel--1.0.sql
-</pre></div>
-</div>
-</div>
-<div class="section" id="modify-postgresql-conf">
-<h2>4. Modify postgresql.conf<a class="headerlink" href="#modify-postgresql-conf" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Add the following lines</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">shared_preload_libraries</span> <span class="o">=</span> <span class="s1">&#39;pg_stat_statements,datasentinel&#39;</span>
-<span class="nv">track_activity_query_size</span> <span class="o">=</span> <span class="m">2048</span>
-pg_stat_statements.track <span class="o">=</span> all
-</pre></div>
-</div>
-</div>
-<div class="section" id="restart-postgresql">
-<h2>5. Restart postgresql<a class="headerlink" href="#restart-postgresql" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Version 9.6</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl restart postgresql
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 10</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl restart postgresql-10
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 11</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl restart postgresql-11
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 12</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl restart postgresql-12
-</pre></div>
-</div>
-</div>
-<div class="section" id="create-the-extensions">
-<h2>6. Create the extensions<a class="headerlink" href="#create-the-extensions" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>connect as a superuser</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CREATE EXTENSION pg_stat_statements<span class="p">;</span>
-CREATE EXTENSION datasentinel<span class="p">;</span>
-</pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">To verify that the extension is correctly installed, you can execute the following sql</div>
-<div class="line"><br /></div>
-<div class="line-block">
-<div class="line"><em>select query, pid, datasentinel_queryid(pid) from pg_stat_activity</em></div>
+<div class="line">For an on-premises installation, you can use either the agent-based or agentless feature. (See <a class="reference internal" href="../installation/platform/agentbasedOrAgentless.html#agentless"><span class="std std-ref">Agent-based or Agentless?</span></a>)</div>
+<div class="line">You can have a hybrid architecture that uses both methods</div>
 </div>
 </div>
-</div>
+<p>The agentless feature lets you monitor PostgreSQL managed systems of cloud providers (private or public)</p>
+<ul class="simple">
+<li><p>AWS RDS, Aurora</p></li>
+<li><p>Microsoft Azure database, hyperscale</p></li>
+<li><p>Google Cloud SQL</p></li>
+<li><p>Other public cloud providers</p></li>
+</ul>
+<p>Connections can be created either with the <a class="reference internal" href="#connection-management-agentless"><span class="std std-ref">User interface connection management</span></a>
+or with the <a class="reference internal" href="connection-api.html#connection-api"><span class="std std-ref">Connection API</span></a></p>
+<div class="section" id="user-interface-connection-management">
+<span id="connection-management-agentless"></span><h2>User interface connection management<a class="headerlink" href="#user-interface-connection-management" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/agentless.gif"><img alt="connection management" class="align-center" src="../_images/agentless.gif" style="width: 100%;" /></a>
 </div>
 </div>
 
@@ -396,13 +247,8 @@ CREATE EXTENSION datasentinel<span class="p">;</span>
       <span class="caption-text">Table Of Contents</span>
     </p>
     <ul>
-<li><a class="reference internal" href="#">Install the extension</a><ul>
-<li><a class="reference internal" href="#install-the-libraries">1. Install the libraries</a></li>
-<li><a class="reference internal" href="#download-source-files">2. Download source files</a></li>
-<li><a class="reference internal" href="#compile-and-deploy">3. Compile and deploy</a></li>
-<li><a class="reference internal" href="#modify-postgresql-conf">4. Modify postgresql.conf</a></li>
-<li><a class="reference internal" href="#restart-postgresql">5. Restart postgresql</a></li>
-<li><a class="reference internal" href="#create-the-extensions">6. Create the extensions</a></li>
+<li><a class="reference internal" href="#">Agentless</a><ul>
+<li><a class="reference internal" href="#user-interface-connection-management">User interface connection management</a></li>
 </ul>
 </li>
 </ul>
@@ -413,6 +259,20 @@ CREATE EXTENSION datasentinel<span class="p">;</span>
 
       <div class="clearer"></div>
     </div><div class="pagenation">
+     <a id="button-prev" href="APIs.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>API</div>
+         </div>
+     </a>
+     <a id="button-next" href="connection-api.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Connection API</div>
+        </div>
+     </a>
   </div>
         <footer class="mdl-mini-footer">
     <div class="mdl-mini-footer__left-section">

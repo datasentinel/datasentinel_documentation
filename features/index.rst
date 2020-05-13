@@ -9,6 +9,7 @@ Features
    user-management
    execution-plans
    APIs
+   agentless
 
 
 
