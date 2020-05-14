@@ -294,20 +294,37 @@ Show Source
 </li>
 </ol>
 </div>
-<div class="section" id="what-is-the-needed-storage-disk-space-on-the-platform">
-<h2>5. What is the needed storage disk space on the platform?<a class="headerlink" href="#what-is-the-needed-storage-disk-space-on-the-platform" title="Permalink to this headline">¶</a></h2>
-<p>The value will depend on several factors:</p>
-<blockquote>
-<div><ul class="simple">
+<div class="section" id="what-is-the-platform-sizing-recommendation">
+<span id="sizing-platform"></span><h2>5. What is the platform sizing recommendation?<a class="headerlink" href="#what-is-the-platform-sizing-recommendation" title="Permalink to this headline">¶</a></h2>
+<p>Sizing the Platform</p>
+<p><strong>1. CPU and MEMORY</strong></p>
+<ul class="simple">
+<li><p>The needed values depend on the number of users. The most consuming resources are SELECT queries executed on the platform</p></li>
+</ul>
+<p><strong>2. STORAGE</strong></p>
+<p>The needed storage will depend on several factors</p>
+<ul class="simple">
 <li><p>The number of PostgreSQL instances to monitor</p></li>
-<li><p>The Data retention period</p></li>
+<li><p>The data retention period (default 14 days)</p></li>
 <li><p>The number of tags associated to each instance.</p></li>
 <li><p>The number of distinct queries (pg_stat_statements)</p></li>
 </ul>
-</div></blockquote>
-<p>An average value has been observed of <strong>200 MB per day per instance</strong></p>
-<p>For example: You have 50 PostgreSQL instances, use the default retention period (14 days) and have 5 tags associated to each instance</p>
-<p>The needed space to store data is <strong>50 * 200 * 14 = 137 GB</strong></p>
+<p>An average value has been observed of 150 MB per day per instance</p>
+<p><strong>For example</strong></p>
+<ul class="simple">
+<li><p>You have 50 PostgreSQL instances</p></li>
+<li><p>The default data retention is used : 14 days</p></li>
+<li><p>You have 5 custom tags per instance</p></li>
+</ul>
+<p>With this configuration, the needed space to store data is 50 * 150 * 14 = 100 GB</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">We strongly recommend a machine with scale capabilities like virtual machines for example</div>
+</div>
+</div>
+<p>The values displayed below are default values for standard workloads and default data retention</p>
+<a class="reference internal image-reference" href="_images/sizing.png"><img alt="_images/sizing.png" class="align-center" src="_images/sizing.png" style="width: 893.0px; height: 391.0px;" /></a>
 </div>
 </div>
 
@@ -325,7 +342,7 @@ Show Source
 <li><a class="reference internal" href="#what-should-i-configure-on-firewalls-if-i-use-the-on-premises-architecture">2. What should I configure on firewalls if I use the On-premises architecture?</a></li>
 <li><a class="reference internal" href="#how-can-i-change-the-default-self-signed-certificate">3. How can i change the default self-signed certificate?</a></li>
 <li><a class="reference internal" href="#how-do-i-change-the-access-token">4. How do i change the access token?</a></li>
-<li><a class="reference internal" href="#what-is-the-needed-storage-disk-space-on-the-platform">5. What is the needed storage disk space on the platform?</a></li>
+<li><a class="reference internal" href="#what-is-the-platform-sizing-recommendation">5. What is the platform sizing recommendation?</a></li>
 </ul>
 </li>
 </ul>

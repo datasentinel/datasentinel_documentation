@@ -60,19 +60,42 @@ Frequently asked questions
 
     **See documentation about** :ref:`token`
 
+.. _sizing_platform:
 
-5. What is the needed storage disk space on the platform?
-**********************************************************
+5. What is the platform sizing recommendation?
+**********************************************
 
-The value will depend on several factors:
+Sizing the Platform
 
-    - The number of PostgreSQL instances to monitor
-    - The Data retention period
-    - The number of tags associated to each instance.
-    - The number of distinct queries (pg_stat_statements)
+**1. CPU and MEMORY**
 
-An average value has been observed of **200 MB per day per instance**
+- The needed values depend on the number of users. The most consuming resources are SELECT queries executed on the platform
 
-For example: You have 50 PostgreSQL instances, use the default retention period (14 days) and have 5 tags associated to each instance
+**2. STORAGE**
 
-The needed space to store data is **50 * 200 * 14 = 137 GB**
+The needed storage will depend on several factors
+
+- The number of PostgreSQL instances to monitor
+- The data retention period (default 14 days)
+- The number of tags associated to each instance.
+- The number of distinct queries (pg_stat_statements)
+
+An average value has been observed of 150 MB per day per instance
+
+**For example**
+
+- You have 50 PostgreSQL instances
+- The default data retention is used : 14 days
+- You have 5 custom tags per instance
+
+With this configuration, the needed space to store data is 50 * 150 * 14 = 100 GB
+
+.. note::
+
+    | We strongly recommend a machine with scale capabilities like virtual machines for example
+
+The values displayed below are default values for standard workloads and default data retention
+
+.. image:: images/sizing.png
+   :scale: 100 %
+   :align: center

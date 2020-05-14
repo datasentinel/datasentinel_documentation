@@ -7,11 +7,11 @@ On-premises platform installation
    <h3>Prerequisites</h3>
 
 You need to have a linux machine **Red Hat or centos 7**:
-
-    - >= 8 CPUS 
+    - Nginx web server preinstalled
+    - >= 4 CPUS 
     - >= 16 GB RAM
     - >= 50 GB STORAGE
-    - Nginx web server preinstalled
+    - See :ref:`sizing recommendations in our FAQ<sizing_platform>`
 
 
 .. note::
