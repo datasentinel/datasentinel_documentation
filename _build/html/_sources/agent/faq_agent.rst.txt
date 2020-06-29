@@ -90,8 +90,6 @@ You can change the interval to 10 seconds by changing the collection_rate attrib
 | NO, The agent doesn't store any data
 
 
-
- 
 8. How the agent behaves in case of unavailability of the platform?
 ********************************************************************
 
@@ -110,3 +108,20 @@ You can change the interval to 10 seconds by changing the collection_rate attrib
 .. note::
 
     | Once the instance becomes available again, the agent automatically reconnects to the instance and continues its monitoring
+
+
+10. Can I turn off the collection of table and index statistics?
+****************************************************************************
+
+.. warning::
+
+    | The collection of tables and indexes statistics is done every hour.
+    | By default, if the number of tables on your PostgreSQL instance is greater than 1000, this feature is disabled due to a little overhead
+
+You can change this value by adjusting the parameter **table-monitoring-limit** in the agent configuration file. 
+
+.. note::
+
+    | The agent configuration file is $HOME/.datasentinel/agent.yml
+    | The **table-monitoring-limit** is under the **agent** section
+

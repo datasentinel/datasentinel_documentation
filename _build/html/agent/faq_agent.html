@@ -340,6 +340,24 @@ Show Source
 </div>
 </div>
 </div>
+<div class="section" id="can-i-turn-off-the-collection-of-table-and-index-statistics">
+<h2>10. Can I turn off the collection of table and index statistics?<a class="headerlink" href="#can-i-turn-off-the-collection-of-table-and-index-statistics" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<div class="line-block">
+<div class="line">The collection of tables and indexes statistics is done every hour.</div>
+<div class="line">By default, if the number of tables on your PostgreSQL instance is greater than 1000, this feature is disabled due to a little overhead</div>
+</div>
+</div>
+<p>You can change this value by adjusting the parameter <strong>table-monitoring-limit</strong> in the agent configuration file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">The agent configuration file is $HOME/.datasentinel/agent.yml</div>
+<div class="line">The <strong>table-monitoring-limit</strong> is under the <strong>agent</strong> section</div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -361,6 +379,7 @@ Show Source
 <li><a class="reference internal" href="#does-the-agent-store-data-in-each-postgresql-instance">7. Does the agent store data in each PostgreSQL instance?</a></li>
 <li><a class="reference internal" href="#how-the-agent-behaves-in-case-of-unavailability-of-the-platform">8. How the agent behaves in case of unavailability of the platform?</a></li>
 <li><a class="reference internal" href="#how-the-agent-behaves-in-case-of-unavailability-of-a-postgresql-instance">9. How the agent behaves in case of unavailability of a PostgreSQL instance?</a></li>
+<li><a class="reference internal" href="#can-i-turn-off-the-collection-of-table-and-index-statistics">10. Can I turn off the collection of table and index statistics?</a></li>
 </ul>
 </li>
 </ul>
