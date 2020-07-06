@@ -24,8 +24,7 @@ Agent-based or Agentless?
    :align: center
 
 .. warning::
-   | An internal extension is required in order to use the **Sessions workload** high sampling (every second). 
-   | See how to install this extension :ref:`extension`
+   | If you want to use the **Sessions workload** high sampling rate (every second), you need to install an internal extension (See :ref:`extension`)
 
 .. note::
    | The agent-based feature needs agents to be installed locally on each server (See :ref:`agent-installation`). 
