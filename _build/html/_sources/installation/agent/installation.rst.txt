@@ -128,6 +128,9 @@ Agent installation
 8. Useful CLI commands
 **********************
 
+.. note::
+   See how to use the :ref:`agent-cli`
+
 - Show the agent status
 
 .. code-block:: bash
@@ -204,7 +207,8 @@ Agent installation
 9. API
 ******
 
-- All operations are available through direct APIs calls.
+.. note:: 
+   All operations are available through :ref:`agent-apis`.
    
 .. note:: 
    The agent listens on port 8282 by default (updatable)
