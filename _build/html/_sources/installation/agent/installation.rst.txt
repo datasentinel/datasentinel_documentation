@@ -109,11 +109,11 @@ Agent installation
 
    cat > myInstance.json <<EOF
    {
-     "host": "<<host_name>>",
-     "port": <<postgres_port>>,
+     "host": "host_name",
+     "port": postgres_port,
      "user": "datasentinel",
      "password": "myPassword",
-     "tags": "application=<<application_name>>,environment=<<application_type>>,datacenter=<<datacenter>>"
+     "tags": "application=application_name,environment=application_type,datacenter=datacenter"
    }
    EOF
 

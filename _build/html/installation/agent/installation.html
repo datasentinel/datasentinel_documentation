@@ -329,11 +329,11 @@ host    all             datasentinel    <span class="m">127</span>.0.0.1/0      
 <h2>7. Postgresql instance<a class="headerlink" href="#postgresql-instance" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat &gt; myInstance.json <span class="s">&lt;&lt;EOF</span>
 <span class="s">{</span>
-<span class="s">  &quot;host&quot;: &quot;&lt;&lt;host_name&gt;&gt;&quot;,</span>
-<span class="s">  &quot;port&quot;: &lt;&lt;postgres_port&gt;&gt;,</span>
+<span class="s">  &quot;host&quot;: &quot;host_name&quot;,</span>
+<span class="s">  &quot;port&quot;: postgres_port,</span>
 <span class="s">  &quot;user&quot;: &quot;datasentinel&quot;,</span>
 <span class="s">  &quot;password&quot;: &quot;myPassword&quot;,</span>
-<span class="s">  &quot;tags&quot;: &quot;application=&lt;&lt;application_name&gt;&gt;,environment=&lt;&lt;application_type&gt;&gt;,datacenter=&lt;&lt;datacenter&gt;&gt;&quot;</span>
+<span class="s">  &quot;tags&quot;: &quot;application=application_name,environment=application_type,datacenter=datacenter&quot;</span>
 <span class="s">}</span>
 <span class="s">EOF</span>
 </pre></div>
