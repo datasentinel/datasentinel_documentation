@@ -1497,6 +1497,96 @@ Show Source
 </pre></div>
 </div>
 </div>
+<div class="section" id="top-consumers">
+<h2><strong>Top consumers</strong><a class="headerlink" href="#top-consumers" title="Permalink to this headline">¶</a></h2>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/activity/top-consumers</span></h6><ul class="simple">
+<li><p>Example</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request POST &#39;https://app.datasentinel.io/ds-api/activity/top-consumers&#39; -d @body.json</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Request example (body.json)</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;utc_time&quot;</span>: true,
+  <span class="s2">&quot;from&quot;</span>: <span class="s2">&quot;2020-01-29 06:00:00&quot;</span>,
+  <span class="s2">&quot;to&quot;</span>: <span class="s2">&quot;2020-01-29 07:00:00&quot;</span>,
+  <span class="s2">&quot;filters&quot;</span>: <span class="o">[</span>
+    <span class="o">{</span> <span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;pg_instance&quot;</span>, <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;pg-crm-2429@:9342&quot;</span> <span class="o">}</span>
+    <span class="o">]</span>,
+  <span class="s2">&quot;limit&quot;</span>: <span class="m">10</span>,
+  <span class="s2">&quot;group_by&quot;</span>: <span class="s2">&quot;datacenter&quot;</span>,
+  <span class="s2">&quot;by&quot;</span>: <span class="s2">&quot;db_time&quot;</span>,
+  <span class="s2">&quot;output&quot;</span>: <span class="s2">&quot;json&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul>
+<li><p>Parameters:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">“utc_time” [Optional] Default: true</div>
+<div class="line-block">
+<div class="line">When false , the timezone taken into account will depend on the timezone of the platform</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">“from”: The start date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS</div>
+<div class="line">“end”:  The end date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS</div>
+<div class="line"><br /></div>
+<div class="line">“filters” is an optional array of tags (“tag” : Tag name, “value”: Tag value)</div>
+<div class="line"><br /></div>
+<div class="line">The 3 following parameters allow to define the group, the sorting column as well as the number of rows returned</div>
+<div class="line"><br /></div>
+<div class="line">“group_by”: tag group. (default pg_instance)</div>
+<div class="line-block">
+<div class="line">Can be one of defined tags.</div>
+<div class="line"><br /></div>
+</div>
+<div class="line">“by”: sorting column. (default db_time)</div>
+<div class="line">Can be one of thoses values:</div>
+<div class="line">- db_time : Total time (ms) spent executing sqls,</div>
+<div class="line">- memory : Total of memory (bytes) allocated (shared_buffers),</div>
+<div class="line">- data_size : Total data size (bytes),</div>
+<div class="line">- wal_size : Total size of WAL generated (bytes),</div>
+<div class="line">- cache_blocks_hit : Total number of blocks hit from cache</div>
+<div class="line">- disk_blocks_read : Total number of blocks read outside the PostgreSQL cache</div>
+<div class="line"><br /></div>
+<div class="line">“limit”: The number of rows returned (default 20)</div>
+<div class="line"><br /></div>
+<div class="line">“output”:  the output can be json or csv (default json)</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Response</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;paris&quot;</span>,
+    <span class="s2">&quot;instances&quot;</span>: <span class="m">3</span>,
+    <span class="s2">&quot;db_time&quot;</span>: <span class="m">239673553</span>,
+    <span class="s2">&quot;wal_size&quot;</span>: <span class="m">52053547328</span>,
+    <span class="s2">&quot;memory_size&quot;</span>: <span class="m">49152</span>,
+    <span class="s2">&quot;data_size&quot;</span>: <span class="m">942975786</span>,
+    <span class="s2">&quot;cache_blocks_hit&quot;</span>: <span class="m">39601119635</span>,
+    <span class="s2">&quot;disk_blocks_read&quot;</span>: <span class="m">3897687</span>
+  <span class="o">}</span>,
+  <span class="o">{</span>
+    <span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;lille&quot;</span>,
+    <span class="s2">&quot;instances&quot;</span>: <span class="m">3</span>,
+    <span class="s2">&quot;db_time&quot;</span>: <span class="m">193989446</span>,
+    <span class="s2">&quot;wal_size&quot;</span>: <span class="m">85274148792</span>,
+    <span class="s2">&quot;memory_size&quot;</span>: <span class="m">49152</span>,
+    <span class="s2">&quot;data_size&quot;</span>: <span class="m">931415688</span>,
+    <span class="s2">&quot;cache_blocks_hit&quot;</span>: <span class="m">16088607267</span>,
+    <span class="s2">&quot;disk_blocks_read&quot;</span>: <span class="m">5931946</span>
+  <span class="o">}</span>,
+  .../...
+<span class="o">]</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -1524,6 +1614,7 @@ Show Source
 <li><a class="reference internal" href="#data-size"><strong>Data size</strong></a></li>
 <li><a class="reference internal" href="#tables-activity"><strong>Tables activity</strong></a></li>
 <li><a class="reference internal" href="#indexes-activity"><strong>Indexes activity</strong></a></li>
+<li><a class="reference internal" href="#top-consumers"><strong>Top consumers</strong></a></li>
 </ul>
 </li>
 </ul>
