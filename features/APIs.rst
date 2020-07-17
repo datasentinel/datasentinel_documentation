@@ -1241,3 +1241,90 @@ In order to use datasentinel API, you need to generate an access token.
     },
     .../...
     ]
+
+**Top consumers**
+*****************
+
+.. raw:: html
+
+   <h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/activity/top-consumers</span></h6>
+
+- Example 
+
+.. code:: bash
+
+  export TOKEN=<<user_token>>
+  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request POST 'https://app.datasentinel.io/ds-api/activity/top-consumers' -d @body.json
+
+- Request example (body.json)
+
+.. code:: bash
+
+  {
+    "utc_time": true,
+    "from": "2020-01-29 06:00:00",
+    "to": "2020-01-29 07:00:00",
+    "filters": [ 
+      { "tag": "pg_instance", "value": "pg-crm-2429@:9342" }
+      ],
+    "limit": 10,
+    "group_by": "datacenter",
+    "by": "db_time",
+    "output": "json"
+  }
+
+- Parameters:
+
+    | "utc_time" [Optional] Default: true
+    |  When false , the timezone taken into account will depend on the timezone of the platform  
+    |
+    | "from": The start date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
+    | "end":  The end date. The format can be YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS
+    |
+    | "filters" is an optional array of tags ("tag" : Tag name, "value": Tag value) 
+    |
+    | The 3 following parameters allow to define the group, the sorting column as well as the number of rows returned
+    |
+    | "group_by": tag group. (default pg_instance)
+    |  Can be one of defined tags.
+    |
+    | "by": sorting column. (default db_time)
+    | Can be one of thoses values:
+    | - db_time : Total time (ms) spent executing sqls, 
+    | - memory : Total of memory (bytes) allocated (shared_buffers), 
+    | - data_size : Total data size (bytes), 
+    | - wal_size : Total size of WAL generated (bytes),
+    | - cache_blocks_hit : Total number of blocks hit from cache
+    | - disk_blocks_read : Total number of blocks read outside the PostgreSQL cache
+    | 
+    | "limit": The number of rows returned (default 20)
+    |
+    | "output":  the output can be json or csv (default json)
+
+- Response
+
+.. code:: bash
+
+  [
+    {
+      "tag": "paris",
+      "instances": 3,
+      "db_time": 239673553,
+      "wal_size": 52053547328,
+      "memory_size": 49152,
+      "data_size": 942975786,
+      "cache_blocks_hit": 39601119635,
+      "disk_blocks_read": 3897687
+    },
+    {
+      "tag": "lille",
+      "instances": 3,
+      "db_time": 193989446,
+      "wal_size": 85274148792,
+      "memory_size": 49152,
+      "data_size": 931415688,
+      "cache_blocks_hit": 16088607267,
+      "disk_blocks_read": 5931946
+    },
+    .../...
+  ]
