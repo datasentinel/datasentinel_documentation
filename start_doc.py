@@ -10,8 +10,6 @@ app = Flask(__name__, static_url_path=dir_path)
 
 @app.route('/<path:path>')
 def send_files(path):
-
-    if path == 
     return send_from_directory('_build/html', path)
 
 
