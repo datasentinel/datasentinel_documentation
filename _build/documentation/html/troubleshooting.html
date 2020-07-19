@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Troubleshooting &#8212; Datasentinel</title>
+
+    <link rel="stylesheet" href="_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/datasentinel.css" />
+    <link rel="stylesheet" href="_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="_static/material-design-lite-1.3.0/material.indigo-pink.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Token" href="token.html" />
+    <link rel="prev" title="Frequently asked questions" href="faq.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link is-active">Troubleshooting</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="_sources/troubleshooting.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+          <a  class="mdl-navigation__link" href="index.html">
+                  <i class="material-icons navigation-link-icon">home</i>
+                  Home
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://app.datasentinel.io">
+                  <i class="material-icons navigation-link-icon">dashboard</i>
+                  Cloud app
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://www.datasentinel.io">
+                  <i class="material-icons navigation-link-icon">link</i>
+                  Web
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://github.com/datasentinel">
+                  <i class="material-icons navigation-link-icon">link</i>
+                  Github
+              </a>
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="index.html">
+              <img class="logo" src="_static/datasentinel_logo_with_text.png" alt="Datasentinel"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation/platform/installation.html">On-premises platform installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/platform/agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/agent/installation.html">Agent installation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="agent/index.html">Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agent/CLI.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agent/API.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agent/faq_agent.html">Agent FAQ</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features/index.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="features/sessions-workload.html">Sessions workload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features/user-management.html">User management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features/execution-plans.html">Execution plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features/APIs.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features/agentless.html">Agentless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features/connection-api.html">Connection API</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently asked questions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="token.html">Token</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release notes</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="index.html">
+              <img class="logo" src="_static/datasentinel_logo_with_text.png" alt="Datasentinel"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation/platform/installation.html">On-premises platform installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/platform/agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/agent/installation.html">Agent installation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="agent/index.html">Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="agent/CLI.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agent/API.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agent/faq_agent.html">Agent FAQ</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="features/index.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="features/sessions-workload.html">Sessions workload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features/user-management.html">User management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features/execution-plans.html">Execution plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features/APIs.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features/agentless.html">Agentless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features/connection-api.html">Connection API</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently asked questions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="token.html">Token</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release notes</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<p>You have installed the agent , configured a postgresql instance and you don’t see the instance in the user interface.
+Follow these steps to identify the root cause.</p>
+<h1>1. On the local machine where the agent is installed</h1><div class="section" id="check-the-agent-status-and-the-uploaded-server">
+<h2>Check the agent status and the uploaded server<a class="headerlink" href="#check-the-agent-status-and-the-uploaded-server" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>datasentinel status agent
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>      Agent
+         Version : 1.9.3
+            Port : 8282
+      Start time : 2020-02-07 13:08:08
+ Collection rate : high
+
+      Proxy
+            host :
+            port : 0
+            user :
+        password :
+
+     Upload
+            host : 51.15.236.159
+            port : 443
+
+Connections
+        declared : 1
+         running : 1
+     not running : 0
+</pre></div>
+</div>
+</div>
+<div class="section" id="check-the-token-is-not-expired">
+<h2>Check the token is not expired<a class="headerlink" href="#check-the-token-is-not-expired" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>datasentinel show token
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>          Token : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODM2OTUyNzcsImlhdCI6MTU3NjM1MTI3MiwiZGF0YWJhc2UiOiJkcy1kYXRhIn0.UQRxutKrJv7WVAaHCN3Fh_wnXJLst54s93lADIP_n-Y
+
+   Organization : ds-data
+Expiration Date : 2020-03-08 19:21:17
+</pre></div>
+</div>
+</div>
+<div class="section" id="check-the-connections">
+<h2>Check the connections<a class="headerlink" href="#check-the-connections" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>datasentinel show connections
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>name                 status     state      host                 port   user
+--------------------------------------------------------------------------------
+:9342                enabled    running    pg-sales-1734          9342 datasentinel
+tags : application=sales,environment=production,provider=amazon,datacenter=lyon
+</pre></div>
+</div>
+</div>
+<div class="section" id="check-the-agent-log-file">
+<h2>Check the agent log file<a class="headerlink" href="#check-the-agent-log-file" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">The agent writes all its actions in the file <strong>datasentinel.log</strong> located in the subdirectory <strong>log</strong></div>
+</div>
+<p>You should not see any ERROR</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2019-12-15 15:54:13,021 - datasentinel - INFO - Agent metrics sent to https://51.158.110.62:443
+2019-12-15 15:54:13,041 - datasentinel - INFO - pg_store_plans size : 20
+2019-12-15 15:54:13,042 - datasentinel - INFO - Interval stats cache size : 173
+2019-12-15 15:54:13,110 - datasentinel - INFO - PG Server metrics sent to https://51.158.110.62:443
+2019-12-15 15:54:19,742 - datasentinel - INFO - Active sessions metrics sent to https://51.158.110.62:443
+2019-12-15 15:54:19,810 - datasentinel - INFO - PG status metrics sent to https://51.158.110.62:443
+2019-12-15 15:54:29,823 - datasentinel - INFO - Active sessions metrics sent to https://51.158.110.62:443
+2019-12-15 15:54:29,893 - datasentinel - INFO - PG status metrics sent to https://51.158.110.62:443
+2019-12-15 15:54:39,879 - datasentinel - INFO - Active sessions metrics sent to https://51.158.110.62:443
+2019-12-15 15:54:39,965 - datasentinel - INFO - PG status metrics sent to https://51.158.110.62:443
+2019-12-15 15:54:49,980 - datasentinel - INFO - Active sessions metrics sent to https://51.158.110.62:443
+2019-12-15 15:54:50,073 - datasentinel - INFO - PG status metrics sent to https://51.158.110.62:443
+2019-12-15 15:55:00,075 - datasentinel - INFO - Active sessions metrics sent to https://51.158.110.62:443
+2019-12-15 15:55:00,201 - datasentinel - INFO - PG status metrics sent to https://51.158.110.62:443
+2019-12-15 15:55:09,209 - datasentinel - INFO - Active sessions metrics sent to https://51.158.110.62:443
+2019-12-15 15:55:09,285 - datasentinel - INFO - PG status metrics sent to https://51.158.110.62:443
+</pre></div>
+</div>
+<h1>2. On the machine where the platform is installed</h1></div>
+<div class="section" id="check-the-log-files">
+<h2>Check the log files<a class="headerlink" href="#check-the-log-files" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">All log files are located in the directory <strong>/datasentinel/log</strong></div>
+<div class="line">The file <strong>backend_to_influx.log</strong> shows the metrics sent by agents to the InfluxDB database.</div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2019-12-15 14:48:15 - backend_to_influx - INFO - Write 39451 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.015501
+2019-12-15 14:48:24 - backend_to_influx - INFO - Write 39340 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.869292
+2019-12-15 14:48:24 - backend_to_influx - INFO - Write 253 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.008472
+2019-12-15 14:48:33 - backend_to_influx - INFO - Write 37104 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.027474
+2019-12-15 14:48:33 - backend_to_influx - INFO - Write 253 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.008452
+2019-12-15 14:48:43 - backend_to_influx - INFO - Write 43914 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.020828
+2019-12-15 14:48:43 - backend_to_influx - INFO - Write 253 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.009041
+2019-12-15 14:48:53 - backend_to_influx - INFO - Write 38204 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.017448
+2019-12-15 14:48:53 - backend_to_influx - INFO - Write 253 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.007804
+2019-12-15 14:49:03 - backend_to_influx - INFO - Write 33644 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.029447
+2019-12-15 14:49:03 - backend_to_influx - INFO - Write 253 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.016561
+2019-12-15 14:49:13 - backend_to_influx - INFO - Write 38292 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.024353
+2019-12-15 14:49:13 - backend_to_influx - INFO - Write 253 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.009062
+2019-12-15 14:49:15 - backend_to_influx - INFO - Write 1432 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.014299
+2019-12-15 14:49:15 - backend_to_influx - INFO - Write 39443 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.013594
+</pre></div>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#check-the-agent-status-and-the-uploaded-server">Check the agent status and the uploaded server</a></li>
+<li><a class="reference internal" href="#check-the-token-is-not-expired">Check the token is not expired</a></li>
+<li><a class="reference internal" href="#check-the-connections">Check the connections</a></li>
+<li><a class="reference internal" href="#check-the-agent-log-file">Check the agent log file</a></li>
+<li><a class="reference internal" href="#check-the-log-files">Check the log files</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="faq.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Frequently asked questions</div>
+         </div>
+     </a>
+     <a id="button-next" href="token.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>Token</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">Datasentinel</div>
+      <div>
+        
+        
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2019-2020, Datasentinel.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.1 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>
