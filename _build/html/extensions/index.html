@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>Agent &#8212; Datasentinel</title>
+    <title>Extensions &#8212; Datasentinel</title>
 
     <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -25,15 +25,15 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="CLI" href="CLI.html" />
-    <link rel="prev" title="Execution plans" href="../features/execution-plans.html" /> 
+    <link rel="next" title="pg_stat_statements" href="pg-stat-statements.html" />
+    <link rel="prev" title="Agent installation" href="../installation/agent/installation.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
-            <a class="mdl-navigation__link is-active">Agent</a>
+            <a class="mdl-navigation__link is-active">Extensions</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -56,7 +56,7 @@
         
 <a id="button-show-source"
     class="mdl-button mdl-js-button mdl-button--icon"
-    href="../_sources/agent/index.rst.txt" rel="nofollow">
+    href="../_sources/extensions/index.rst.txt" rel="nofollow">
 <i class="material-icons">code</i>
 </a>
 <div class="mdl-tooltip" data-mdl-for="button-show-source">
@@ -112,19 +112,19 @@ Show Source
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../extensions/index.html">Extensions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../extensions/pg-stat-statements.html">pg_stat_statements</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pg-stat-statements.html">pg_stat_statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features/installation.html">datasentinel extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features/execution-plans.html">Execution plans</a></li>
 </ul>
 </li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Agent</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="CLI.html">CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="API.html">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq_agent.html">Agent FAQ</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agent/index.html">Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../agent/CLI.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../agent/API.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../agent/faq_agent.html">Agent FAQ</a></li>
 </ul>
 </li>
 </ul>
@@ -178,19 +178,19 @@ Show Source
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../extensions/index.html">Extensions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../extensions/pg-stat-statements.html">pg_stat_statements</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pg-stat-statements.html">pg_stat_statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features/installation.html">datasentinel extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features/execution-plans.html">Execution plans</a></li>
 </ul>
 </li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Agent</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="CLI.html">CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="API.html">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq_agent.html">Agent FAQ</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agent/index.html">Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../agent/CLI.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../agent/API.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../agent/faq_agent.html">Agent FAQ</a></li>
 </ul>
 </li>
 </ul>
@@ -223,15 +223,21 @@ Show Source
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="agent">
-<span id="id1"></span><h1>Agent<a class="headerlink" href="#agent" title="Permalink to this headline">¶</a></h1>
-<p><strong>How to</strong> <a class="reference internal" href="../installation/agent/installation.html#agent-installation"><span class="std std-ref">Agent installation</span></a>.</p>
+  <div class="section" id="extensions">
+<h1>Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">Datasentinel needs the pg_stat_statements extension.</div>
+<div class="line">The 2 others, datasentinel and pg_store_plans, are optional.</div>
+</div>
+</div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
+<p class="caption"><span class="caption-text">Used Extensions:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="CLI.html">CLI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="API.html">API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faq_agent.html">Agent FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pg-stat-statements.html">pg_stat_statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/installation.html">datasentinel extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/execution-plans.html">Execution plans</a></li>
 </ul>
 </div>
 </div>
@@ -245,18 +251,18 @@ Show Source
 
       <div class="clearer"></div>
     </div><div class="pagenation">
-     <a id="button-prev" href="../features/execution-plans.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+     <a id="button-prev" href="../installation/agent/installation.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
          <i class="pagenation-arrow-L material-icons">arrow_back</i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>Execution plans</div>
+            <div>Agent installation</div>
          </div>
      </a>
-     <a id="button-next" href="CLI.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="pg-stat-statements.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
         <i class="pagenation-arrow-R material-icons">arrow_forward</i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>CLI</div>
+            <div>pg_stat_statements</div>
         </div>
      </a>
   </div>

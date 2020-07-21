@@ -29,6 +29,11 @@ Documentation
 .. toctree::
    :hidden:
 
+   extensions/index
+
+.. toctree::
+   :hidden:
+
    agent/index
 
 .. toctree::

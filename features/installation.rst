@@ -1,11 +1,18 @@
 .. _extension:
 
-*********************
-Install the extension
-*********************
+**********************
+datasentinel extension
+**********************
 
-| Datasentinel needs a special extension to be installed in order to enable sessions sampling every second. 
+.. note::
+   | The extension is **OPTIONAL**, only required if you plan to use the sessions sampling feature every second.
+   | 
+   | The role of this extension is to get the queryid (**pg_stat_statements**) from active sessions (**pg_stat_activity**)
 
+
+.. raw:: html
+
+   <h3>Installation</h3>
 
 .. note::
    The examples are done with a standard postgresql installation on a server running **centos 7** operating system
@@ -172,7 +179,7 @@ Install the extension
    
 .. note::
 
-   | To verify that the extension is correctly installed, you can execute the following sql
+   | To check the extension is correctly installed, you can execute the following sql
    |    
    |    *select query, pid, datasentinel_queryid(pid) from pg_stat_activity*
    

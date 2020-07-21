@@ -14,7 +14,7 @@ Execution plans
 **PG_STORE_PLANS** store execution plans like **PG_STAT_STATEMENTS** does for queries.
 
 .. note::
-   | This extension is optional
+   | This extension is **OPTIONAL**
    | Datasentinel automatically takes it into account if it is installed
 
 
@@ -81,6 +81,9 @@ The extension can be downloaded here https://github.com/datasentinel/pg_store_pl
 *************************
 
 - Add the following lines
+
+.. note::
+   | Add **pg_store_plans** to **shared_preload_libraries** parameter
 
 .. code-block:: bash
 
