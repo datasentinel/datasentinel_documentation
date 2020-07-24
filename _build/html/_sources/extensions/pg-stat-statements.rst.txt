@@ -7,6 +7,9 @@ pg_stat_statements
    | 
    | Datasentinel needs this extension
 
+.. warning::
+   | To be installed in the **postgres** database.
+
 **Installation**
 ****************
 

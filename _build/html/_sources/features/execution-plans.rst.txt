@@ -17,7 +17,9 @@ Execution plans
    | This extension is **OPTIONAL**
    | Datasentinel automatically takes it into account if it is installed
 
-
+.. warning::
+   | To be installed in the **postgres** database.
+   
 When it is installed, you have acces to 
  - Historical statistics of each plan for a query id     
  - Execution plans

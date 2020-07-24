@@ -9,7 +9,9 @@ datasentinel extension
    | 
    | The role of this extension is to get the queryid (**pg_stat_statements**) from active sessions (**pg_stat_activity**)
 
-
+.. warning::
+   | To be installed in the **postgres** database.
+   
 .. raw:: html
 
    <h3>Installation</h3>

@@ -5,6 +5,8 @@ Extensions
    | Datasentinel needs the pg_stat_statements extension.
    | The 2 others, datasentinel and pg_store_plans, are optional.
 
+.. warning::
+   | Extensions need to be installed in the **postgres** database.
 
 .. toctree::
    :maxdepth: 1
