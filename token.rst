@@ -15,11 +15,18 @@ Update the platform
 
 | The update is done in the user interface
 
-- Open tools menu, then click on **settings**
+- Open tools menu
+
+    .. image:: images/tools_icon.png
+       :alt: Change token
+       :align: left
+
+- Click on **Global settings**
 
     .. image:: images/tools_menu.png
+       :align: left
 
-Then copy/paste the new token
+- Then copy/paste the new valid token
 
     .. image:: images/change_token.gif
        :alt: Change token
