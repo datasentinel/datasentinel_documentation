@@ -21,6 +21,7 @@ Documentation
    :align: center
    :figclass: align-center
 
+
 .. toctree::
    :hidden:
 
@@ -47,8 +48,12 @@ Documentation
    faq
    troubleshooting
    token
+   support
 
 .. toctree::
    :hidden:
 
    release-notes
+
+
+:ref:`support`
