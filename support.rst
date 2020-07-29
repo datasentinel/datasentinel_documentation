@@ -32,6 +32,8 @@ You can generate a compressed file containing all the log files directly from th
 
 4. A file **datasentinel_trace_files.tar.gz** is generated
 
+5. Support team sends you a link to upload the file to Google drive.
+
 Agent log files
 ***************
 
