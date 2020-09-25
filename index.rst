@@ -45,6 +45,11 @@ Documentation
 .. toctree::
    :hidden:
 
+   marketplaces/index
+
+.. toctree::
+   :hidden:
+
    faq
    troubleshooting
    token

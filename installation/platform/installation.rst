@@ -30,10 +30,16 @@ You need to have a linux machine **Red Hat or centos 7**:
 
    tar xvzf {{ downloaded file name }}.tar.gz
 
-2 files are created
+3 files are created
 
 - init_datasentinel.sh
 - datasentinel-platform.tar.gz
+- nginx-1.18.0-1.el7.ngx.x86_64.rpm
+
+
+.. note::
+   | If not installed, you can install nginx with the included rpm file -> **yum localinstall nginx-1.18.0-1.el7.ngx.x86_64.rpm**
+
 
 2. Install
 **********
@@ -48,25 +54,34 @@ You need to have a linux machine **Red Hat or centos 7**:
 .. warning:: 
    The script must be run as root
 
+.. warning::
+   | The binaries of the application as well as the database storing the metrics will be installed in the **/datasentinel** directory
+   | You can pre-create **/datasentinel**. It can be a symbolic link or a file-system or a directory
+   | Otherwise, the **/datasentinel** directory will be created during installation
+   | This directory should be empty.
 
 .. raw:: html
 
    <h3>The script does several actions</h3>
 
-
-- Creation of a user and group **datasentinel**
-- Creation of a directory **/datasentinel**
+- Application user name input request (**datasentinel** by default, the user can be pre-created with **bash** as the default shell)
+- Application listening port entry request (**443** by default)
+- Creation if not exists of the directory **/datasentinel**
 - **datasentinel-platform.tar.gz** decompression to install all components
 - **bash_profile** and **crontab** entries creation
 - Services deployment for automatic restart
-- Start all components
+- Start of all components
+
+.. note:: 
+   | If you want to install datasentinel silently, use **./init_datasentinel.sh -d**
+   | Default values will be used
 
 .. caution::
    | nginx uses a self-signed certificate located in **/etc/nginx/certs** directory
    | You can change it with your own certificate.
 
 .. caution::
-   | The port 443 must be opened and accessible.
+   | The listening port must be opened and accessible.
    | Also, be careful with your firewall configuration (selinux, firewalld) if any
 
 .. note:: 
@@ -82,8 +97,9 @@ You need to have a linux machine **Red Hat or centos 7**:
 
 Datasentinel uses the following components:
 
-- Nginx web server (Preinstalled)
+- Nginx web server
 - Datasentinel backend APIs
+- Datasentinel dispatcher (Agentless feature)
 - Timeseries database influxdb
 - Grafana Frontend (with a postgreSQL database)
 - Datasentinel Frontend application
@@ -99,19 +115,19 @@ Start
 
 .. code-block:: bash
 
-    systemctl start datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend nginx
+    systemctl start datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend datasentinel_dispatcher nginx
 
 Stop
 
 .. code-block:: bash
 
-    systemctl stop datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend nginx
+    systemctl stop datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend datasentinel_dispatcher nginx
 
 Status details
 
 .. code-block:: bash
 
-    systemctl status datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend nginx
+    systemctl -l | egrep -i "datasentinel_|nginx"
 
 .. raw:: html
 
