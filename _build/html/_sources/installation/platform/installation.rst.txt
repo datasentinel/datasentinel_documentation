@@ -1,3 +1,5 @@
+.. _on_prem_installation:
+
 **********************************
 On-premises platform installation
 **********************************

@@ -7,4 +7,6 @@ Cloud marketplaces
    :maxdepth: 1
    :caption: Contents:
 
-   aws
+   aws-howto
+   aws-faq
+
