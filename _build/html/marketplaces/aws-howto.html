@@ -331,6 +331,99 @@ Show Source
 </tbody>
 </table>
 </div>
+<div class="section" id="how-to-subscribe-to-datasentinel">
+<h2>3. How to subscribe to Datasentinel?<a class="headerlink" href="#how-to-subscribe-to-datasentinel" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Log in to the <a class="reference external" href="https://aws.amazon.com/marketplace">AWS Marketplace</a></p></li>
+<li><p>Enter <strong>Datasentinel</strong> in the search field</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/aws_search.png"><img alt="../_images/aws_search.png" class="align-center" src="../_images/aws_search.png" style="width: 1165.0px; height: 51.0px;" /></a>
+<ul class="simple">
+<li><p>Product information is displayed. Then click on the button</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/aws_subscribe.png"><img alt="../_images/aws_subscribe.png" class="align-center" src="../_images/aws_subscribe.png" style="width: 221.0px; height: 29.0px;" /></a>
+<ul class="simple">
+<li><p>Subscription information is displayed. Then click on the button</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/aws_configure.png"><img alt="../_images/aws_configure.png" class="align-center" src="../_images/aws_configure.png" style="width: 244.0px; height: 44.0px;" /></a>
+<ul class="simple">
+<li><p>Choose your desired region from the drop down list.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">We recommend choosing the region where your PostgreSQL instances are located</div>
+</div>
+</div>
+<p>Then click on the button</p>
+<a class="reference internal image-reference" href="../_images/aws_launch.png"><img alt="../_images/aws_launch.png" class="align-center" src="../_images/aws_launch.png" style="width: 198.0px; height: 43.0px;" /></a>
+<ul class="simple">
+<li><p>Select an instance type that is at least a <strong>t2.large</strong>. Datasentinel is available on EC2 instances of type <strong>t2</strong> and <strong>m5</strong></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">See how to size your EC2 instance on our <a class="reference external" href="https://www.datasentinel.io/documentation/faq.html">FAQ</a></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Select a role with the required permission or create it (see the <strong>EC2 requirements</strong> section for more information)</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/aws_iam_role.png"><img alt="../_images/aws_iam_role.png" class="align-center" src="../_images/aws_iam_role.png" style="width: 837.0px; height: 163.0px;" /></a>
+<ul class="simple">
+<li><p>Keep metadata accessible, both v1 and v2</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/aws_metadata.png"><img alt="../_images/aws_metadata.png" class="align-center" src="../_images/aws_metadata.png" style="width: 837.0px; height: 273.0px;" /></a>
+<ul class="simple">
+<li><p>Set the storage size. (Default 20GB)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">See how to size your EC2 instance on our <a class="reference external" href="https://www.datasentinel.io/documentation/faq.html">FAQ</a></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Add security rules</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/aws_security.png"><img alt="../_images/aws_security.png" class="align-center" src="../_images/aws_security.png" style="width: 837.0px; height: 158.0px;" /></a>
+<ul class="simple">
+<li><p>Then Launch the instance. It will take a few minutes to complete.</p></li>
+</ul>
+</div>
+<div class="section" id="how-to-connect-to-datasentinel">
+<h2>4.. How to connect to Datasentinel?<a class="headerlink" href="#how-to-connect-to-datasentinel" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>How to access your EC2 instance</p></li>
+</ul>
+<p>You can connect to the Linux AMI using SSH and the user <strong>ec2-user</strong>. Authentication is based on a public key</p>
+<ul class="simple">
+<li><p>To connect to <strong>Datasentinel</strong> application</p></li>
+</ul>
+<p>Open a web browser and enter the host name (Public DNS) or IP address of your new <strong>Datasentinel</strong> instance as the URL.</p>
+<p>To log in, enter <strong>datasentinel</strong></p>
+<p>The default password is <strong>datasentinel</strong>  (Change it once connected)</p>
+</div>
+<div class="section" id="how-to-add-your-postgresql-instances">
+<h2>5.. How to add your PostgreSQL instances?<a class="headerlink" href="#how-to-add-your-postgresql-instances" title="Permalink to this headline">¶</a></h2>
+<p>Once the installation is complete, all that remains is to configure the instances to monitor.</p>
+<p>You will have the choice between the <a class="reference external" href="https://www.datasentinel.io/documentation/installation/platform/agentbasedOrAgentless.html">Agent-based or Agentless mode</a></p>
+<ul class="simple">
+<li><p><strong>Agent-based mode</strong></p></li>
+</ul>
+<p>Install an agent locally on each server and configure it to communicate with the platform.
+<a class="reference external" href="https://www.datasentinel.io/documentation/installation/agent/installation.html">See Documentation</a></p>
+<p>Ideal if you manage your own postgresql instances.</p>
+<ul class="simple">
+<li><p><strong>Agentless mode</strong></p></li>
+</ul>
+<p>Configure connections directly through the user graphical interface</p>
+<p>Ideal if you use AWS managed instances (rds, aurora)</p>
+<p>You can automate the addition of connections thanks to the <a class="reference external" href="https://www.datasentinel.io/documentation/features/connection-api.html">API</a> (Agentless mode)</p>
+<ul class="simple">
+<li><p><strong>Enjoy</strong></p></li>
+</ul>
+</div>
 </div>
 
 
@@ -345,6 +438,9 @@ Show Source
 <li><a class="reference internal" href="#">Launch Datasentinel on AWS with MarketPlace metering service</a><ul>
 <li><a class="reference internal" href="#aws-marketplace-metering-service">1. AWS Marketplace Metering Service</a></li>
 <li><a class="reference internal" href="#ec2-requirements">2. EC2 requirements</a></li>
+<li><a class="reference internal" href="#how-to-subscribe-to-datasentinel">3. How to subscribe to Datasentinel?</a></li>
+<li><a class="reference internal" href="#how-to-connect-to-datasentinel">4.. How to connect to Datasentinel?</a></li>
+<li><a class="reference internal" href="#how-to-add-your-postgresql-instances">5.. How to add your PostgreSQL instances?</a></li>
 </ul>
 </li>
 </ul>
