@@ -1,3 +1,5 @@
+.. _global_faq:
+
 **************************
 Frequently asked questions
 **************************
