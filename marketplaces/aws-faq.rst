@@ -4,6 +4,10 @@
 AWS marketplace FAQ
 *******************
 
+.. note::
+    | You can also look at our Global FAQ
+
+
 1. How to connect to the GUI?
 *****************************
 

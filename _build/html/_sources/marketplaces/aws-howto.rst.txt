@@ -69,3 +69,115 @@ The EC2 instance containing the Datasentinel server must meet the following requ
 |                                       | |                                                                                                                                              |
 |                                       | | You should receive **healthy** as a response from the server.                                                                                |
 +---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+3. How to subscribe to Datasentinel?
+************************************
+
+- Log in to the `AWS Marketplace <https://aws.amazon.com/marketplace>`_
+
+- Enter **Datasentinel** in the search field
+
+.. image:: ../images/aws_search.png
+   :scale: 100 %
+   :align: center
+
+
+- Product information is displayed. Then click on the button
+
+.. image:: ../images/aws_subscribe.png
+   :scale: 100 %
+   :align: center
+
+- Subscription information is displayed. Then click on the button
+
+.. image:: ../images/aws_configure.png
+   :scale: 100 %
+   :align: center
+
+- Choose your desired region from the drop down list.
+
+.. note::
+    | We recommend choosing the region where your PostgreSQL instances are located
+
+
+
+Then click on the button
+
+.. image:: ../images/aws_launch.png
+   :scale: 100 %
+   :align: center
+
+- Select an instance type that is at least a **t2.large**. Datasentinel is available on EC2 instances of type **t2** and **m5**
+
+.. note::
+    | See how to size your EC2 instance on our `FAQ <https://www.datasentinel.io/documentation/faq.html>`_
+
+- Select a role with the required permission or create it (see the **EC2 requirements** section for more information)
+
+.. image:: ../images/aws_iam_role.png
+   :scale: 100 %
+   :align: center
+
+
+- Keep metadata accessible, both v1 and v2
+
+.. image:: ../images/aws_metadata.png
+   :scale: 100 %
+   :align: center
+
+- Set the storage size. (Default 20GB)
+
+.. note::
+    | See how to size your EC2 instance on our `FAQ <https://www.datasentinel.io/documentation/faq.html>`_
+
+- Add security rules
+
+.. image:: ../images/aws_security.png
+   :scale: 100 %
+   :align: center
+
+- Then Launch the instance. It will take a few minutes to complete.
+
+4.. How to connect to Datasentinel?
+************************************
+
+- How to access your EC2 instance
+
+You can connect to the Linux AMI using SSH and the user **ec2-user**. Authentication is based on a public key
+
+- To connect to **Datasentinel** application
+
+Open a web browser and enter the host name (Public DNS) or IP address of your new **Datasentinel** instance as the URL. 
+
+To log in, enter **datasentinel**  
+
+The default password is **datasentinel**  (Change it once connected)
+
+
+5.. How to add your PostgreSQL instances?
+*****************************************
+
+Once the installation is complete, all that remains is to configure the instances to monitor.
+
+
+You will have the choice between the `Agent-based or Agentless mode <https://www.datasentinel.io/documentation/installation/platform/agentbasedOrAgentless.html>`_
+
+
+* **Agent-based mode**
+
+Install an agent locally on each server and configure it to communicate with the platform.  
+`See Documentation <https://www.datasentinel.io/documentation/installation/agent/installation.html>`_
+
+Ideal if you manage your own postgresql instances. 
+
+* **Agentless mode**
+
+Configure connections directly through the user graphical interface
+
+Ideal if you use AWS managed instances (rds, aurora)
+
+You can automate the addition of connections thanks to the `API <https://www.datasentinel.io/documentation/features/connection-api.html>`_ (Agentless mode)
+
+
+* **Enjoy**

@@ -62,7 +62,22 @@ Frequently asked questions
 
 .. _sizing_platform:
 
-5. What is the platform sizing recommendation?
+5. What is the data retention policy?
+*************************************
+
+By default, data is kept **14** days
+
+.. note::
+    | The same level of precision is maintained throughout this period
+
+
+You can change this retention period to increase or decrease it, according to your needs.  
+
+To do so, go to **Global settings** submenu and enter the desired period.
+
+
+
+6. What is the platform sizing recommendation?
 **********************************************
 
 Sizing the Platform
