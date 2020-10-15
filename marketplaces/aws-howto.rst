@@ -112,7 +112,7 @@ Then click on the button
    :scale: 100 %
    :align: center
 
-- Select an instance type that is at least a **t2.large**. Datasentinel is available on EC2 instances of type **t2** and **m5**
+- Select an instance type that is at least a **t2.xlarge**. Datasentinel is also available on EC2 instances of type **m5**
 
 .. note::
     | See how to size your EC2 instance on our `FAQ <https://www.datasentinel.io/documentation/faq.html>`_
@@ -158,8 +158,36 @@ To log in, enter **datasentinel**
 
 The default password is **datasentinel**  (Change it once connected)
 
+5. Troubleshooting 
+******************
 
-5.. How to add your PostgreSQL instances?
+If you get this error when connecting to the GUI, it indicates a communication problem between Datasentinel and the AWS marketplace.
+
+.. image:: ../images/aws_marketplace_error.png
+   :scale: 100 %
+   :align: center
+
+There are several possible reasons
+   - The IAM Role does not exist or does not have the right rights  
+
+   IAM Role Example:
+
+   .. image:: ../images/aws_iam_policy.png
+      :scale: 100 %
+      :align: center
+
+
+   - Metadata is not accessible (Version v1 and v2)
+
+   To check metadata service, connect to the server via ssh with **ec2-user**, and type 
+
+   .. code-block:: bash
+
+      curl --max-time 1 http://169.254.169.254/latest/meta-data/product-codes
+
+   You should see the product code in the response
+
+6. How to add your PostgreSQL instances?
 *****************************************
 
 Once the installation is complete, all that remains is to configure the instances to monitor.
@@ -183,5 +211,8 @@ Ideal if you use AWS managed instances (rds, aurora)
 
 You can automate the addition of connections thanks to the `API <https://www.datasentinel.io/documentation/features/connection-api.html>`_ (Agentless mode)
 
+.. raw:: html
+
+      <iframe width="800" height="600" src="https://www.youtube.com/embed/aQwZtB-5tK8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 * **Enjoy**
