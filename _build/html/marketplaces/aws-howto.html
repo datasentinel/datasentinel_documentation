@@ -364,7 +364,7 @@ Show Source
 <p>Then click on the button</p>
 <a class="reference internal image-reference" href="../_images/aws_launch.png"><img alt="../_images/aws_launch.png" class="align-center" src="../_images/aws_launch.png" style="width: 198.0px; height: 43.0px;" /></a>
 <ul class="simple">
-<li><p>Select an instance type that is at least a <strong>t2.large</strong>. Datasentinel is available on EC2 instances of type <strong>t2</strong> and <strong>m5</strong></p></li>
+<li><p>Select an instance type that is at least a <strong>t2.xlarge</strong>. Datasentinel is also available on EC2 instances of type <strong>m5</strong></p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -410,8 +410,29 @@ Show Source
 <p>To log in, enter <strong>datasentinel</strong></p>
 <p>The default password is <strong>datasentinel</strong>  (Change it once connected)</p>
 </div>
+<div class="section" id="troubleshooting">
+<h2>5. Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>If you get this error when connecting to the GUI, it indicates a communication problem between Datasentinel and the AWS marketplace.</p>
+<a class="reference internal image-reference" href="../_images/aws_marketplace_error.png"><img alt="../_images/aws_marketplace_error.png" class="align-center" src="../_images/aws_marketplace_error.png" style="width: 599.0px; height: 83.0px;" /></a>
+<dl>
+<dt>There are several possible reasons</dt><dd><ul class="simple">
+<li><p>The IAM Role does not exist or does not have the right rights</p></li>
+</ul>
+<p>IAM Role Example:</p>
+<a class="reference internal image-reference" href="../_images/aws_iam_policy.png"><img alt="../_images/aws_iam_policy.png" class="align-center" src="../_images/aws_iam_policy.png" style="width: 801.0px; height: 480.0px;" /></a>
+<ul class="simple">
+<li><p>Metadata is not accessible (Version v1 and v2)</p></li>
+</ul>
+<p>To check metadata service, connect to the server via ssh with <strong>ec2-user</strong>, and type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --max-time <span class="m">1</span> http://169.254.169.254/latest/meta-data/product-codes
+</pre></div>
+</div>
+<p>You should see the product code in the response</p>
+</dd>
+</dl>
+</div>
 <div class="section" id="how-to-add-your-postgresql-instances">
-<h2>5.. How to add your PostgreSQL instances?<a class="headerlink" href="#how-to-add-your-postgresql-instances" title="Permalink to this headline">¶</a></h2>
+<h2>6. How to add your PostgreSQL instances?<a class="headerlink" href="#how-to-add-your-postgresql-instances" title="Permalink to this headline">¶</a></h2>
 <p>Once the installation is complete, all that remains is to configure the instances to monitor.</p>
 <p>You will have the choice between the <a class="reference external" href="https://www.datasentinel.io/documentation/installation/platform/agentbasedOrAgentless.html">Agent-based or Agentless mode</a></p>
 <ul class="simple">
@@ -426,7 +447,7 @@ Show Source
 <p>Configure connections directly through the user graphical interface</p>
 <p>Ideal if you use AWS managed instances (rds, aurora)</p>
 <p>You can automate the addition of connections thanks to the <a class="reference external" href="https://www.datasentinel.io/documentation/features/connection-api.html">API</a> (Agentless mode)</p>
-<ul class="simple">
+<iframe width="800" height="600" src="https://www.youtube.com/embed/aQwZtB-5tK8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><ul class="simple">
 <li><p><strong>Enjoy</strong></p></li>
 </ul>
 </div>
@@ -446,7 +467,8 @@ Show Source
 <li><a class="reference internal" href="#ec2-requirements">2. EC2 requirements</a></li>
 <li><a class="reference internal" href="#how-to-subscribe-to-datasentinel">3. How to subscribe to Datasentinel?</a></li>
 <li><a class="reference internal" href="#how-to-connect-to-datasentinel">4.. How to connect to Datasentinel?</a></li>
-<li><a class="reference internal" href="#how-to-add-your-postgresql-instances">5.. How to add your PostgreSQL instances?</a></li>
+<li><a class="reference internal" href="#troubleshooting">5. Troubleshooting</a></li>
+<li><a class="reference internal" href="#how-to-add-your-postgresql-instances">6. How to add your PostgreSQL instances?</a></li>
 </ul>
 </li>
 </ul>
