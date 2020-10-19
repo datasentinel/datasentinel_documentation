@@ -122,7 +122,6 @@ datasentinel extension
    # example done with a standard postgresql 10 installed version
    /usr/bin/mkdir -p /usr/pgsql-10/lib
    /usr/bin/mkdir -p /usr/pgsql-10/share/extension
-   /usr/bin/mkdir -p /usr/pgsql-10/share/extension
    cp datasentinel.so /usr/pgsql-10/lib/
    chmod 755 /usr/pgsql-10/lib/datasentinel.so
    cp datasentinel.control /usr/pgsql-10/share/extension/

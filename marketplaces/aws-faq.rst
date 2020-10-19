@@ -7,7 +7,6 @@ AWS marketplace FAQ
 .. note::
     | You can also look at our :ref:`global_faq`
 
-1. 
 
 1. How to connect to the GUI?
 *****************************
@@ -15,7 +14,7 @@ AWS marketplace FAQ
 | Once you get your Datasentinel server running, you can log to it via the web browser.
 |
 | The user is **datasentinel**
-| The default password is **datasentinel** (to be changed once connected)
+| The password is your EC2 instance id. You can get it from the AWS console.
 |
 | Datasentinel is a subscription application and will start charging you after you start monitoring instances.
 
