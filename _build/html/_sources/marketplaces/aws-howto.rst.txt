@@ -4,8 +4,18 @@
 Launch Datasentinel on AWS with MarketPlace metering service
 ************************************************************
 
+.. image:: ../images/aws_marketplace_logo.png
+   :scale: 30 %
+   :align: center
+   :target: https://aws.amazon.com/marketplace/pp/B08L436C4Q
+
 .. note::
     | :ref:`aws_faq` is also available
+    |
+    | Link https://aws.amazon.com/marketplace/pp/B08L436C4Q
+
+
+
 
 
 1. AWS Marketplace Metering Service
