@@ -39,11 +39,13 @@ Configuration details
 .. code:: bash
 
   {
-    "version": "1.9.3",
+    "version": "2.2.9",
     "port": 8282,
     "last_upload": "",
-    "collection_rate": "low",
-    "start_time": "2020-02-07 13:08:08",
+    "collection-rate": "high",
+    "tables-monitoring-limit": 3000,
+    "sql-max-size": 312000,
+    "start_time": "2020-10-23 15:43:23",
     "proxy": {
       "host": "",
       "port": 0,
@@ -51,7 +53,7 @@ Configuration details
       "password": ""
     },
     "upload_server": {
-      "host": "51.15.236.159",
+      "host": "51.158.105.50",
       "port": 443
     },
     "connections": {
@@ -60,6 +62,7 @@ Configuration details
       "not running": 0
     }
   }
+
 
 Stop
 =====
@@ -139,6 +142,66 @@ Change the collection rate
     {
     "status": "Collection rate successfully changed"
     }
+
+Change the  tables monitoring limit
+===================================
+
+.. raw:: html
+
+   <h6 ><span style="margin-left:30px;font-weight:bold;color: gray">PATCH</span><span style="color:gray">&nbsp;/api/agent/tables-monitoring-limit/{{limit}}</span></h6>
+
+- Path parameter:
+
+   | The limit number
+   | The agent monitors the activity of tables and indexes if the number of tables in the connection is less than the defined limit
+
+- Example 
+
+.. code:: bash
+
+  export TOKEN=<<datasentinel_token>>
+  curl -k --header "api-token: $TOKEN" --request PATCH 'https://pg-sales-0223:8282/api/agent/tables-monitoring-limit/3000' 
+
+
+- Response
+
+.. code:: bash
+
+  {
+    "status": "Tables monitoring limit successfully changed."
+  }
+
+Change the sql max size
+=======================
+
+.. raw:: html
+
+   <h6 ><span style="margin-left:30px;font-weight:bold;color: gray">PATCH</span><span style="color:gray">&nbsp;/api/agent/sql-max-size/{{size}}</span></h6>
+
+- Path parameter:
+
+   | Maximum size in bytes
+   | Only useful when the datasentinel extension is not installed!
+   | The agent analyzes each sql during the sampling of active sessions (pg_stat_activity)
+   | to calculate an identifier (md5).
+   | If the size of the analyzed sql exceeds the limit, the sql text will be truncated
+
+- Example 
+
+.. code:: bash
+
+  export TOKEN=<<datasentinel_token>>
+  curl -k --header "api-token: $TOKEN" --request PATCH 'https://pg-sales-0223:8282/api/agent/sql-max-size/512000' 
+
+
+- Response
+
+.. code:: bash
+
+  {
+    "status": "Max sql size successfully changed."
+  }
+
 
 **Upload server**
 *****************
