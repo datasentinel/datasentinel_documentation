@@ -141,6 +141,13 @@ Show Source
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../marketplaces/index.html">Cloud marketplaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../marketplaces/aws-howto.html">Launch Datasentinel on AWS with MarketPlace metering service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../marketplaces/aws-faq.html">AWS marketplace FAQ</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../token.html">Token</a></li>
@@ -208,6 +215,13 @@ Show Source
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../marketplaces/index.html">Cloud marketplaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../marketplaces/aws-howto.html">Launch Datasentinel on AWS with MarketPlace metering service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../marketplaces/aws-faq.html">AWS marketplace FAQ</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../token.html">Token</a></li>
@@ -227,7 +241,7 @@ Show Source
         <div class="page-content">
         
   <div class="section" id="on-premises-platform-installation">
-<h1>On-premises platform installation<a class="headerlink" href="#on-premises-platform-installation" title="Permalink to this headline">¶</a></h1>
+<span id="on-prem-installation"></span><h1>On-premises platform installation<a class="headerlink" href="#on-premises-platform-installation" title="Permalink to this headline">¶</a></h1>
 <h3>Prerequisites</h3><dl class="simple">
 <dt>You need to have a linux machine <strong>Red Hat or centos 7</strong>:</dt><dd><ul class="simple">
 <li><p>Nginx web server preinstalled</p></li>
@@ -252,11 +266,18 @@ Show Source
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvzf <span class="o">{{</span> downloaded file name <span class="o">}}</span>.tar.gz
 </pre></div>
 </div>
-<p>2 files are created</p>
+<p>3 files are created</p>
 <ul class="simple">
 <li><p>init_datasentinel.sh</p></li>
 <li><p>datasentinel-platform.tar.gz</p></li>
+<li><p>nginx-1.18.0-1.el7.ngx.x86_64.rpm</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">If not installed, you can install nginx with the included rpm file -&gt; <strong>yum localinstall nginx-1.18.0-1.el7.ngx.x86_64.rpm</strong></div>
+</div>
+</div>
 </div>
 <div class="section" id="install">
 <h2>2. Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
@@ -270,14 +291,31 @@ Show Source
 <p class="admonition-title">Warning</p>
 <p>The script must be run as root</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<div class="line-block">
+<div class="line">The binaries of the application as well as the database storing the metrics will be installed in the <strong>/datasentinel</strong> directory</div>
+<div class="line">You can pre-create <strong>/datasentinel</strong>. It can be a symbolic link or a file-system or a directory</div>
+<div class="line">Otherwise, the <strong>/datasentinel</strong> directory will be created during installation</div>
+<div class="line">This directory should be empty.</div>
+</div>
+</div>
 <h3>The script does several actions</h3><ul class="simple">
-<li><p>Creation of a user and group <strong>datasentinel</strong></p></li>
-<li><p>Creation of a directory <strong>/datasentinel</strong></p></li>
+<li><p>Application user name input request (<strong>datasentinel</strong> by default, the user can be pre-created with <strong>bash</strong> as the default shell)</p></li>
+<li><p>Application listening port entry request (<strong>443</strong> by default)</p></li>
+<li><p>Creation if not exists of the directory <strong>/datasentinel</strong></p></li>
 <li><p><strong>datasentinel-platform.tar.gz</strong> decompression to install all components</p></li>
 <li><p><strong>bash_profile</strong> and <strong>crontab</strong> entries creation</p></li>
 <li><p>Services deployment for automatic restart</p></li>
-<li><p>Start all components</p></li>
+<li><p>Start of all components</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">If you want to install datasentinel silently, use <strong>./init_datasentinel.sh -d</strong></div>
+<div class="line">Default values will be used</div>
+</div>
+</div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <div class="line-block">
@@ -288,7 +326,7 @@ Show Source
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <div class="line-block">
-<div class="line">The port 443 must be opened and accessible.</div>
+<div class="line">The listening port must be opened and accessible.</div>
 <div class="line">Also, be careful with your firewall configuration (selinux, firewalld) if any</div>
 </div>
 </div>
@@ -308,8 +346,9 @@ Show Source
 <h2>3. Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
 <p>Datasentinel uses the following components:</p>
 <ul class="simple">
-<li><p>Nginx web server (Preinstalled)</p></li>
+<li><p>Nginx web server</p></li>
 <li><p>Datasentinel backend APIs</p></li>
+<li><p>Datasentinel dispatcher (Agentless feature)</p></li>
 <li><p>Timeseries database influxdb</p></li>
 <li><p>Grafana Frontend (with a postgreSQL database)</p></li>
 <li><p>Datasentinel Frontend application</p></li>
@@ -325,15 +364,15 @@ Show Source
 <div class="section" id="components-management">
 <h2>4. Components management<a class="headerlink" href="#components-management" title="Permalink to this headline">¶</a></h2>
 <p>Start</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl start datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend nginx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl start datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend datasentinel_dispatcher nginx
 </pre></div>
 </div>
 <p>Stop</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl stop datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend nginx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl stop datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend datasentinel_dispatcher nginx
 </pre></div>
 </div>
 <p>Status details</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl status datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend nginx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl -l <span class="p">|</span> egrep -i <span class="s2">&quot;datasentinel_|nginx&quot;</span>
 </pre></div>
 </div>
 <h3>An alias is present when connected as datasentinel to check all components availibility</h3><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>status_datasentinel

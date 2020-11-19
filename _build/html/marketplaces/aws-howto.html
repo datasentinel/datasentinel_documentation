@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>Launch Datasentinel on AWS with MarketPlace metering service &#8212; Datasentinel</title>
+
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/datasentinel.css" />
+    <link rel="stylesheet" href="../_static/notosanscjkjp.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/roboto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="AWS marketplace FAQ" href="aws-faq.html" />
+    <link rel="prev" title="Cloud marketplaces" href="index.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html">Cloud marketplaces</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Launch Datasentinel on AWS with MarketPlace metering service</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+            <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/marketplaces/aws-howto.rst.txt" rel="nofollow">
+<i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+          <a  class="mdl-navigation__link" href="../index.html">
+                  <i class="material-icons navigation-link-icon">home</i>
+                  Home
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://app.datasentinel.io">
+                  <i class="material-icons navigation-link-icon">dashboard</i>
+                  Cloud app
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://www.datasentinel.io">
+                  <i class="material-icons navigation-link-icon">link</i>
+                  Web
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://github.com/datasentinel">
+                  <i class="material-icons navigation-link-icon">link</i>
+                  Github
+              </a>
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <img class="logo" src="../_static/datasentinel_logo_with_text.png" alt="Datasentinel"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/platform/installation.html">On-premises platform installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/platform/agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/agent/installation.html">Agent installation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/index.html">Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extensions/pg-stat-statements.html">pg_stat_statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/installation.html">datasentinel extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/execution-plans.html">Execution plans</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agent/index.html">Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../agent/CLI.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../agent/API.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../agent/faq_agent.html">Agent FAQ</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/index.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../features/sessions-workload.html">Sessions workload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/user-management.html">User management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/execution-plans.html">Execution plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/APIs.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/agentless.html">Agentless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/connection-api.html">Connection API</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloud marketplaces</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Launch Datasentinel on AWS with MarketPlace metering service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws-faq.html">AWS marketplace FAQ</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../token.html">Token</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Technical support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release notes</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+<header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <img class="logo" src="../_static/datasentinel_logo_with_text.png" alt="Datasentinel"/>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/platform/installation.html">On-premises platform installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/platform/agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/agent/installation.html">Agent installation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/index.html">Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extensions/pg-stat-statements.html">pg_stat_statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/installation.html">datasentinel extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/execution-plans.html">Execution plans</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agent/index.html">Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../agent/CLI.html">CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../agent/API.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../agent/faq_agent.html">Agent FAQ</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/index.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../features/sessions-workload.html">Sessions workload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/user-management.html">User management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/execution-plans.html">Execution plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/APIs.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/agentless.html">Agentless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/connection-api.html">Connection API</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloud marketplaces</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Launch Datasentinel on AWS with MarketPlace metering service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws-faq.html">AWS marketplace FAQ</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../token.html">Token</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Technical support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release notes</a></li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content">
+        
+  <div class="section" id="launch-datasentinel-on-aws-with-marketplace-metering-service">
+<span id="aws-howto"></span><h1>Launch Datasentinel on AWS with MarketPlace metering service<a class="headerlink" href="#launch-datasentinel-on-aws-with-marketplace-metering-service" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://aws.amazon.com/marketplace/pp/B08L436C4Q"><img alt="../_images/aws_marketplace_logo.png" class="align-center" src="../_images/aws_marketplace_logo.png" style="width: 368.4px; height: 45.0px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="aws-faq.html#aws-faq"><span class="std std-ref">AWS marketplace FAQ</span></a> is also available</div>
+<div class="line"><br /></div>
+<div class="line">Link <a class="reference external" href="https://aws.amazon.com/marketplace/pp/B08L436C4Q">https://aws.amazon.com/marketplace/pp/B08L436C4Q</a></div>
+</div>
+</div>
+<div class="section" id="aws-marketplace-metering-service">
+<h2>1. AWS Marketplace Metering Service<a class="headerlink" href="#aws-marketplace-metering-service" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">As you register your PostgreSQL instances and monitor them, Datasentinel charges your Amazon Subscription through the AWS Marketplace Metering Service.</div>
+<div class="line"><br /></div>
+<div class="line">Datasentinel charges are based on the number of PostgreSQL instances you monitor each hour.</div>
+<div class="line">See the AWS Marketplace for details and pricing.</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">For this type of deployment, you do not need to purchase individual licenses.</div>
+<div class="line">If you want to use individual licenses in AWS, you can deploy an EC2 instance, install Datasentinel, and apply your license.</div>
+</div>
+</div>
+</div>
+<div class="section" id="ec2-requirements">
+<h2>2. EC2 requirements<a class="headerlink" href="#ec2-requirements" title="Permalink to this headline">¶</a></h2>
+<p>The EC2 instance containing the Datasentinel server must meet the following requirements.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Requirement</p></th>
+<th class="head"><p>Details</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>IAM role permission</p></td>
+<td><div class="line-block">
+<div class="line">An <strong>IAM</strong> role with the <strong>aws-marketplace:MeterUsage</strong> permission must be associated with the EC2 instance</div>
+<div class="line">This permission allows the role to contact the Metering Service API and record usage.</div>
+<div class="line"><br /></div>
+<div class="line">A user with rights to define and assign roles can create the role in either of the following ways:</div>
+<div class="line-block">
+<div class="line">1. Create the role on the Configure Instance Details panel of the wizard</div>
+<div class="line">2. <a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#create-iam-role">Manually create the role</a></div>
+<div class="line"><br /></div>
+</div>
+<div class="line">To get the <strong>aws-marketplace:MeterUsage</strong> permission, attach the AWS managed policy <strong>AWSMarketplaceMeteringFullAccess</strong> to the role.</div>
+<div class="line"><br /></div>
+<div class="line">If a role with the required permissions is not associated with the EC2 instance,</div>
+<div class="line">Datasentinel reports issues with metering service availability.</div>
+<div class="line"><br /></div>
+<div class="line">For more information, see:</div>
+</div>
+<p><a class="reference external" href="https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-getting-started.html">Subscribing, Launching, and Managing Products on AWS</a></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Access to the metadata URL</p></td>
+<td><div class="line-block">
+<div class="line">The EC2 instance must have HTTP connectivity to 169.254.169.254, which is a local IP address accessible only from within Amazon instances.</div>
+<div class="line"><br /></div>
+<div class="line">To validate that the EC2 instance can access the metadata service, execute the following command:</div>
+<div class="line"><strong>curl http://169.254.169.254/latest/meta-data/</strong></div>
+<div class="line">The command returns a list of available metadata items.</div>
+<div class="line"><br /></div>
+<div class="line">For more information:</div>
+<div class="line"><a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html#instancedata-data-retrieval">Retrieving Instance Metadata</a></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Access to the metering service</p></td>
+<td><div class="line-block">
+<div class="line">The EC2 instance must be able to reach the AWS Metering Service (MeterUsage API).</div>
+<div class="line">The URL is: <a class="reference external" href="https://metering.marketplace.{region}.amazonws.com/">https://metering.marketplace.{region}.amazonws.com/</a></div>
+<div class="line">The region is where your EC2 instance is running</div>
+<div class="line"><br /></div>
+<div class="line">For example: <a class="reference external" href="https://metering.marketplace.us-east-1.amazonaws.com">https://metering.marketplace.us-east-1.amazonaws.com</a></div>
+<div class="line"><br /></div>
+<div class="line">To be able to launch Datasentinel, you must have an Internet gateway configured.</div>
+<div class="line">The Metering Service has an endpoint on the public Internet.</div>
+<div class="line">To access the Metering Service, your Virtual Private Cloud must be configured to allow an outbound HTTPS connection to the public Internet.</div>
+<div class="line">For more information, see <a class="reference external" href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html</a></div>
+<div class="line"><br /></div>
+<div class="line">To validate that the EC2 instance can connect to the Metering Service, execute the following command:</div>
+<div class="line"><br /></div>
+<div class="line">curl <a class="reference external" href="https://metering.marketplace.{region}.amazonws.com/">https://metering.marketplace.{region}.amazonws.com/</a></div>
+<div class="line">Replace {region} with the region where your EC2 instance is running.</div>
+<div class="line"><br /></div>
+<div class="line">You should receive <strong>healthy</strong> as a response from the server.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="how-to-subscribe-to-datasentinel">
+<h2>3. How to subscribe to Datasentinel?<a class="headerlink" href="#how-to-subscribe-to-datasentinel" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Log in to the <a class="reference external" href="https://aws.amazon.com/marketplace">AWS Marketplace</a></p></li>
+<li><p>Enter <strong>Datasentinel</strong> in the search field</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/aws_search.png"><img alt="../_images/aws_search.png" class="align-center" src="../_images/aws_search.png" style="width: 1165.0px; height: 51.0px;" /></a>
+<ul class="simple">
+<li><p>Product information is displayed. Then click on the button</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/aws_subscribe.png"><img alt="../_images/aws_subscribe.png" class="align-center" src="../_images/aws_subscribe.png" style="width: 221.0px; height: 29.0px;" /></a>
+<ul class="simple">
+<li><p>Subscription information is displayed. Then click on the button</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/aws_configure.png"><img alt="../_images/aws_configure.png" class="align-center" src="../_images/aws_configure.png" style="width: 244.0px; height: 44.0px;" /></a>
+<ul class="simple">
+<li><p>Choose your desired region from the drop down list.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">We recommend choosing the region where your PostgreSQL instances are located</div>
+</div>
+</div>
+<p>Then click on the button</p>
+<a class="reference internal image-reference" href="../_images/aws_launch.png"><img alt="../_images/aws_launch.png" class="align-center" src="../_images/aws_launch.png" style="width: 198.0px; height: 43.0px;" /></a>
+<ul class="simple">
+<li><p>Select an instance type that is at least a <strong>t2.xlarge</strong>. Datasentinel is also available on EC2 instances of type <strong>m5</strong></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">See how to size your EC2 instance on our <a class="reference external" href="https://www.datasentinel.io/documentation/faq.html">FAQ</a></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Select a role with the required permission or create it (see the <strong>EC2 requirements</strong> section for more information)</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/aws_iam_role.png"><img alt="../_images/aws_iam_role.png" class="align-center" src="../_images/aws_iam_role.png" style="width: 837.0px; height: 163.0px;" /></a>
+<ul class="simple">
+<li><p>Keep metadata accessible, both v1 and v2</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/aws_metadata.png"><img alt="../_images/aws_metadata.png" class="align-center" src="../_images/aws_metadata.png" style="width: 837.0px; height: 273.0px;" /></a>
+<ul class="simple">
+<li><p>Set the storage size. (Default 20GB)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">See how to size your EC2 instance on our <a class="reference external" href="https://www.datasentinel.io/documentation/faq.html">FAQ</a></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Add security rules</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/aws_security.png"><img alt="../_images/aws_security.png" class="align-center" src="../_images/aws_security.png" style="width: 837.0px; height: 158.0px;" /></a>
+<ul class="simple">
+<li><p>Then Launch the instance. It will take a few minutes to complete.</p></li>
+</ul>
+</div>
+<div class="section" id="how-to-connect-to-datasentinel">
+<h2>4.. How to connect to Datasentinel?<a class="headerlink" href="#how-to-connect-to-datasentinel" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>How to access your EC2 instance</p></li>
+</ul>
+<p>You can connect to the Linux AMI using SSH and the user <strong>ec2-user</strong>. Authentication is based on a public key</p>
+<ul class="simple">
+<li><p>To connect to <strong>Datasentinel</strong> application</p></li>
+</ul>
+<p>Open a web browser and enter the host name (Public DNS) or IP address of your new <strong>Datasentinel</strong> instance as the URL.</p>
+<p>To log in, enter <strong>datasentinel</strong></p>
+<p>The default password is <strong>datasentinel</strong>  (Change it once connected)</p>
+</div>
+<div class="section" id="troubleshooting">
+<h2>5. Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>If you get this error when connecting to the GUI, it indicates a communication problem between Datasentinel and the AWS marketplace.</p>
+<a class="reference internal image-reference" href="../_images/aws_marketplace_error.png"><img alt="../_images/aws_marketplace_error.png" class="align-center" src="../_images/aws_marketplace_error.png" style="width: 599.0px; height: 83.0px;" /></a>
+<dl>
+<dt>There are several possible reasons</dt><dd><ul class="simple">
+<li><p>The IAM Role does not exist or does not have the right rights</p></li>
+</ul>
+<p>IAM Role Example:</p>
+<a class="reference internal image-reference" href="../_images/aws_iam_policy.png"><img alt="../_images/aws_iam_policy.png" class="align-center" src="../_images/aws_iam_policy.png" style="width: 801.0px; height: 480.0px;" /></a>
+<ul class="simple">
+<li><p>Metadata is not accessible (Version v1 and v2)</p></li>
+</ul>
+<p>To check metadata service, connect to the server via ssh with <strong>ec2-user</strong>, and type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --max-time <span class="m">1</span> http://169.254.169.254/latest/meta-data/product-codes
+</pre></div>
+</div>
+<p>You should see the product code in the response</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="how-to-add-your-postgresql-instances">
+<h2>6. How to add your PostgreSQL instances?<a class="headerlink" href="#how-to-add-your-postgresql-instances" title="Permalink to this headline">¶</a></h2>
+<p>Once the installation is complete, all that remains is to configure the instances to monitor.</p>
+<p>You will have the choice between the <a class="reference external" href="https://www.datasentinel.io/documentation/installation/platform/agentbasedOrAgentless.html">Agent-based or Agentless mode</a></p>
+<ul class="simple">
+<li><p><strong>Agent-based mode</strong></p></li>
+</ul>
+<p>Install an agent locally on each server and configure it to communicate with the platform.
+<a class="reference external" href="https://www.datasentinel.io/documentation/installation/agent/installation.html">See Documentation</a></p>
+<p>Ideal if you manage your own postgresql instances.</p>
+<ul class="simple">
+<li><p><strong>Agentless mode</strong></p></li>
+</ul>
+<p>Configure connections directly through the user graphical interface</p>
+<p>Ideal if you use AWS managed instances (rds, aurora)</p>
+<p>You can automate the addition of connections thanks to the <a class="reference external" href="https://www.datasentinel.io/documentation/features/connection-api.html">API</a> (Agentless mode)</p>
+<iframe width="800" height="600" src="https://www.youtube.com/embed/aQwZtB-5tK8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><ul class="simple">
+<li><p><strong>Enjoy</strong></p></li>
+</ul>
+</div>
+</div>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Launch Datasentinel on AWS with MarketPlace metering service</a><ul>
+<li><a class="reference internal" href="#aws-marketplace-metering-service">1. AWS Marketplace Metering Service</a></li>
+<li><a class="reference internal" href="#ec2-requirements">2. EC2 requirements</a></li>
+<li><a class="reference internal" href="#how-to-subscribe-to-datasentinel">3. How to subscribe to Datasentinel?</a></li>
+<li><a class="reference internal" href="#how-to-connect-to-datasentinel">4.. How to connect to Datasentinel?</a></li>
+<li><a class="reference internal" href="#troubleshooting">5. Troubleshooting</a></li>
+<li><a class="reference internal" href="#how-to-add-your-postgresql-instances">6. How to add your PostgreSQL instances?</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L material-icons">arrow_back</i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>Cloud marketplaces</div>
+         </div>
+     </a>
+     <a id="button-next" href="aws-faq.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+        <i class="pagenation-arrow-R material-icons">arrow_forward</i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>AWS marketplace FAQ</div>
+        </div>
+     </a>
+  </div>
+        <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">Datasentinel</div>
+      <div>
+        
+        
+      </div>
+    </div>
+
+    <div class="mdl-mini-footer__right-section">
+        <div>&copy; Copyright 2019-2020, Datasentinel.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.1 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+    </div>
+</footer>
+        </main>
+    </div>
+  </body>
+</html>

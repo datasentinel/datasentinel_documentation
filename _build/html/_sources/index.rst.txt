@@ -10,7 +10,7 @@ Documentation
    This documentation will show you how to install the on-premises platform and how to use Datasentinel.
 
 .. note::
-   | Datasentinel is available from PostgreSQL version **9.2**
+   | Datasentinel is available from PostgreSQL version **9.4**
    | 
    | The cloud application is available at `https://app.datasentinel.io <https://app.datasentinel.io>`_
 
@@ -41,6 +41,11 @@ Documentation
    :hidden:
 
    features/index
+
+.. toctree::
+   :hidden:
+
+   marketplaces/index
 
 .. toctree::
    :hidden:

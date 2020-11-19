@@ -82,7 +82,7 @@ Agent installation
    create user datasentinel password 'myPassword';
    alter user datasentinel with superuser;
 
-- Version 10, 11
+- Version 10, 11, 12, 13
 
 .. code-block:: bash
 
@@ -93,14 +93,17 @@ Agent installation
 6. pg_hba.conf
 **************
 
-   - Add authorization for the user datasentinel to connect to all databases with a password
+- Add authorization for the user datasentinel to connect to all databases with a password
 
 .. code-block:: bash
 
    # TYPE  DATABASE        USER            ADDRESS                 METHOD
    host    all             datasentinel    127.0.0.1/0             md5
 
-- Restart postgresql
+.. note::
+   | The user needs to be able to connect to all databases.
+
+- Reload the configuration
 
 7. Postgresql instance
 **********************
@@ -124,6 +127,10 @@ Agent installation
 .. note::
    | The tags are customisable. you can define your own tags.
    | They are very useful in the user interface for filtering, grouping data and to define Role based access.
+
+.. note::
+   | A script is present in the **datasentinel** subdirectory as an example. (connection_example.sh)
+
 
 8. Useful CLI commands
 **********************

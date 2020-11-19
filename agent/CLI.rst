@@ -45,62 +45,69 @@ Show commands
 .. code:: bash
 
   Copyright 2020 (c) datasentinel- All rights reserved        www.datasentinel.io
-  ================================================================================
+================================================================================
 
-    Agent:
-          - start agent
-          - stop agent
-          - status agent
-          - set port <port number>
-          - set collection-rate <low|high>
-                  low: The sessions collection is done every 10 seconds
-                  high: The sessions collection is done every second  (Default value)
+   Agent:
+         - start agent
+         - stop agent
+         - status agent
+         - set port <port number>
+         - set collection-rate <low|high>
+                low: The sessions collection is done every 10 seconds
+                high: The sessions collection is done every second  (Default value)
+                If the datasentinel extension is not installed, the collection-rate is automatically adujusted to low value 
+         - set tables-monitoring-limit (default 1000)
+                The agent monitors the activity of tables and indexes if the number of tables in the connection is less than the defined limit
+         - set sql-max-size (default 256000)
+                Only useful when the datasentinel extension is not installed!
+                The agent analyzes each sql during the sampling of active sessions (pg_stat_activity) 
+                to calculate an identifier (md5).
+                If the size of the analyzed sql exceeds the limit, the sql text will be truncated
+   
+   Connections: when the connections are disabled, the agent is disconnected.
+         - enable all
+         - disable all
 
-    Connections: when the connections are disabled, the agent is disconnected.
-          - enable all
-          - disable all
+   Connection:
+         - add connection <name> -f <json file>
+         - update connection <name> -f <json file>
+                json example: {
+                                "host": "hostname",
+                                "port": 4587,
+                                "user": "username",
+                                "password": "value",
+                                "tags": "key=value,key=value,..."
+                              }
 
-    Connection:
-          - add connection <name> -f <json file>
-          - update connection <name> -f <json file>
-                  json example: {
-                                  "host": "hostname",
-                                  "port": 4587,
-                                  "user": "username",
-                                  "password": "value",
-                                  "tags": "key=value,key=value,..."
-                                }
+         - delete connection <name>
+         - enable connection <name>
+         - disable connection <name>
 
-          - delete connection <name>
-          - enable connection <name>
-          - disable connection <name>
+         - show connections
+         - show connection <name>
+    
+    Dump connection in JSON format:
+         - dump connection <name>  
 
-          - show connections
-          - show connection <name>
-      
-      Dump connection in JSON format:
-          - dump connection <name>  
+    Upload server:
+         - set server <host> <port>
+         - show server
+         - test server
 
-      Upload server:
-          - set server <host> <port>
-          - show server
-          - test server
-
-      Token:
-          - set token <value>
-          - show token
-          
-      Proxy:
-          - set proxy -f <json file>
-                  json example: {
-                                  "host": "hostname",
-                                  "port": 4587,
-                                  "user": "username (optional)",
-                                  "password": "value (optional)",
-                                }
-          - delete proxy
-          - show proxy
-
+    Token:
+         - set token <value>
+         - show token
+         
+    Proxy:
+         - set proxy -f <json file>
+                json example: {
+                                "host": "hostname",
+                                "port": 4587,
+                                "user": "username (optional)",
+                                "password": "value (optional)"
+                              }
+         - delete proxy
+         - show proxy
 
 
 Status
@@ -243,6 +250,102 @@ Change the collection rate
               running : 1                                                 
           not running : 0                          
 
+Change the tables monitoring limit
+===================================
+
+
+.. code:: bash
+  
+  datasentinel set tables-monitoring-limit <limit>
+
+- Parameter:
+
+   | The limit number
+   | The agent monitors the activity of tables and indexes if the number of tables in the connection is less than the defined limit
+
+
+- Response
+
+.. code:: bash
+
+  Copyright 2020 (c) datasentinel- All rights reserved        www.datasentinel.io
+  ================================================================================
+
+  Tables monitoring limit successfully set to 3000!
+
+
+                Agent
+                    Version : 2.2.9                                             
+                      Port : 8282                                              
+                Start time : 2020-10-23 15:43:23                               
+            Collection rate : high                                              
+    Table monitoring limit : 3000                                              
+              Sql max size : 256000                                            
+
+                Proxy
+                      host :                                                   
+                      port : 0                                                 
+                      user :                                                   
+                  password :                                                   
+
+                Upload
+                      host : 51.158.105.50                                     
+                      port : 443                                               
+
+          Connections
+                  declared : 1                                                 
+                    running : 1                                                 
+                not running : 0                                                 
+
+Change the sql max size
+=======================
+
+
+.. code:: bash
+  
+  datasentinel set sql-max-size <max size>
+
+
+- Parameter:
+
+   | Maximum size in bytes
+   | Only useful when the datasentinel extension is not installed!
+   | The agent analyzes each sql during the sampling of active sessions (pg_stat_activity) 
+   | to calculate an identifier (md5).
+   | If the size of the analyzed sql exceeds the limit, the sql text will be truncated
+
+- Response
+
+.. code:: bash
+
+  Copyright 2020 (c) datasentinel- All rights reserved        www.datasentinel.io
+  ================================================================================
+
+  Sql max size successfully set to 312000 bytes!
+
+
+                Agent
+                    Version : 2.2.9                                             
+                      Port : 8282                                              
+                Start time : 2020-10-23 15:43:23                               
+            Collection rate : high                                              
+    Table monitoring limit : 3000                                              
+              Sql max size : 312000                                            
+
+                Proxy
+                      host :                                                   
+                      port : 0                                                 
+                      user :                                                   
+                  password :                                                   
+
+                Upload
+                      host : 51.158.105.50                                     
+                      port : 443                                               
+
+          Connections
+                  declared : 1                                                 
+                    running : 1                                                 
+                not running : 0  
 
 
 **Upload server**

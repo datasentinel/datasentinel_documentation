@@ -141,6 +141,13 @@ Show Source
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../marketplaces/index.html">Cloud marketplaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../marketplaces/aws-howto.html">Launch Datasentinel on AWS with MarketPlace metering service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marketplaces/aws-faq.html">AWS marketplace FAQ</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../token.html">Token</a></li>
@@ -208,6 +215,13 @@ Show Source
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../marketplaces/index.html">Cloud marketplaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../marketplaces/aws-howto.html">Launch Datasentinel on AWS with MarketPlace metering service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marketplaces/aws-faq.html">AWS marketplace FAQ</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../token.html">Token</a></li>
@@ -262,11 +276,13 @@ Show Source
 <li><p>Response</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;version&quot;</span>: <span class="s2">&quot;1.9.3&quot;</span>,
+  <span class="s2">&quot;version&quot;</span>: <span class="s2">&quot;2.2.9&quot;</span>,
   <span class="s2">&quot;port&quot;</span>: <span class="m">8282</span>,
   <span class="s2">&quot;last_upload&quot;</span>: <span class="s2">&quot;&quot;</span>,
-  <span class="s2">&quot;collection_rate&quot;</span>: <span class="s2">&quot;low&quot;</span>,
-  <span class="s2">&quot;start_time&quot;</span>: <span class="s2">&quot;2020-02-07 13:08:08&quot;</span>,
+  <span class="s2">&quot;collection-rate&quot;</span>: <span class="s2">&quot;high&quot;</span>,
+  <span class="s2">&quot;tables-monitoring-limit&quot;</span>: <span class="m">3000</span>,
+  <span class="s2">&quot;sql-max-size&quot;</span>: <span class="m">312000</span>,
+  <span class="s2">&quot;start_time&quot;</span>: <span class="s2">&quot;2020-10-23 15:43:23&quot;</span>,
   <span class="s2">&quot;proxy&quot;</span>: <span class="o">{</span>
     <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;&quot;</span>,
     <span class="s2">&quot;port&quot;</span>: <span class="m">0</span>,
@@ -274,7 +290,7 @@ Show Source
     <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;&quot;</span>
   <span class="o">}</span>,
   <span class="s2">&quot;upload_server&quot;</span>: <span class="o">{</span>
-    <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;51.15.236.159&quot;</span>,
+    <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;51.158.105.50&quot;</span>,
     <span class="s2">&quot;port&quot;</span>: <span class="m">443</span>
   <span class="o">}</span>,
   <span class="s2">&quot;connections&quot;</span>: <span class="o">{</span>
@@ -352,6 +368,61 @@ Show Source
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
 <span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;Collection rate successfully changed&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-the-tables-monitoring-limit">
+<h3>Change the  tables monitoring limit<a class="headerlink" href="#change-the-tables-monitoring-limit" title="Permalink to this headline">¶</a></h3>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: gray">PATCH</span><span style="color:gray">&nbsp;/api/agent/tables-monitoring-limit/{{limit}}</span></h6><ul>
+<li><p>Path parameter:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">The limit number</div>
+<div class="line">The agent monitors the activity of tables and indexes if the number of tables in the connection is less than the defined limit</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Example</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;datasentinel_token&gt;&gt;</span>
+<span class="s">curl -k --head</span>er <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> --request PATCH <span class="s1">&#39;https://pg-sales-0223:8282/api/agent/tables-monitoring-limit/3000&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Response</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;Tables monitoring limit successfully changed.&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-the-sql-max-size">
+<h3>Change the sql max size<a class="headerlink" href="#change-the-sql-max-size" title="Permalink to this headline">¶</a></h3>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: gray">PATCH</span><span style="color:gray">&nbsp;/api/agent/sql-max-size/{{size}}</span></h6><ul>
+<li><p>Path parameter:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Maximum size in bytes</div>
+<div class="line">Only useful when the datasentinel extension is not installed!</div>
+<div class="line">The agent analyzes each sql during the sampling of active sessions (pg_stat_activity)</div>
+<div class="line">to calculate an identifier (md5).</div>
+<div class="line">If the size of the analyzed sql exceeds the limit, the sql text will be truncated</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Example</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;datasentinel_token&gt;&gt;</span>
+<span class="s">curl -k --head</span>er <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> --request PATCH <span class="s1">&#39;https://pg-sales-0223:8282/api/agent/sql-max-size/512000&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Response</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;Max sql size successfully changed.&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -760,6 +831,8 @@ Show Source
 <li><a class="reference internal" href="#stop">Stop</a></li>
 <li><a class="reference internal" href="#change-the-port-number">Change the port number</a></li>
 <li><a class="reference internal" href="#change-the-collection-rate">Change the collection rate</a></li>
+<li><a class="reference internal" href="#change-the-tables-monitoring-limit">Change the  tables monitoring limit</a></li>
+<li><a class="reference internal" href="#change-the-sql-max-size">Change the sql max size</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#upload-server"><strong>Upload server</strong></a><ul>

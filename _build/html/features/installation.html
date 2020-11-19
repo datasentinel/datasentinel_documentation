@@ -141,6 +141,13 @@ Show Source
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../marketplaces/index.html">Cloud marketplaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../marketplaces/aws-howto.html">Launch Datasentinel on AWS with MarketPlace metering service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marketplaces/aws-faq.html">AWS marketplace FAQ</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently asked questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../token.html">Token</a></li>
@@ -204,6 +211,13 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="APIs.html">API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="agentless.html">Agentless</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection API</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../marketplaces/index.html">Cloud marketplaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../marketplaces/aws-howto.html">Launch Datasentinel on AWS with MarketPlace metering service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marketplaces/aws-faq.html">AWS marketplace FAQ</a></li>
 </ul>
 </li>
 </ul>
@@ -348,7 +362,6 @@ make install
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># example done with a standard postgresql 10 installed version</span>
 /usr/bin/mkdir -p /usr/pgsql-10/lib
-/usr/bin/mkdir -p /usr/pgsql-10/share/extension
 /usr/bin/mkdir -p /usr/pgsql-10/share/extension
 cp datasentinel.so /usr/pgsql-10/lib/
 chmod <span class="m">755</span> /usr/pgsql-10/lib/datasentinel.so
