@@ -335,7 +335,7 @@ alter user datasentinel with superuser<span class="p">;</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Version 10, 11</p></li>
+<li><p>Version 10, 11, 12, 13</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create user datasentinel password <span class="s1">&#39;myPassword&#39;</span><span class="p">;</span>
 grant pg_monitor,pg_read_all_settings,pg_read_all_stats to datasentinel<span class="p">;</span>
@@ -344,17 +344,21 @@ grant pg_monitor,pg_read_all_settings,pg_read_all_stats to datasentinel<span cla
 </div>
 <div class="section" id="pg-hba-conf">
 <h2>6. pg_hba.conf<a class="headerlink" href="#pg-hba-conf" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p>Add authorization for the user datasentinel to connect to all databases with a password</p></li>
 </ul>
-</div></blockquote>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># TYPE  DATABASE        USER            ADDRESS                 METHOD</span>
 host    all             datasentinel    <span class="m">127</span>.0.0.1/0             md5
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">The user needs to be able to connect to all databases.</div>
+</div>
+</div>
 <ul class="simple">
-<li><p>Restart postgresql</p></li>
+<li><p>Reload the configuration</p></li>
 </ul>
 </div>
 <div class="section" id="postgresql-instance">
@@ -378,6 +382,12 @@ host    all             datasentinel    <span class="m">127</span>.0.0.1/0      
 <div class="line-block">
 <div class="line">The tags are customisable. you can define your own tags.</div>
 <div class="line">They are very useful in the user interface for filtering, grouping data and to define Role based access.</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">A script is present in the <strong>datasentinel</strong> subdirectory as an example. (connection_example.sh)</div>
 </div>
 </div>
 </div>
