@@ -6,7 +6,7 @@ Extensions
    | The 2 others, datasentinel and pg_store_plans, are optional.
 
 .. warning::
-   | Extensions need to be installed in the **postgres** database.
+   | Extensions need to be installed in the **postgres** database of your instances
 
 .. toctree::
    :maxdepth: 1

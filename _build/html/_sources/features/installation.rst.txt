@@ -138,7 +138,7 @@ datasentinel extension
 .. code-block:: bash
 
     shared_preload_libraries = 'pg_stat_statements,datasentinel'
-    track_activity_query_size = 2048
+    track_activity_query_size = 65536
     pg_stat_statements.track = all
 
 5. Restart postgresql

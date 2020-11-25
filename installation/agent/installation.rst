@@ -9,7 +9,10 @@ Agent installation
    | An agent is to be installed on each server running a postgresql instance. 
 
 .. note::
-   | Datasentinel needs **pg_stat_statements** extension. 
+   | Datasentinel needs the **pg_stat_statements** extension to be installed in your PostgreSQL instances
+
+.. warning::
+   | Extensions need to be installed in the **postgres** database of your instances
 
 1. Download the agent
 *********************
