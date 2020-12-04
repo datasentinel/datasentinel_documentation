@@ -20,8 +20,7 @@ System stats
 Installation 
 ************
    
-- See https://github.com/EnterpriseDB/system_stats for more details and how to install tihs extension.
-
+- See https://github.com/EnterpriseDB/system_stats for more details and how to install this extension.
 
 Monitored metrics 
 *****************
