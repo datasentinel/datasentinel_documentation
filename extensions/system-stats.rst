@@ -1,5 +1,7 @@
+.. _system_stats:
+
 *************
-System stats
+system_stats
 *************
 
 **SYSTEM_STATS** is an extension to monitor system activity.

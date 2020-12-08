@@ -17,8 +17,8 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Datasentinel'
-copyright = '2019-2020, Datasentinel'
+project = 'Datasentinel - PostgreSQL performance monitoring tool'
+copyright = '2020-2021 Datasentinel for Postgres'
 author = 'Datasentinel'
 
 # The full version, including alpha/beta/rc tags

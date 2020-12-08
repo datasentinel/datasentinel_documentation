@@ -2,6 +2,17 @@
 Release notes
 ******************
 
+**Dec 09, 2020 (v2020.12)**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. raw:: html
+
+   <h3>Features</h3>
+
+1. | Datasentinel can retrieve system metrics with the :ref:`agentless_feature` method if you install the :ref:`system_stats` extension 
+2. | Easily display the most frequently used Tables or Indexes (By disk reads, Cache activity or any other metric)
+3. | New version name convention
+
+
 **May 11, 2020 (v1.6.0)**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. raw:: html
