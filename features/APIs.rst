@@ -96,14 +96,14 @@ In order to use datasentinel API, you need to generate an access token.
 
 .. raw:: html
 
-   <h6 ><span style="margin-left:30px;font-weight:bold;color: #ff8c69">PUT</span><span style="color:#ff8c69">&nbsp;/ds-api/activity/workload-report</span></h6>
+   <h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#ff8c69">&nbsp;/ds-api/activity/workload-report</span></h6>
 
 - Example 
 
 .. code:: bash
 
   export TOKEN=<<user_token>>
-  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request PUT 'https://app.datasentinel.io/ds-api/activity/workload-report' -d @body.json -o myReport.pdf
+  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request POST 'https://app.datasentinel.io/ds-api/activity/workload-report' -d @body.json -o myReport.pdf
 
 - Request example (body.json)
 

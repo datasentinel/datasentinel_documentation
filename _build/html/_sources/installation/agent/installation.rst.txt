@@ -19,13 +19,10 @@ Agent installation
 
 - Connect to your user interface URL with a admin user.
 - Go to Tools submenu and click on agents.
-- Download the agent (tar.gz format, available for redhat/centos 6 and 7)
+- Download the agent (tar.gz format, available for redhat/centos, debia, ubuntu)
 
 .. note::
-   If you use our on-premises platform, you can also copy directly the file **datasentinel-agent-rhel7.tar.gz** from the directory **/datasentinel/download**
-
-.. note::
-   To deploy the agent on a **Red Hat / Centos 6** use **datasentinel-agent-rhel6.tar.gz**
+   If you use our on-premises platform, the agents are available in the directory **/datasentinel/download**
 
 
 2. Start the agent

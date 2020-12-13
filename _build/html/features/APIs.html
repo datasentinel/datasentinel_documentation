@@ -335,11 +335,11 @@ Show Source
 <div class="line">Here is an example <a class="reference download internal" download="" href="../_downloads/f76b07a85af547ff33ad6b7a03d307f8/workload_example.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a></div>
 </div>
 </div>
-<h6 ><span style="margin-left:30px;font-weight:bold;color: #ff8c69">PUT</span><span style="color:#ff8c69">&nbsp;/ds-api/activity/workload-report</span></h6><ul class="simple">
+<h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#ff8c69">&nbsp;/ds-api/activity/workload-report</span></h6><ul class="simple">
 <li><p>Example</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
-<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request PUT &#39;https://app.datasentinel.io/ds-api/activity/workload-report&#39; -d @body.json -o myReport.pdf</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request POST &#39;https://app.datasentinel.io/ds-api/activity/workload-report&#39; -d @body.json -o myReport.pdf</span>
 </pre></div>
 </div>
 <ul class="simple">
