@@ -1,0 +1,25 @@
+{% extends "!layout.html" %}
+
+{% block footer %}
+{{ super() }}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <div>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143387661-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'UA-143387661-1');
+        </script>
+        <!-- IpMeta must be included after Google Analytics -->
+        <script src="https://ipmeta.io/plugin.js"></script>
+    
+        <script>
+            var data = provideGtmPlugin({});
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push(data);
+        </script>
+    </div>
+{% endblock %}
