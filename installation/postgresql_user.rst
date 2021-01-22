@@ -65,3 +65,5 @@ Example:
    /datasentinel/ssl/ssl_crm_production_root.crt
    /datasentinel/ssl/ssl_crm_production_postgresql.crt
    /datasentinel/ssl/ssl_crm_production_postgresql.key
+
+- Change the access permissions (chmod 600)
