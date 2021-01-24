@@ -6,6 +6,7 @@ Features
    :caption: Contents
 
    sessions-workload
+   live360
    user-management
    execution-plans
    APIs
