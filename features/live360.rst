@@ -1,5 +1,5 @@
 ******************
-Sessions workload
+Live 360°
 ******************
 
 .. note::
@@ -9,7 +9,7 @@ Sessions workload
 **With this sampling feature**
 
 - Finely analyze your workload
-- Quickly identify the most consuming sessions and/or queries
+- Quickly identify the most consuming sessions and queries
 - Point precisely the root cause of your slowdowns
 - Identify the most consumed resources (CPU, IOs, others)
 - Aggregate metrics
@@ -18,11 +18,11 @@ Sessions workload
 
     <h4>The dedicated dashboard displays the information in a multi-dimensional way with Time selection, Time zooming and Tag filtering</h4>
 
-.. image:: ../images/sessions_workload.png
-   :alt: Sessions workload video on youtube https://youtu.be/uRaB9088ymA
+.. image:: ../images/live.png
+   :alt: Live 360° video on youtube https://youtu.be/28xODT1j9GI
    :width: 100%
    :align: center
-   :target: https://youtu.be/uRaB9088ymA
+   :target: https://youtu.be/28xODT1j9GI
 
 
 .. raw:: html 
@@ -39,4 +39,6 @@ Sessions workload
 .. note::
 
     | The **high** level is more precise but generates more data to upload.
+
+
 
