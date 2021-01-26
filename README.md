@@ -8,7 +8,7 @@
 
 # Datasentinel Documentation
 
-The Datasentinel documentation is available at https://doc.datasentinel.io/index.html
+The Datasentinel documentation is available at https://www.datasentinel.io/documentation/
 
 
 
