@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
     <title>Live 360° &#8212; Datasentinel</title>
 
-    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/datasentinel.css" />
     <link rel="stylesheet" href="../_static/notosanscjkjp.css" type="text/css" />
     <link rel="stylesheet" href="../_static/roboto.css" type="text/css" />
     <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.indigo-pink.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_materialdesign_theme.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="User management" href="user-management.html" />
-    <link rel="prev" title="Live 360°" href="sessions-workload.html" /> 
+    <link rel="prev" title="Sessions workload" href="sessions-workload.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
@@ -133,7 +133,7 @@ Show Source
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="sessions-workload.html">Live 360°</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions-workload.html">Sessions workload</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Live 360°</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user-management.html">User management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
@@ -210,7 +210,7 @@ Show Source
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="sessions-workload.html">Live 360°</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions-workload.html">Sessions workload</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Live 360°</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user-management.html">User management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
@@ -248,36 +248,166 @@ Show Source
         
   <div class="section" id="live-360">
 <h1>Live 360°<a class="headerlink" href="#live-360" title="Permalink to this headline">¶</a></h1>
+<p>Datasentinel provides this module thanks to direct connections to PostgreSQL instances via the agents.</p>
+<a class="reference external image-reference" href="https://youtu.be/28xODT1j9GI"><img alt="Live360 user" class="align-center" src="../_images/youtubeLogo.png" /></a>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">Datasentinel agent performs sampling of active sessions at regular intervals</div>
+<div class="line">Live360° is the only module that connects directly to PostgreSQL instances.</div>
+<div class="line">The other analysis dashboards retrieve data from the repository.</div>
 </div>
 </div>
-<p><strong>With this sampling feature</strong></p>
-<ul class="simple">
-<li><p>Finely analyze your workload</p></li>
-<li><p>Quickly identify the most consuming sessions and queries</p></li>
-<li><p>Point precisely the root cause of your slowdowns</p></li>
-<li><p>Identify the most consumed resources (CPU, IOs, others)</p></li>
-<li><p>Aggregate metrics</p></li>
+<h4>You can enable or disable this feature for each datasentinel user</h4><img alt="Live360 user" class="align-center" src="../_images/userLiveEnabled.png" />
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<div class="line-block">
+<div class="line">If you use local agents, you must have at least version <strong>2.5.0</strong> of the agent</div>
+</div>
+</div>
+<h4>Live360° allows you to </h4><ul class="simple">
+<li><p>Analyze <a class="reference internal" href="#current-sessions"><span class="std std-ref">Current sessions</span></a></p></li>
+<li><p>Quickly detect <a class="reference internal" href="#blocking-sessions"><span class="std std-ref">Blocking sessions</span></a></p></li>
+<li><p><a class="reference internal" href="#explorer"><span class="std std-ref">Explore Relation statistics</span></a></p></li>
+<li><p><a class="reference internal" href="#progress-reporting"><span class="std std-ref">Progress reporting</span></a></p></li>
+<li><p>View current settings</p></li>
+<li><p>Generate <a class="reference internal" href="#execution-plans"><span class="std std-ref">Execution plans</span></a> from any query and analyze them thanks to our execution plan visualizer</p></li>
+<li><p>View the <a class="reference internal" href="#disk-usage"><span class="std std-ref">Disk usage</span></a> consumed by the databases and relations</p></li>
+<li><p>Analyze the <a class="reference internal" href="#cache-usage"><span class="std std-ref">Cache usage</span></a> to explore the shared buffers cache (needs the extension <a class="reference external" href="https://www.postgresql.org/docs/12/pgbuffercache.html">pg_buffercache</a>)</p></li>
 </ul>
-<h4>The dedicated dashboard displays the information in a multi-dimensional way with Time selection, Time zooming and Tag filtering</h4><a class="reference external image-reference" href="https://youtu.be/28xODT1j9GI"><img alt="Live 360° video on youtube https://youtu.be/28xODT1j9GI" class="align-center" src="../_images/live.png" style="width: 100%;" /></a>
-<h4>Datasentinel allows 2 levels of granularity</h4><ul class="simple">
-<li><p><strong>low</strong> : a sampling is done every 10 seconds (<strong>default</strong>)</p></li>
-<li><p><strong>high</strong> : a sampling is done every second (needs datasentinel extension. See how to <a class="reference internal" href="installation.html#extension"><span class="std std-ref">datasentinel extension</span></a>)</p></li>
+<div class="section" id="current-sessions">
+<span id="id1"></span><h2>Current sessions<a class="headerlink" href="#current-sessions" title="Permalink to this headline">¶</a></h2>
+<p>You can choose your database or all , filter only active sessions and show queries.</p>
+<img alt="Live360 user" class="align-center" src="../_images/currentSessionsToolbar.png" />
+<dl class="simple">
+<dt>From left to right, the above indicators are</dt><dd><ul class="simple">
+<li><p>Number of active sessions</p></li>
+<li><p>Number of connected sessions</p></li>
+<li><p>Database activity graph : Are the sessions on CPU, waiting, … ?</p></li>
+<li><p>Number of currently blocked sessions</p></li>
 </ul>
+</dd>
+</dl>
+<p>You can explore the details of a session by clicking on it.</p>
+<a class="reference internal image-reference" href="../_images/currentSessions.gif"><img alt="PostgreSQL current sessions" class="align-center" src="../_images/currentSessions.gif" style="width: 100%;" /></a>
+</div>
+<div class="section" id="blocking-sessions">
+<span id="id2"></span><h2>Blocking sessions<a class="headerlink" href="#blocking-sessions" title="Permalink to this headline">¶</a></h2>
+<p>The screen shows you the blocking sessions as well as the blocked sessions.
+The blockers are identified by a green padlock. You can explore the details of a session by clicking on it.</p>
+<p>You can kill the sesion directly from the interface.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">You can modify the granularity at the agent level with the <a class="reference internal" href="../agent/CLI.html"><span class="doc">CLI</span></a> (datasentinel set collection-rate <strong>high or low</strong>)</div>
+<div class="line">To be able to kill a session, the user connected to the interface must have the privilege “read write” (See <a class="reference internal" href="user-management.html#user-management"><span class="std std-ref">User management</span></a>)</div>
+</div>
+</div>
+<a class="reference internal image-reference" href="../_images/blockingSessions.gif"><img alt="PostgreSQL blocking sessions" class="align-center" src="../_images/blockingSessions.gif" style="width: 100%;" /></a>
+</div>
+<div class="section" id="explore-relation-statistics">
+<span id="explorer"></span><h2>Explore Relation statistics<a class="headerlink" href="#explore-relation-statistics" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>Select your database, the schema,  then choose the relation type between</dt><dd><ul class="simple">
+<li><p>Table</p></li>
+<li><p>Index</p></li>
+<li><p>Materialized view</p></li>
+<li><p>Foreign table</p></li>
+<li><p>View</p></li>
+<li><p>Extended Statistics</p></li>
+<li><p>Extension</p></li>
+<li><p>Function / Proc</p></li>
+<li><p>Sequence</p></li>
+<li><p>TOAT table</p></li>
+</ul>
+</dd>
+<dt>Example of displayed elements for a table</dt><dd><ul class="simple">
+<li><p>Columns statistics</p></li>
+<li><p>Partitions</p></li>
+<li><p>Indexes</p></li>
+<li><p>Constraints</p></li>
+<li><p>Options</p></li>
+<li><p>Extended statistics</p></li>
+<li><p>TOAST</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">To be able to view some internal statistics (pg_statistic_ext, pg_stats), the PostgreSQL user used by datasentinel needs to have specific rigths.</div>
+<div class="line"><br /></div>
+<div class="line">Example of grant:</div>
+<div class="line">GRANT SELECT ON ALL TABLES IN SCHEMA pg_catalog TO datasentinel;</div>
+</div>
+</div>
+<a class="reference internal image-reference" href="../_images/explorer.gif"><img alt="PostgreSQL relation statistics explorer" class="align-center" src="../_images/explorer.gif" style="width: 100%;" /></a>
+</div>
+<div class="section" id="execution-plans">
+<span id="id3"></span><h2>Execution plans<a class="headerlink" href="#execution-plans" title="Permalink to this headline">¶</a></h2>
+<p>Select your database and generate an execution plan from any query.</p>
+<div class="line-block">
+<div class="line">You can choose the <strong>ANALYZE</strong> option to execute the query in order to have its overall and step by step execution time statistics.</div>
+<div class="line">The output can be text or json</div>
+<div class="line">The execution plan viewer makes it easy and quick to understand each step.</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<div class="line-block">
+<div class="line"><strong>ANALYZE</strong> option is only available for SELECT statements</div>
 </div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">The <strong>high</strong> level is more precise but generates more data to upload.</div>
+<div class="line">When choosing <strong>ANALYZE</strong>, specify a timeout to set the maximum allowed execution time of the query</div>
 </div>
+</div>
+<a class="reference internal image-reference" href="../_images/executionPlans.gif"><img alt="PostgreSQL query execution plans" class="align-center" src="../_images/executionPlans.gif" style="width: 100%;" /></a>
+</div>
+<div class="section" id="progress-reporting">
+<span id="id4"></span><h2>Progress reporting<a class="headerlink" href="#progress-reporting" title="Permalink to this headline">¶</a></h2>
+<p>Follow the progress of current operations</p>
+<dl class="simple">
+<dt>All versions:</dt><dd><ul class="simple">
+<li><p>VACUUM</p></li>
+</ul>
+</dd>
+<dt>Since PostgreSQL 12</dt><dd><ul class="simple">
+<li><p>CREATE INDEX</p></li>
+<li><p>CLUSTER or VACUUM FULL</p></li>
+</ul>
+</dd>
+<dt>Since PostgreSQL 13</dt><dd><ul class="simple">
+<li><p>ANALYZE</p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="../_images/progress_reporting.gif"><img alt="PostgreSQL progress reporting" class="align-center" src="../_images/progress_reporting.gif" style="width: 100%;" /></a>
+</div>
+<div class="section" id="disk-usage">
+<span id="id5"></span><h2>Disk usage<a class="headerlink" href="#disk-usage" title="Permalink to this headline">¶</a></h2>
+<p>Disk usage lets you explore the space consumed by relations.</p>
+<p>You can choose to view the space used for each database or all</p>
+<dl class="simple">
+<dt>Result can be grouped by</dt><dd><ul class="simple">
+<li><p>relations</p></li>
+<li><p>schemas</p></li>
+<li><p>tablespaces</p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="../_images/diskUsage.gif"><img alt="PostgreSQL relation disk Usage" class="align-center" src="../_images/diskUsage.gif" style="width: 100%;" /></a>
+</div>
+<div class="section" id="cache-usage">
+<span id="id6"></span><h2>Cache usage<a class="headerlink" href="#cache-usage" title="Permalink to this headline">¶</a></h2>
+<p>Cache usage lets you explore the space consumed by relations in memory (shared_buffers)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">To use this feature, you need to install the extension <strong>pg_buffercache</strong> in all databases of your instance</div>
+</div>
+</div>
+<p>You can choose to view the space used for each database or all</p>
+<a class="reference internal image-reference" href="../_images/cacheUsage.gif"><img alt="PostgreSQL relation disk Usage with pg_buffercache extension" class="align-center" src="../_images/cacheUsage.gif" style="width: 100%;" /></a>
 </div>
 </div>
 
@@ -285,6 +415,24 @@ Show Source
         </div>
         <div class="side-doc-outline">
             <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Live 360°</a><ul>
+<li><a class="reference internal" href="#current-sessions">Current sessions</a></li>
+<li><a class="reference internal" href="#blocking-sessions">Blocking sessions</a></li>
+<li><a class="reference internal" href="#explore-relation-statistics">Explore Relation statistics</a></li>
+<li><a class="reference internal" href="#execution-plans">Execution plans</a></li>
+<li><a class="reference internal" href="#progress-reporting">Progress reporting</a></li>
+<li><a class="reference internal" href="#disk-usage">Disk usage</a></li>
+<li><a class="reference internal" href="#cache-usage">Cache usage</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
             </div>
         </div>
 
@@ -294,7 +442,7 @@ Show Source
          <i class="pagenation-arrow-L material-icons">arrow_back</i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>Live 360°</div>
+            <div>Sessions workload</div>
          </div>
      </a>
      <a id="button-next" href="user-management.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
@@ -317,7 +465,7 @@ Show Source
 
     <div class="mdl-mini-footer__right-section">
         <div>&copy; Copyright 2020-2021 Datasentinel for Postgres.</div>
-      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.1.1 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
+      <div>Generated by <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.4.3 using <a href="https://github.com/myyasuda/sphinx_materialdesign_theme">sphinx_materialdesign_theme</a>.</div>
     </div>
 </footer>
         </main>

@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Sphinx Build HTML",
+            "type": "process",
+            "command": "E:\\projects\\vdoc\\Scripts\\sphinx-build.exe",
+            "args": [
+                "-b", 
+                "html", 
+                "${workspaceFolder}", 
+                "${workspaceFolder}/_build/html"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+}
