@@ -4,7 +4,10 @@
 On-premises platform installation
 **********************************
 
+
 .. raw:: html
+
+   <h4>See our Blog entry <a href="https://www.datasentinel.io/blog/post/start/" target="_hblank">Getting started with Datasentinel on-premises</a><br><br></h4>
 
    <h3>Prerequisites</h3>
 

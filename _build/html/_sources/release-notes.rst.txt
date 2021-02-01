@@ -2,6 +2,31 @@
 Release notes
 ******************
 
+**Feb 01, 2021 (v2021.02)**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. raw:: html
+
+   <h3>Features</h3>
+
+1. | Datasentinel introduces its new Live360° feature:
+   | 
+   | Thanks to direct connections, this feature provides precision and additional information on the context, which will offer you a valuable and indispensable help during your performance analyzes
+   | - Current and blocking sessions
+   | - Relations Explorer to view statistics in detail (tables, indexes, columns, extended statistics, ...)
+   | - Disk and memory cache usage
+   | - Generate execution plans from any query and analyze them thanks to our execution plan visualizer
+   | - In progress reporting (Vacuum, analyze, create index, ...)
+   |
+   | See :ref:`live_360` Documentation
+   |
+   | View our demo video
+
+   .. image:: ./images/youtubeLogo.png
+      :alt: Live360 user
+      :align: center
+      :target: https://youtu.be/28xODT1j9GI
+
+
 **Dec 09, 2020 (v2020.12)**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. raw:: html
