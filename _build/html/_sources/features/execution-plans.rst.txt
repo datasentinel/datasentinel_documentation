@@ -35,41 +35,22 @@ See http://pgstoreplans.osdn.jp/pg_store_plans.html for more details.
 
 The extension can be downloaded here https://github.com/datasentinel/pg_store_plans
 
+.. warning::
+   | For a version < 10, download the version 1.3.1 https://github.com/ossc-db/pg_store_plans/archive/1.3.1.tar.gz
 
 2. Compile and deploy
 *********************
 
-- Version < 9.6 (example done with 9.4)
+Ensure you have set the PATH variable to your PostgreSQL installation directory 
 
 .. code-block:: bash
 
-   export PATH=/usr/pgsql-9.4/bin:$PATH
+   export PATH=<<POSTGRESQL_DIRECTORY>>/bin:$PATH
 
-- Version 9.6
+.. note::
+   | The **pg_config** command should be OK
 
-.. code-block:: bash
-
-   export PATH=/usr/pgsql-9.6/bin:$PATH
-
-- Version 10
-
-.. code-block:: bash
-
-   export PATH=/usr/pgsql-10/bin:$PATH
-
-- Version 11
-
-.. code-block:: bash
-
-   export PATH=/usr/pgsql-11/bin:$PATH
-
-- Version 12
-
-.. code-block:: bash
-
-   export PATH=/usr/pgsql-12/bin:$PATH
-
-- All
+- Then compile the extension
 
 .. code-block:: bash
 
@@ -103,7 +84,7 @@ The extension can be downloaded here https://github.com/datasentinel/pg_store_pl
 4. Restart postgresql
 *********************
 
-5. Create the extensions
+5. Create the extension
 ************************
 
 - connect as a superuser
