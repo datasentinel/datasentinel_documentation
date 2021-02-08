@@ -1,3 +1,6 @@
+.. _pg_store_plans:
+
+
 ******************
 Execution plans
 ******************

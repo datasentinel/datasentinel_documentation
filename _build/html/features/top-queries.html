@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>Agentless &#8212; Datasentinel</title>
+    <title>Top Queries &#8212; Datasentinel</title>
 
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
@@ -25,8 +25,8 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Connection API" href="connection-api.html" />
-    <link rel="prev" title="API" href="APIs.html" /> 
+    <link rel="next" title="Live 360°" href="live360.html" />
+    <link rel="prev" title="Sessions workload" href="sessions-workload.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
@@ -34,7 +34,7 @@
         
         <nav class="mdl-navigation breadcrumb">
             <a class="mdl-navigation__link" href="index.html">Features</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link is-active">Agentless</a>
+            <a class="mdl-navigation__link is-active">Top Queries</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -57,7 +57,7 @@
         
 <a id="button-show-source"
     class="mdl-button mdl-js-button mdl-button--icon"
-    href="../_sources/features/agentless.rst.txt" rel="nofollow">
+    href="../_sources/features/top-queries.rst.txt" rel="nofollow">
 <i class="material-icons">code</i>
 </a>
 <div class="mdl-tooltip" data-mdl-for="button-show-source">
@@ -135,12 +135,12 @@ Show Source
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sessions-workload.html">Sessions workload</a></li>
-<li class="toctree-l2"><a class="reference internal" href="top-queries.html">Top Queries</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Top Queries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="live360.html">Live 360°</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user-management.html">User management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="APIs.html">API</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Agentless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agentless.html">Agentless</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection API</a></li>
 </ul>
 </li>
@@ -214,12 +214,12 @@ Show Source
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sessions-workload.html">Sessions workload</a></li>
-<li class="toctree-l2"><a class="reference internal" href="top-queries.html">Top Queries</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Top Queries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="live360.html">Live 360°</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user-management.html">User management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="APIs.html">API</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Agentless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agentless.html">Agentless</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection API</a></li>
 </ul>
 </li>
@@ -250,69 +250,75 @@ Show Source
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="agentless">
-<span id="agentless-feature"></span><h1>Agentless<a class="headerlink" href="#agentless" title="Permalink to this headline">¶</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<div class="line-block">
-<div class="line">The Agentless feature is not available if you use our SAAS platform</div>
-</div>
-</div>
+  <div class="section" id="top-queries">
+<span id="id1"></span><h1>Top Queries<a class="headerlink" href="#top-queries" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">For an on-premises installation, you can use either the agent-based or agentless feature. (See <a class="reference internal" href="../installation/platform/agentbasedOrAgentless.html#agentless"><span class="std std-ref">Agent-based or Agentless?</span></a>)</div>
-<div class="line">You can have a hybrid architecture that uses both methods</div>
+<div class="line">Top queries are collected thanks to the <a class="reference internal" href="../extensions/pg-stat-statements.html#pg-stat-statements"><span class="std std-ref">pg_stat_statements</span></a> extension</div>
+<div class="line"><br /></div>
+<div class="line">Execution plans are collected thanks to the <a class="reference internal" href="execution-plans.html#pg-store-plans"><span class="std std-ref">pg_store_plans</span></a> extension</div>
 </div>
 </div>
-<p>The agentless feature lets you monitor PostgreSQL managed systems of cloud providers (private or public)</p>
 <ul class="simple">
-<li><p>AWS RDS, Aurora</p></li>
-<li><p>Microsoft Azure database, hyperscale</p></li>
-<li><p>Google Cloud SQL</p></li>
-<li><p>Other public cloud providers</p></li>
+<li><p>Limit the result to the top N queries</p></li>
+<li><dl class="simple">
+<dt>Finely analyze your top queries among the following dimension:</dt><dd><ul>
+<li><p>Total time</p></li>
+<li><p>Calls</p></li>
+<li><p>Rows</p></li>
+<li><p>Shared blocks hit</p></li>
+<li><p>Shared blocks read</p></li>
+<li><p>Shared blocks dirtied</p></li>
+<li><p>Shared blocks written</p></li>
+<li><p>Temporary blocks read</p></li>
+<li><p>Temporary blocks written</p></li>
+<li><p>Read time</p></li>
+<li><p>Write time</p></li>
+<li><p>Local blocks hit</p></li>
+<li><p>Local blocks read</p></li>
+<li><p>Local blocks dirtied</p></li>
+<li><p>Local blocks written</p></li>
+<li><p>WAL size (since Postgres 13)</p></li>
 </ul>
-<p>Connections can be created either with the <a class="reference internal" href="#connection-management-agentless"><span class="std std-ref">User interface connection management</span></a>
-or with the <a class="reference internal" href="connection-api.html#connection-api"><span class="std std-ref">Connection API</span></a></p>
-<div class="section" id="user-interface-connection-management">
-<span id="connection-management-agentless"></span><h2>User interface connection management<a class="headerlink" href="#user-interface-connection-management" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="../_images/agentless.gif"><img alt="connection management" class="align-center" src="../_images/agentless.gif" style="width: 100%;" /></a>
-</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display the run-time statistics:</dt><dd><ul>
+<li><p>Globally</p></li>
+<li><p>By call</p></li>
+<li><p>By second</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Drill-down into a selected query to view its historical statistics as well as its execution plans.</p></li>
+</ul>
+<h4>The dedicated dashboard displays the information in a multi-dimensional way with Time selection, Time zooming and Tag filtering</h4><a class="reference external image-reference" href="https://youtu.be/6ofxbr-tdUY"><img alt="Top queries video on youtube https://youtu.be/6ofxbr-tdUY" class="align-center" src="../_images/top_queries.png" style="width: 100%;" /></a>
 </div>
 
 
         </div>
         <div class="side-doc-outline">
             <div class="side-doc-outline--content"> 
-<div class="localtoc">
-    <p class="caption">
-      <span class="caption-text">Table Of Contents</span>
-    </p>
-    <ul>
-<li><a class="reference internal" href="#">Agentless</a><ul>
-<li><a class="reference internal" href="#user-interface-connection-management">User interface connection management</a></li>
-</ul>
-</li>
-</ul>
-
-</div>
             </div>
         </div>
 
       <div class="clearer"></div>
     </div><div class="pagenation">
-     <a id="button-prev" href="APIs.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+     <a id="button-prev" href="sessions-workload.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
          <i class="pagenation-arrow-L material-icons">arrow_back</i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>API</div>
+            <div>Sessions workload</div>
          </div>
      </a>
-     <a id="button-next" href="connection-api.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="live360.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
         <i class="pagenation-arrow-R material-icons">arrow_forward</i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Connection API</div>
+            <div>Live 360°</div>
         </div>
      </a>
   </div>

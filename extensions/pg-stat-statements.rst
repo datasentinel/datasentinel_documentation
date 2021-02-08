@@ -1,3 +1,6 @@
+.. _pg_stat_statements:
+
+
 ******************
 pg_stat_statements
 ******************

@@ -20,6 +20,7 @@ Features
    :caption: Contents
 
    sessions-workload
+   top-queries
    live360
    user-management
    execution-plans
