@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>Agent-based or Agentless? &#8212; Datasentinel</title>
+    <title>Upgrade Datasentinel &#8212; Datasentinel</title>
 
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/material-icons.css" type="text/css" />
@@ -25,8 +25,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Agent installation" href="../agent/installation.html" />
-    <link rel="prev" title="On-premises platform installation" href="installation.html" /> 
+    <link rel="next" title="Extensions" href="../../extensions/index.html" />
+    <link rel="prev" title="Postgresql user" href="../postgresql_user.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
@@ -34,7 +34,7 @@
         
         <nav class="mdl-navigation breadcrumb">
             <a class="mdl-navigation__link" href="../index.html">Installation</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link is-active">Agent-based or Agentless?</a>
+            <a class="mdl-navigation__link is-active">Upgrade Datasentinel</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -57,7 +57,7 @@
         
 <a id="button-show-source"
     class="mdl-button mdl-js-button mdl-button--icon"
-    href="../../_sources/installation/platform/agentbasedOrAgentless.rst.txt" rel="nofollow">
+    href="../../_sources/installation/platform/upgrade.rst.txt" rel="nofollow">
 <i class="material-icons">code</i>
 </a>
 <div class="mdl-tooltip" data-mdl-for="button-show-source">
@@ -108,10 +108,10 @@ Show Source
                 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Installation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">On-premises platform installation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Agent-based or Agentless?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../agent/installation.html">Agent installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../postgresql_user.html">Postgresql user</a></li>
-<li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrade Datasentinel</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Upgrade Datasentinel</a></li>
 </ul>
 </li>
 </ul>
@@ -186,10 +186,10 @@ Show Source
                 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Installation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">On-premises platform installation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Agent-based or Agentless?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../agent/installation.html">Agent installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../postgresql_user.html">Postgresql user</a></li>
-<li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrade Datasentinel</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Upgrade Datasentinel</a></li>
 </ul>
 </li>
 </ul>
@@ -248,65 +248,195 @@ Show Source
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="agent-based-or-agentless">
-<span id="agentless"></span><h1>Agent-based or Agentless?<a class="headerlink" href="#agent-based-or-agentless" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="upgrade-datasentinel">
+<span id="upgrade"></span><h1>Upgrade Datasentinel<a class="headerlink" href="#upgrade-datasentinel" title="Permalink to this headline">¶</a></h1>
+<p>Procedure to upgrade your on-premises platform and agents if you use local agents</p>
+<div class="section" id="platform-upgrade">
+<h2>1. Platform upgrade<a class="headerlink" href="#platform-upgrade" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Uncompress the downloaded file</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvzf patch-datasentinel.tar.gz
+</pre></div>
+</div>
+<ul>
+<li><p>3 files are created</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>patch_datasentinel.sh</p></li>
+<li><p>update-datasentinel.tar.gz</p></li>
+<li><p>dump_grafana.sql</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Run the shell script</p></li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<div class="line-block">
-<div class="line">If you use our SAAS platform, you need to install agents locally on your servers (See <a class="reference internal" href="../agent/installation.html#agent-installation"><span class="std std-ref">Agent installation</span></a>)</div>
+<p>The script must be run as Datasentinel owner</p>
 </div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./patch_datasentinel.sh
+</pre></div>
 </div>
-<h3>For an on-premises installation, you can use either the agent-based or the agentless feature </h3><div class="admonition note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Confirmation is requested</p>
+</div>
+<h3>The script does several actions</h3><ul class="simple">
+<li><p>Stop backend components</p></li>
+<li><p>Backup old version</p></li>
+<li><p>Replace necessary files</p></li>
+<li><p>Update Grafana dashboards</p></li>
+<li><p>Start components</p></li>
+</ul>
+<div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">You can have a hybrid architecture that uses both methods</div>
+<div class="line">The script runs in a few seconds. At the end, Datasentinel should be UP and RUNNING</div>
+<div class="line">A log file <strong>update_datasentinel_&lt;&lt;VERSION&gt;&gt;.log</strong> is created in the current directory</div>
 </div>
 </div>
-<h3>The table below compares the differences between the 2 methods</h3><a class="reference internal image-reference" href="../../_images/comparison.png"><img alt="../../_images/comparison.png" class="align-center" src="../../_images/comparison.png" style="width: 677.25px; height: 711.0px;" /></a>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<p>Output example</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>----------------------------
+Updating Datasentinel
+----------------------------
+Do you want to <span class="k">continue</span> installing version <span class="m">2021</span>.02? <span class="o">(</span>Y/<span class="o">[</span>N<span class="o">])</span> : Y
+Logfile created : update_datasentinel_2021.02.log
+----------------------------------------
+Stopping backend and dispatcher services
+----------------------------------------
+./patch_datasentinel.sh: line <span class="m">61</span>:  <span class="m">5754</span> Killed                  sudo systemctl stop datasentinel_dispatcher &gt; <span class="nv">$LOG_FILE</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+----------------------------------------------------------
+Uncompressing patch version <span class="m">2021</span>.02, please wait...
+----------------------------------------------------------
+----------------------------
+Services status
+----------------------------
+datasentinel_backend.service                                       loaded active running   Datasentinel backend API
+datasentinel_dispatcher.service                                    loaded active running   Datasentinel Agentless
+datasentinel_grafana.service                                       loaded active running   Datasentinel grafana daemon
+datasentinel_influxdb.service                                      loaded active running   InfluxDB service
+datasentinel_postgresql.service                                    loaded active running   Datasentinel PostgreSQL instance
+nginx.service                                                      loaded active running   nginx - high performance web server
+-------------------------------------------
+Updating grafana dashboards, please wait...
+-------------------------------------------
+----------------------------
+Datasentinel update finished
+----------------------------
+<span class="o">{</span>
+<span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;OK&quot;</span>,
+<span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;Datasentinel Backend up and running&quot;</span>,
+<span class="s2">&quot;datasentinel_version&quot;</span>: <span class="s2">&quot;2021.02&quot;</span>,
+<span class="s2">&quot;backend_version&quot;</span>: <span class="s2">&quot;v2.5.0&quot;</span>,
+<span class="s2">&quot;frontend_version&quot;</span>: <span class="s2">&quot;v2.5.0&quot;</span>,
+<span class="s2">&quot;services&quot;</span>: <span class="o">[</span>
+   <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;nginx&quot;</span>,
+      <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;Nginx web server&quot;</span>,
+      <span class="s2">&quot;running&quot;</span>: <span class="nb">true</span>
+   <span class="o">}</span>,
+   <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;datasentinel_grafana&quot;</span>,
+      <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;Grafana frontend&quot;</span>,
+      <span class="s2">&quot;running&quot;</span>: <span class="nb">true</span>
+   <span class="o">}</span>,
+   <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;datasentinel_postgresql&quot;</span>,
+      <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;PostgreSQL instance&quot;</span>,
+      <span class="s2">&quot;running&quot;</span>: <span class="nb">true</span>
+   <span class="o">}</span>,
+   <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;datasentinel_backend&quot;</span>,
+      <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;Backend service and API&quot;</span>,
+      <span class="s2">&quot;running&quot;</span>: <span class="nb">true</span>
+   <span class="o">}</span>,
+   <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;datasentinel_dispatcher&quot;</span>,
+      <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;Agentless service&quot;</span>,
+      <span class="s2">&quot;running&quot;</span>: <span class="nb">true</span>
+   <span class="o">}</span>,
+   <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;datasentinel_influxdb&quot;</span>,
+      <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;Influxdb database&quot;</span>,
+      <span class="s2">&quot;running&quot;</span>: <span class="nb">true</span>
+   <span class="o">}</span>
+<span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="agent-upgrade">
+<h2>2. Agent upgrade<a class="headerlink" href="#agent-upgrade" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">If you want to use the <strong>Sessions workload</strong> high sampling rate (every second), you need to install an internal extension (See <a class="reference internal" href="../../features/installation.html#extension"><span class="std std-ref">datasentinel extension</span></a>)</div>
+<div class="line">The upgrade of an agent is done by the total replacement of the old version</div>
 </div>
+</div>
+<p>Download the agent compressed file corresponding to your OS version</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">Actions:</div>
+<div class="line">stop the agent, replace or remove the old directory, restart it</div>
+</div>
+</div>
+<p>Example</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="s">&lt;&lt;PARENT_DIRECTORY&gt;&gt;</span>
+<span class="s">export DATASENTINEL_PA</span>TH<span class="o">=</span><span class="s2">&quot;`pwd`/datasentinel&quot;</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$DATASENTINEL_PATH</span>/lib
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$DATASENTINEL_PATH</span>:<span class="nv">$PATH</span>
+datasentinel stop agent
+rm -fr datasentinel/
+tar xvzf /tmp/datasentinel-agent-rhel7.tar.gz
+datasentinel start agent
+datasentinel status agent
+</pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">The agent-based feature needs agents to be installed locally on each server (See <a class="reference internal" href="../agent/installation.html#agent-installation"><span class="std std-ref">Agent installation</span></a>).</div>
-<div class="line">Agents send data (PUSH method) and use https to communicate with the platform</div>
+<div class="line">The current configuration is kept</div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../../_images/agent-based-archi.png"><img alt="../../_images/agent-based-archi.png" class="align-center" src="../../_images/agent-based-archi.png" style="width: 885.0px; height: 498.0px;" /></a>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<div class="line-block">
-<div class="line">In the agentless architecture, the platform collects data (PULL method)</div>
 </div>
-</div>
-<a class="reference internal image-reference" href="../../_images/agentless-archi.png"><img alt="../../_images/agentless-archi.png" class="align-center" src="../../_images/agentless-archi.png" style="width: 885.0px; height: 498.0px;" /></a>
 </div>
 
 
         </div>
         <div class="side-doc-outline">
             <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Upgrade Datasentinel</a><ul>
+<li><a class="reference internal" href="#platform-upgrade">1. Platform upgrade</a></li>
+<li><a class="reference internal" href="#agent-upgrade">2. Agent upgrade</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
             </div>
         </div>
 
       <div class="clearer"></div>
     </div><div class="pagenation">
-     <a id="button-prev" href="installation.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+     <a id="button-prev" href="../postgresql_user.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
          <i class="pagenation-arrow-L material-icons">arrow_back</i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>On-premises platform installation</div>
+            <div>Postgresql user</div>
          </div>
      </a>
-     <a id="button-next" href="../agent/installation.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="../../extensions/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
         <i class="pagenation-arrow-R material-icons">arrow_forward</i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Agent installation</div>
+            <div>Extensions</div>
         </div>
      </a>
   </div>

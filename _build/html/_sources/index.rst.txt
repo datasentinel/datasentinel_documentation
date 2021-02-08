@@ -5,10 +5,10 @@ Documentation
    :alt: Performance tool for Postgresql
    :align: center
 
-   Datasentinel is a unique and innovative performance tool for Postgresql.
+   Datasentinel is a unique and innovative performance tool for PostgreSQL.
    
-   This documentation will show you how to install the on-premises platform and how to use Datasentinel.
-
+   Find all the information you need to install and use Datasentinel
+   
 .. note::
    | Datasentinel is available from PostgreSQL version **9.4**
    | 

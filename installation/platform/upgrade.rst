@@ -1,0 +1,157 @@
+.. _upgrade:
+
+********************
+Upgrade Datasentinel
+********************
+
+Procedure to upgrade your on-premises platform and agents if you use local agents
+
+1. Platform upgrade
+*******************
+
+* Uncompress the downloaded file
+
+.. code-block:: bash
+
+   tar xvzf patch-datasentinel.tar.gz
+
+* 3 files are created
+
+   - patch_datasentinel.sh
+   - update-datasentinel.tar.gz
+   - dump_grafana.sql
+
+
+* Run the shell script
+
+.. warning:: 
+   The script must be run as Datasentinel owner
+
+.. code-block:: bash
+
+   ./patch_datasentinel.sh
+
+.. note:: 
+   Confirmation is requested
+
+
+.. raw:: html
+
+   <h3>The script does several actions</h3>
+
+- Stop backend components
+- Backup old version
+- Replace necessary files
+- Update Grafana dashboards
+- Start components
+
+
+.. note:: 
+   | The script runs in a few seconds. At the end, Datasentinel should be UP and RUNNING
+   | A log file **update_datasentinel_<<VERSION>>.log** is created in the current directory
+
+
+Output example 
+
+.. code-block:: bash
+
+   ----------------------------
+   Updating Datasentinel
+   ----------------------------
+   Do you want to continue installing version 2021.02? (Y/[N]) : Y
+   Logfile created : update_datasentinel_2021.02.log
+   ----------------------------------------
+   Stopping backend and dispatcher services
+   ----------------------------------------
+   ./patch_datasentinel.sh: line 61:  5754 Killed                  sudo systemctl stop datasentinel_dispatcher > $LOG_FILE 2>&1
+   ----------------------------------------------------------
+   Uncompressing patch version 2021.02, please wait...
+   ----------------------------------------------------------
+   ----------------------------
+   Services status
+   ----------------------------
+   datasentinel_backend.service                                       loaded active running   Datasentinel backend API
+   datasentinel_dispatcher.service                                    loaded active running   Datasentinel Agentless
+   datasentinel_grafana.service                                       loaded active running   Datasentinel grafana daemon
+   datasentinel_influxdb.service                                      loaded active running   InfluxDB service
+   datasentinel_postgresql.service                                    loaded active running   Datasentinel PostgreSQL instance
+   nginx.service                                                      loaded active running   nginx - high performance web server
+   -------------------------------------------
+   Updating grafana dashboards, please wait...
+   -------------------------------------------
+   ----------------------------
+   Datasentinel update finished
+   ----------------------------
+   {
+   "status": "OK",
+   "message": "Datasentinel Backend up and running",
+   "datasentinel_version": "2021.02",
+   "backend_version": "v2.5.0",
+   "frontend_version": "v2.5.0",
+   "services": [
+      {
+         "name": "nginx",
+         "description": "Nginx web server",
+         "running": true
+      },
+      {
+         "name": "datasentinel_grafana",
+         "description": "Grafana frontend",
+         "running": true
+      },
+      {
+         "name": "datasentinel_postgresql",
+         "description": "PostgreSQL instance",
+         "running": true
+      },
+      {
+         "name": "datasentinel_backend",
+         "description": "Backend service and API",
+         "running": true
+      },
+      {
+         "name": "datasentinel_dispatcher",
+         "description": "Agentless service",
+         "running": true
+      },
+      {
+         "name": "datasentinel_influxdb",
+         "description": "Influxdb database",
+         "running": true
+      }
+   ]
+   }
+
+
+2. Agent upgrade
+*******************
+
+.. note:: 
+   | The upgrade of an agent is done by the total replacement of the old version
+
+
+Download the agent compressed file corresponding to your OS version
+
+
+.. note:: 
+   | Actions:
+   | stop the agent, replace or remove the old directory, restart it
+
+Example
+
+
+.. code-block:: bash
+
+   cd <<PARENT_DIRECTORY>>
+   export DATASENTINEL_PATH="`pwd`/datasentinel"
+   export LD_LIBRARY_PATH=$DATASENTINEL_PATH/lib
+   export PATH=$DATASENTINEL_PATH:$PATH
+   datasentinel stop agent
+   rm -fr datasentinel/
+   tar xvzf /tmp/datasentinel-agent-rhel7.tar.gz 
+   datasentinel start agent
+   datasentinel status agent
+
+.. note:: 
+   | The current configuration is kept
+
