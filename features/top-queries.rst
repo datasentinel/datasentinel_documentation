@@ -5,6 +5,9 @@
 Top Queries
 ***********
 
+
+The top queries feature allows you to identify the most consuming queries according to a chosen dimension.
+
 .. note::
 
     | Top queries are collected thanks to the :ref:`pg_stat_statements` extension
@@ -12,7 +15,6 @@ Top Queries
     | Execution plans are collected thanks to the :ref:`pg_store_plans <pg_store_plans>` extension
 
 
-- Limit the result to the top N queries
 - Finely analyze your top queries among the following dimension:
     * Total time
     * Calls
