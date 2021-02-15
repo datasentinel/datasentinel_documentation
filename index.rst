@@ -8,6 +8,8 @@ Documentation
    Datasentinel is a unique and innovative performance tool for PostgreSQL.
    
    Find all the information you need to install and use Datasentinel
+
+   **SaaS** or **On-Premises**: :ref:`architecture`
    
 .. note::
    | Datasentinel is available from PostgreSQL version **9.4**
@@ -21,6 +23,11 @@ Documentation
    :align: center
    :figclass: align-center
 
+
+.. toctree::
+   :hidden:
+
+   architecture
 
 .. toctree::
    :hidden:
