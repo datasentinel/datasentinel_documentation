@@ -64,9 +64,9 @@ html_css_files = [
 html_theme_options = {
     'header_links' : [
         ('Home', 'index', False, 'home'),
-        ('Cloud app', "https://app.datasentinel.io", True, 'dashboard'),
-        ('Web', "https://www.datasentinel.io", True, 'link'),
-        ('Github', "https://github.com/datasentinel", True, 'link')
+        ('Web site', "https://www.datasentinel.io", True, 'link'),
+        ('Github', "https://github.com/datasentinel", True, 'link'),
+        ('Live demo', "https://demo.datasentinel.io", True, 'dashboard'),
     ],
     'primary_color': 'indigo',
     'fixed_drawer': True,
