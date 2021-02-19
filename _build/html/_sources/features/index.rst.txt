@@ -22,10 +22,10 @@ Features
    sessions-workload
    top-queries
    live360
+   top-tables
    user-management
    execution-plans
    APIs
-   agentless
 
 
 
@@ -33,6 +33,7 @@ Features
    :maxdepth: 1
    :caption: Agentless configuration
 
+   agentless
    connection-api   
 
 

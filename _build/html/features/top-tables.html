@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>Features &#8212; Datasentinel</title>
+    <title>Top Tables / Indexes &#8212; Datasentinel</title>
 
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
@@ -25,15 +25,16 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Sessions workload" href="sessions-workload.html" />
-    <link rel="prev" title="Agent FAQ" href="../agent/faq_agent.html" /> 
+    <link rel="next" title="User management" href="user-management.html" />
+    <link rel="prev" title="Live 360°" href="live360.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
-            <a class="mdl-navigation__link is-active">Features</a>
+            <a class="mdl-navigation__link" href="index.html">Features</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Top Tables / Indexes</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -56,7 +57,7 @@
         
 <a id="button-show-source"
     class="mdl-button mdl-js-button mdl-button--icon"
-    href="../_sources/features/index.rst.txt" rel="nofollow">
+    href="../_sources/features/top-tables.rst.txt" rel="nofollow">
 <i class="material-icons">code</i>
 </a>
 <div class="mdl-tooltip" data-mdl-for="button-show-source">
@@ -135,11 +136,11 @@ Show Source
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Features</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sessions-workload.html">Sessions workload</a></li>
 <li class="toctree-l2"><a class="reference internal" href="top-queries.html">Top Queries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="live360.html">Live 360°</a></li>
-<li class="toctree-l2"><a class="reference internal" href="top-tables.html">Top Tables / Indexes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Top Tables / Indexes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user-management.html">User management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="APIs.html">API</a></li>
@@ -218,11 +219,11 @@ Show Source
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Features</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sessions-workload.html">Sessions workload</a></li>
 <li class="toctree-l2"><a class="reference internal" href="top-queries.html">Top Queries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="live360.html">Live 360°</a></li>
-<li class="toctree-l2"><a class="reference internal" href="top-tables.html">Top Tables / Indexes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Top Tables / Indexes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user-management.html">User management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="APIs.html">API</a></li>
@@ -257,27 +258,71 @@ Show Source
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="features">
-<h1>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h1>
-<h4><a href="https://www.youtube.com/channel/UCQAUzutfsKoh5b3uK93i5Pw">Find all the features in video on our youtube channel</a></h4><a class="reference external image-reference" href="https://www.youtube.com/channel/UCQAUzutfsKoh5b3uK93i5Pw"><img alt="PostgreSQL performance monitoring platform for PostgreSQL" class="align-center" src="../_images/youtubeLogo.png" /></a>
-<h4></h4><div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="sessions-workload.html">Sessions workload</a></li>
-<li class="toctree-l1"><a class="reference internal" href="top-queries.html">Top Queries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live360.html">Live 360°</a></li>
-<li class="toctree-l1"><a class="reference internal" href="top-tables.html">Top Tables / Indexes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user-management.html">User management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
-<li class="toctree-l1"><a class="reference internal" href="APIs.html">API</a></li>
+  <div class="section" id="top-tables-indexes">
+<span id="top-tables"></span><h1>Top Tables / Indexes<a class="headerlink" href="#top-tables-indexes" title="Permalink to this headline">¶</a></h1>
+<p>This feature allows you to identify the most accessed relations according to a chosen dimension.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">Relation statistics are collected once a hour.</div>
+<div class="line"><br /></div>
+<div class="line">By default, datasentinel disable the collection if the PostgreSQL instance has more than <strong>1000</strong> tables.</div>
+<div class="line">You can enable / disable the collection by setting the limit number at the agent level with the agent <a class="reference internal" href="../agent/CLI.html#agent-cli"><span class="std std-ref">CLI</span></a> or with agent <a class="reference internal" href="../agent/API.html#agent-apis"><span class="std std-ref">API</span></a>.</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Top Tables<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Finely analyze your tables among the following dimension</dt><dd><ul>
+<li><p>Tuples</p></li>
+<li><p>Size</p></li>
+<li><p>Sequential scans</p></li>
+<li><p>Index scans</p></li>
+<li><p>Seq. scans rows fetched</p></li>
+<li><p>Index scans rows fetched</p></li>
+<li><p>Heap buffer blocks hit</p></li>
+<li><p>Heap disk blocks read</p></li>
+<li><p>Index disk blocks read</p></li>
+<li><p>Index buffer blocks hit</p></li>
+<li><p>Inserts</p></li>
+<li><p>HOT updates</p></li>
+<li><p>Updates</p></li>
+<li><p>Deletes</p></li>
+<li><p>Dead tuples</p></li>
+<li><p>Live tuples</p></li>
+<li><p>Tuples modified since analyze</p></li>
+<li><p>Frozen xid</p></li>
+<li><p>Age frozen xid</p></li>
+<li><p>TOAST buffer blocks hit</p></li>
+<li><p>TOAST disk blocks read</p></li>
+<li><p>TOAST buffer index blocks hit</p></li>
+<li><p>TOAST disk index blocks read</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Drill-down into a selected table to view its historical statistics as well as its index statistics.</p></li>
 </ul>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Agentless configuration</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="agentless.html">Agentless</a></li>
-<li class="toctree-l1"><a class="reference internal" href="connection-api.html">Connection API</a></li>
+<div class="section" id="top-indexes">
+<h2>Top Indexes<a class="headerlink" href="#top-indexes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Finely analyze your indexes among the following dimension</dt><dd><ul>
+<li><p>Index scans</p></li>
+<li><p>Index buffer blocks hit</p></li>
+<li><p>Index disk blocks read</p></li>
+<li><p>Index scans rows fetched</p></li>
+<li><p>Index scans rows read</p></li>
+<li><p>Size</p></li>
 </ul>
+</dd>
+</dl>
+</li>
+<li><p>Drill-down into a selected index to view its historical statistics.</p></li>
+</ul>
+<h4>Both dashboards (Tables and Indexes) display the information in a multi-dimensional way with Time selection, Time zooming and Tag filtering</h4><a class="reference external image-reference" href="https://youtu.be/cTNmPTs6LxA"><img alt="Top tables video on youtube https://youtu.be/cTNmPTs6LxA" class="align-center" src="../_images/top_tables.png" style="width: 100%;" /></a>
 </div>
 </div>
 
@@ -285,23 +330,36 @@ Show Source
         </div>
         <div class="side-doc-outline">
             <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Top Tables / Indexes</a><ul>
+<li><a class="reference internal" href="#id1">Top Tables</a></li>
+<li><a class="reference internal" href="#top-indexes">Top Indexes</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
             </div>
         </div>
 
       <div class="clearer"></div>
     </div><div class="pagenation">
-     <a id="button-prev" href="../agent/faq_agent.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+     <a id="button-prev" href="live360.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
          <i class="pagenation-arrow-L material-icons">arrow_back</i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>Agent FAQ</div>
+            <div>Live 360°</div>
          </div>
      </a>
-     <a id="button-next" href="sessions-workload.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="user-management.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
         <i class="pagenation-arrow-R material-icons">arrow_forward</i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Sessions workload</div>
+            <div>User management</div>
         </div>
      </a>
   </div>
