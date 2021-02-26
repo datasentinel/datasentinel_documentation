@@ -362,6 +362,32 @@ tags : application=sales,environment=production,provider=amazon,datacenter=lyon
 </pre></div>
 </div>
 </div>
+<div class="section" id="the-agent-is-running-but-the-cli-responds-no">
+<h2>The agent is running but the CLI responds NO<a class="headerlink" href="#the-agent-is-running-but-the-cli-responds-no" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$ps</span> -ef <span class="p">|</span> grep <span class="s2">&quot;datasentinel start agent&quot;</span> <span class="p">|</span> grep -v grep
+postgres <span class="m">29213</span>     <span class="m">1</span>  <span class="m">1</span> <span class="m">14</span>:00 ?        <span class="m">00</span>:00:00 datasentinel start agent
+
+<span class="nv">$datasentinel</span> status agent
+
+Copyright <span class="m">2021</span> <span class="o">(</span>c<span class="o">)</span> datasentinel- All rights reserved        www.datasentinel.io
+<span class="o">================================================================================</span>
+
+Agent not started
+</pre></div>
+</div>
+<p>The agent listens by default on port 8282. The CLI communicates with the running process via this port.</p>
+<p>Verify that there is no firewall issue and the server name is resolved correctly</p>
+<p>example</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ping <span class="sb">`</span>hostname<span class="sb">`</span>
+PING pg-sales-3420 <span class="o">(</span><span class="m">127</span>.0.0.1<span class="o">)</span> <span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span> bytes of data.
+
+curl -v telnet://<span class="sb">`</span>hostname<span class="sb">`</span>:8282
+* About to connect<span class="o">()</span> to pg-sales-3420 port <span class="m">8282</span> <span class="o">(</span><span class="c1">#0)</span>
+*   Trying <span class="m">127</span>.0.0.1...
+* Connected to pg-sales-3420 <span class="o">(</span><span class="m">127</span>.0.0.1<span class="o">)</span> port <span class="m">8282</span> <span class="o">(</span><span class="c1">#0)</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -379,6 +405,7 @@ tags : application=sales,environment=production,provider=amazon,datacenter=lyon
 <li><a class="reference internal" href="#check-the-connections">Check the connections</a></li>
 <li><a class="reference internal" href="#check-the-agent-log-file">Check the agent log file</a></li>
 <li><a class="reference internal" href="#check-the-log-files">Check the log files</a></li>
+<li><a class="reference internal" href="#the-agent-is-running-but-the-cli-responds-no">The agent is running but the CLI responds NO</a></li>
 </ul>
 </li>
 </ul>

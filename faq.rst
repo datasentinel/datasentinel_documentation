@@ -127,3 +127,18 @@ The values displayed below are default values for standard workloads and default
 +---------------+--------------+--------------+--------------+
 | >151          | 32           | 128GB        | 500GB        |
 +---------------+--------------+--------------+--------------+
+
+
+7. How can i verify that pg_stat_statements is installed?
+*********************************************************
+
+.. warning::
+   | The extension needs to be installed in the **postgres** database.
+
+.. code-block:: bash
+
+    SELECT current_database(), extname from pg_extension where extname ='pg_stat_statements';
+    current_database |      extname       
+    ------------------+--------------------
+    postgres         | pg_stat_statements
+    (1 row)

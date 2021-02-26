@@ -315,6 +315,16 @@ pg_stat_statements.track <span class="o">=</span> all
 </pre></div>
 </div>
 </div>
+<div class="section" id="check-the-extension">
+<h2>4. Check the extension<a class="headerlink" href="#check-the-extension" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SELECT current_database<span class="o">()</span>, extname from pg_extension where <span class="nv">extname</span> <span class="o">=</span><span class="s1">&#39;pg_stat_statements&#39;</span><span class="p">;</span>
+current_database <span class="p">|</span>      extname
+------------------+--------------------
+postgres         <span class="p">|</span> pg_stat_statements
+<span class="o">(</span><span class="m">1</span> row<span class="o">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -331,6 +341,7 @@ pg_stat_statements.track <span class="o">=</span> all
 <li><a class="reference internal" href="#modify-postgresql-conf">1. Modify postgresql.conf</a></li>
 <li><a class="reference internal" href="#reload-conf">2. Reload conf</a></li>
 <li><a class="reference internal" href="#create-the-extension">3. Create the extension</a></li>
+<li><a class="reference internal" href="#check-the-extension">4. Check the extension</a></li>
 </ul>
 </li>
 </ul>

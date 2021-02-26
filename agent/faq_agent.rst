@@ -125,3 +125,49 @@ You can change this value by adjusting the parameter **table-monitoring-limit** 
     | The agent configuration file is $HOME/.datasentinel/agent.yml
     | The **table-monitoring-limit** is under the **agent** section
 
+
+11. How can i verify that pg_stat_statements is installed?
+*********************************************************
+
+.. warning::
+   | The extension needs to be installed in the **postgres** database.
+
+.. code-block:: bash
+
+    SELECT current_database(), extname from pg_extension where extname ='pg_stat_statements';
+    current_database |      extname       
+    ------------------+--------------------
+    postgres         | pg_stat_statements
+    (1 row)
+
+12. The agent is running but the CLI responds NO?
+****************************************************************************
+
+.. code-block:: bash
+
+    $ps -ef | grep "datasentinel start agent" | grep -v grep
+    postgres 29213     1  1 14:00 ?        00:00:00 datasentinel start agent
+
+    $datasentinel status agent
+
+    Copyright 2021 (c) datasentinel- All rights reserved        www.datasentinel.io
+    ================================================================================
+
+    Agent not started
+
+
+The agent listens by default on port 8282. The CLI communicates with the running process via this port.
+
+Verify that there is no firewall issue and the server name is resolved correctly
+
+example
+
+.. code-block:: bash
+
+    $ ping `hostname`
+    PING pg-sales-3420 (127.0.0.1) 56(84) bytes of data.
+
+    curl -v telnet://`hostname`:8282
+    * About to connect() to pg-sales-3420 port 8282 (#0)
+    *   Trying 127.0.0.1...
+    * Connected to pg-sales-3420 (127.0.0.1) port 8282 (#0)

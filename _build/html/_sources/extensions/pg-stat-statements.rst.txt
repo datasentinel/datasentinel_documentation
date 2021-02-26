@@ -12,6 +12,7 @@ pg_stat_statements
 
 .. warning::
    | To be installed in the **postgres** database.
+   
 
 **Installation**
 ****************
@@ -52,3 +53,15 @@ pg_stat_statements
 .. code-block:: bash
 
     CREATE EXTENSION pg_stat_statements;
+
+4. Check the extension
+************************
+
+.. code-block:: bash
+
+    SELECT current_database(), extname from pg_extension where extname ='pg_stat_statements';
+    current_database |      extname       
+    ------------------+--------------------
+    postgres         | pg_stat_statements
+    (1 row)
+

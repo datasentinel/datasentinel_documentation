@@ -125,3 +125,35 @@ Check the log files
     2019-12-15 14:49:13 - backend_to_influx - INFO - Write 253 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.009062
     2019-12-15 14:49:15 - backend_to_influx - INFO - Write 1432 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.014299
     2019-12-15 14:49:15 - backend_to_influx - INFO - Write 39443 bytes from 51.158.106.191 to influxdb - database ds-data in 0:00:00.013594
+
+The agent is running but the CLI responds NO
+**********************************************
+
+.. code-block:: bash
+
+    $ps -ef | grep "datasentinel start agent" | grep -v grep
+    postgres 29213     1  1 14:00 ?        00:00:00 datasentinel start agent
+
+    $datasentinel status agent
+
+    Copyright 2021 (c) datasentinel- All rights reserved        www.datasentinel.io
+    ================================================================================
+
+    Agent not started
+
+
+The agent listens by default on port 8282. The CLI communicates with the running process via this port.
+
+Verify that there is no firewall issue and the server name is resolved correctly
+
+example
+
+.. code-block:: bash
+
+    $ ping `hostname`
+    PING pg-sales-3420 (127.0.0.1) 56(84) bytes of data.
+
+    curl -v telnet://`hostname`:8282
+    * About to connect() to pg-sales-3420 port 8282 (#0)
+    *   Trying 127.0.0.1...
+    * Connected to pg-sales-3420 (127.0.0.1) port 8282 (#0)
