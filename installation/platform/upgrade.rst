@@ -155,3 +155,113 @@ Example
 .. note:: 
    | The current configuration is kept
 
+
+3. Grafana upgrade
+******************
+
+* Uncompress the downloaded file
+
+.. code-block:: bash
+
+   tar xvzf patch-grafana-datasentinel.tar.gz
+
+
+* 2 files are created
+
+   - patch_grafana.sh
+   - update-grafana.tar.gz
+
+
+* Run the shell script
+
+.. warning:: 
+   The script must be run as Datasentinel owner
+
+.. code-block:: bash
+
+   ./patch_grafana.sh
+
+.. note:: 
+   Confirmation is requested
+
+
+.. raw:: html
+
+   <h3>The script does several actions</h3>
+
+- Stop grafana service
+- Backup old version
+- Replace necessary files
+- Start components
+
+
+.. note:: 
+   | The script runs in a few seconds. At the end, Datasentinel should be UP and RUNNING
+
+
+Output example 
+
+.. code-block:: bash
+
+      ----------------------------
+      Updating Datasentinel grafana
+      ----------------------------
+      Do you want to continue installing grafana? (Y/[N]) : y
+      Logfile created : update_grafanal_2021.02.log
+      ----------------------------------------
+      Stopping grafana services
+      ----------------------------------------
+      ----------------------------------------------------------
+      Uncompressing patch version 2021.02, please wait...
+      ----------------------------------------------------------
+      ----------------------------
+      Services status
+      ----------------------------
+      datasentinel_backend.service                                       loaded active running   Datasentinel backend API
+      datasentinel_dispatcher.service                                    loaded active running   Datasentinel Agentless
+      datasentinel_grafana.service                                       loaded active running   Datasentinel grafana daemon
+      datasentinel_influxdb.service                                      loaded active running   InfluxDB service
+      datasentinel_postgresql.service                                    loaded active running   Datasentinel PostgreSQL database server
+      nginx.service                                                      loaded active running   nginx - high performance web server
+      ----------------------------
+      Grafana update finished
+      ----------------------------
+      {
+      "status": "OK",
+      "message": "Datasentinel Backend up and running",
+      "datasentinel_version": "2021.03",
+      "backend_version": "v2.5.0",
+      "frontend_version": "v2.6.0",
+      "services": [
+         {
+            "name": "nginx",
+            "description": "Nginx web server",
+            "running": true
+         },
+         {
+            "name": "datasentinel_grafana",
+            "description": "Grafana frontend",
+            "running": true
+         },
+         {
+            "name": "datasentinel_postgresql",
+            "description": "PostgreSQL instance",
+            "running": true
+         },
+         {
+            "name": "datasentinel_backend",
+            "description": "Backend service and API",
+            "running": true
+         },
+         {
+            "name": "datasentinel_dispatcher",
+            "description": "Agentless service",
+            "running": true
+         },
+         {
+            "name": "datasentinel_influxdb",
+            "description": "Influxdb database",
+            "running": true
+         }
+      ]
+      }

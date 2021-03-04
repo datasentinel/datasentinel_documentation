@@ -44,70 +44,73 @@ Show commands
 
 .. code:: bash
 
-  Copyright 2020 (c) datasentinel- All rights reserved        www.datasentinel.io
-================================================================================
+    Copyright 2021 (c) datasentinel- All rights reserved        www.datasentinel.io
+    ================================================================================
 
-   Agent:
-         - start agent
-         - stop agent
-         - status agent
-         - set port <port number>
-         - set collection-rate <low|high>
-                low: The sessions collection is done every 10 seconds
-                high: The sessions collection is done every second  (Default value)
-                If the datasentinel extension is not installed, the collection-rate is automatically adujusted to low value 
-         - set tables-monitoring-limit (default 1000)
-                The agent monitors the activity of tables and indexes if the number of tables in the connection is less than the defined limit
-         - set sql-max-size (default 256000)
-                Only useful when the datasentinel extension is not installed!
-                The agent analyzes each sql during the sampling of active sessions (pg_stat_activity) 
-                to calculate an identifier (md5).
-                If the size of the analyzed sql exceeds the limit, the sql text will be truncated
-   
-   Connections: when the connections are disabled, the agent is disconnected.
-         - enable all
-         - disable all
+      Agent:
+            - start agent
+            - stop agent
+            - status agent
+            - set port <port number>
+            - set collection-rate <low|high>
+                    low: The sessions collection is done every 10 seconds
+                    high: The sessions collection is done every second  (Default value)
+                    If the datasentinel extension is not installed, the collection-rate is automatically adujusted to low value 
+            - set tables-monitoring-limit (default 1000)
+                    The agent monitors the activity of tables and indexes if the number of tables in the connection is less than the defined limit
+            - set sql-max-size (default 256000)
+                    Only useful when the datasentinel extension is not installed!
+                    The agent analyzes each sql during the sampling of active sessions (pg_stat_activity) 
+                    to calculate an identifier (md5).
+                    If the size of the analyzed sql exceeds the limit, the sql text will be truncated
+      
+      Connections: when the connections are disabled, the agent is disconnected.
+            - enable all
+            - disable all
 
-   Connection:
-         - add connection <name> -f <json file>
-         - update connection <name> -f <json file>
-                json example: {
-                                "host": "hostname",
-                                "port": 4587,
-                                "user": "username",
-                                "password": "value",
-                                "tags": "key=value,key=value,..."
-                              }
+      Connection:
+            - add connection <name> -f <json file>
+            - update connection <name> -f <json file>
+                    json example: {
+                                    "host": "hostname",
+                                    "port": 4587,
+                                    "user": "username",
+                                    "password": "value",
+                                    "tags": "key=value,key=value,..."
+                                  }
 
-         - delete connection <name>
-         - enable connection <name>
-         - disable connection <name>
+            - update connection <name> samples <on|off> (default on)
+                    collect and send sample queries, with literal values if present
 
-         - show connections
-         - show connection <name>
-    
-    Dump connection in JSON format:
-         - dump connection <name>  
+            - delete connection <name>
+            - enable connection <name>
+            - disable connection <name>
 
-    Upload server:
-         - set server <host> <port>
-         - show server
-         - test server
+            - show connections
+            - show connection <name>
+        
+        Dump connection in JSON format:
+            - dump connection <name>  
 
-    Token:
-         - set token <value>
-         - show token
-         
-    Proxy:
-         - set proxy -f <json file>
-                json example: {
-                                "host": "hostname",
-                                "port": 4587,
-                                "user": "username (optional)",
-                                "password": "value (optional)"
-                              }
-         - delete proxy
-         - show proxy
+        Upload server:
+            - set server <host> <port>
+            - show server
+            - test server
+
+        Token:
+            - set token <value>
+            - show token
+            
+        Proxy:
+            - set proxy -f <json file>
+                    json example: {
+                                    "host": "hostname",
+                                    "port": 4587,
+                                    "user": "username (optional)",
+                                    "password": "value (optional)"
+                                  }
+            - delete proxy
+            - show proxy
 
 
 Status
@@ -122,29 +125,31 @@ Status
 
 .. code:: bash
 
-  Copyright 2020 (c) datasentinel- All rights reserved        www.datasentinel.io
-  ================================================================================
+    Copyright 2021 (c) datasentinel- All rights reserved        www.datasentinel.io
+    ================================================================================
 
-            Agent
-              Version : 1.9.3                                             
-                  Port : 8241                                              
-            Start time : 2020-02-15 14:55:40                               
-      Collection rate : high                                              
+                  Agent
+                      Version : 2.5.4                                             
+                        Port : 8282                                              
+                  Start time : 2021-03-03 16:18:50                               
+              Collection rate : low                                               
+      Table monitoring limit : 1000                                              
+                Sql max size : 256000                                            
 
-            Proxy
-                  host :                                                   
-                  port : 0                                                 
-                  user :                                                   
-              password :                                                   
+                  Proxy
+                        host :                                                   
+                        port : 0                                                 
+                        user :                                                   
+                    password :                                                   
 
-          Upload
-                  host : 51.158.125.244                                    
-                  port : 443                                               
+                  Upload
+                        host : 51.15.237.231                                     
+                        port : 443                                               
 
-      Connections
-              declared : 1                                                 
-              running : 1                                                 
-          not running : 0                                                 
+            Connections
+                    declared : 1                                                 
+                      running : 1                                                 
+                  not running : 0                                                 
 
 
 Start
@@ -814,3 +819,41 @@ Update
               password : sentinel                                          
 
                   tags : application=sales,environment=production,provider=microsoft,datacenter=paris
+
+
+Enable/Disable query samples
+=============================
+
+.. code:: bash
+  
+    datasentinel update connection ":9342" samples on|off
+
+
+- Parameter 
+
+   | The connection name
+
+- Response
+
+.. code:: bash
+
+    Copyright 2021 (c) datasentinel- All rights reserved        www.datasentinel.io
+    ================================================================================
+
+    Connection updated!
+
+
+                        Name : :9342                                             
+                      Status : enabled                                           
+                        State : connected                                         
+
+                        Host : pg-sales-3420                                     
+                        Port : 9342                                              
+
+                        user : datasentinel                                      
+                    password : sentinel                                          
+
+                Query samples : on                                              
+
+                        tags : application=sales,environment=production,provider=amazon,datacenter=paris
+

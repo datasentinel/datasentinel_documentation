@@ -411,6 +411,114 @@ datasentinel status agent
 </div>
 </div>
 </div>
+<div class="section" id="grafana-upgrade">
+<h2>3. Grafana upgrade<a class="headerlink" href="#grafana-upgrade" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Uncompress the downloaded file</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvzf patch-grafana-datasentinel.tar.gz
+</pre></div>
+</div>
+<ul>
+<li><p>2 files are created</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>patch_grafana.sh</p></li>
+<li><p>update-grafana.tar.gz</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Run the shell script</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The script must be run as Datasentinel owner</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./patch_grafana.sh
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Confirmation is requested</p>
+</div>
+<h3>The script does several actions</h3><ul class="simple">
+<li><p>Stop grafana service</p></li>
+<li><p>Backup old version</p></li>
+<li><p>Replace necessary files</p></li>
+<li><p>Start components</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">The script runs in a few seconds. At the end, Datasentinel should be UP and RUNNING</div>
+</div>
+</div>
+<p>Output example</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>----------------------------
+Updating Datasentinel grafana
+----------------------------
+Do you want to <span class="k">continue</span> installing grafana? <span class="o">(</span>Y/<span class="o">[</span>N<span class="o">])</span> : y
+Logfile created : update_grafanal_2021.02.log
+----------------------------------------
+Stopping grafana services
+----------------------------------------
+----------------------------------------------------------
+Uncompressing patch version <span class="m">2021</span>.02, please wait...
+----------------------------------------------------------
+----------------------------
+Services status
+----------------------------
+datasentinel_backend.service                                       loaded active running   Datasentinel backend API
+datasentinel_dispatcher.service                                    loaded active running   Datasentinel Agentless
+datasentinel_grafana.service                                       loaded active running   Datasentinel grafana daemon
+datasentinel_influxdb.service                                      loaded active running   InfluxDB service
+datasentinel_postgresql.service                                    loaded active running   Datasentinel PostgreSQL database server
+nginx.service                                                      loaded active running   nginx - high performance web server
+----------------------------
+Grafana update finished
+----------------------------
+<span class="o">{</span>
+<span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;OK&quot;</span>,
+<span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;Datasentinel Backend up and running&quot;</span>,
+<span class="s2">&quot;datasentinel_version&quot;</span>: <span class="s2">&quot;2021.03&quot;</span>,
+<span class="s2">&quot;backend_version&quot;</span>: <span class="s2">&quot;v2.5.0&quot;</span>,
+<span class="s2">&quot;frontend_version&quot;</span>: <span class="s2">&quot;v2.6.0&quot;</span>,
+<span class="s2">&quot;services&quot;</span>: <span class="o">[</span>
+   <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;nginx&quot;</span>,
+      <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;Nginx web server&quot;</span>,
+      <span class="s2">&quot;running&quot;</span>: <span class="nb">true</span>
+   <span class="o">}</span>,
+   <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;datasentinel_grafana&quot;</span>,
+      <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;Grafana frontend&quot;</span>,
+      <span class="s2">&quot;running&quot;</span>: <span class="nb">true</span>
+   <span class="o">}</span>,
+   <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;datasentinel_postgresql&quot;</span>,
+      <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;PostgreSQL instance&quot;</span>,
+      <span class="s2">&quot;running&quot;</span>: <span class="nb">true</span>
+   <span class="o">}</span>,
+   <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;datasentinel_backend&quot;</span>,
+      <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;Backend service and API&quot;</span>,
+      <span class="s2">&quot;running&quot;</span>: <span class="nb">true</span>
+   <span class="o">}</span>,
+   <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;datasentinel_dispatcher&quot;</span>,
+      <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;Agentless service&quot;</span>,
+      <span class="s2">&quot;running&quot;</span>: <span class="nb">true</span>
+   <span class="o">}</span>,
+   <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;datasentinel_influxdb&quot;</span>,
+      <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;Influxdb database&quot;</span>,
+      <span class="s2">&quot;running&quot;</span>: <span class="nb">true</span>
+   <span class="o">}</span>
+<span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -425,6 +533,7 @@ datasentinel status agent
 <li><a class="reference internal" href="#">Upgrade Datasentinel</a><ul>
 <li><a class="reference internal" href="#platform-upgrade">1. Platform upgrade</a></li>
 <li><a class="reference internal" href="#agent-upgrade">2. Agent upgrade</a></li>
+<li><a class="reference internal" href="#grafana-upgrade">3. Grafana upgrade</a></li>
 </ul>
 </li>
 </ul>
