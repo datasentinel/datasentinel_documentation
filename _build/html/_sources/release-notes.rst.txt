@@ -2,6 +2,47 @@
 Release notes
 ******************
 
+**Apr 01, 2021 (v2021.04)**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. raw:: html
+
+   <h3>Features</h3>
+
+1. | Directly view the activity of your instances or groups of instances thanks to the :ref:`home_page` 
+2. | Customisable charts have also been added to the :ref:`sparklines`, top queries and top tables/indexes modules, in order to easily correlate activity metrics
+3. | The main queries execution statistics from pg_stat_statements are now displayed in the :ref:`sparklines` module when available 
+4. | Query samples are now collected (Maximum 1 per hour). This feature can be disabled at the instance level via API.
+5. | A moonlight icon is available on the top right of the screen allowing to switch between dark or light mode
+
+.. raw:: html
+
+   <h3>Fixes</h3>
+
+1. | Sql Text format option in query dashboard 
+2. | Live360 Blocking sessions, maintenance operations when using PostgreSQL 9.6 
+3. | Live360 layout in sessions dashboard when using a small screen resolution
+4. | Live360 cache usage 
+
+.. _home_page:
+
+Home page customisable charts
+*****************************
+
+.. image:: images/HomePage.gif
+   :alt: Home page charts
+   :width: 100%
+   :align: center
+
+.. _sparklines:
+
+Sessions workload
+*****************
+
+.. image:: images/Sparklines.gif
+   :alt: Customisable charts and queries statistics
+   :width: 100%
+   :align: center
+
 **Feb 01, 2021 (v2021.02)**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. raw:: html

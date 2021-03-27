@@ -258,6 +258,57 @@ Show Source
         
   <div class="section" id="release-notes">
 <h1>Release notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="apr-01-2021-v2021-04">
+<h2><strong>Apr 01, 2021 (v2021.04)</strong><a class="headerlink" href="#apr-01-2021-v2021-04" title="Permalink to this headline">¶</a></h2>
+<h3>Features</h3><ol class="arabic">
+<li><div class="line-block">
+<div class="line">Directly view the activity of your instances or groups of instances thanks to the <a class="reference internal" href="#home-page"><span class="std std-ref">Home page customisable charts</span></a></div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">Customisable charts have also been added to the <a class="reference internal" href="#sparklines"><span class="std std-ref">Sessions workload</span></a>, top queries and top tables/indexes modules, in order to easily correlate activity metrics</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">The main queries execution statistics from pg_stat_statements are now displayed in the <a class="reference internal" href="#sparklines"><span class="std std-ref">Sessions workload</span></a> module when available</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">Query samples are now collected (Maximum 1 per hour). This feature can be disabled at the instance level via API.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">A moonlight icon is available on the top right of the screen allowing to switch between dark or light mode</div>
+</div>
+</li>
+</ol>
+<h3>Fixes</h3><ol class="arabic">
+<li><div class="line-block">
+<div class="line">Sql Text format option in query dashboard</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">Live360 Blocking sessions, maintenance operations when using PostgreSQL 9.6</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">Live360 layout in sessions dashboard when using a small screen resolution</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">Live360 cache usage</div>
+</div>
+</li>
+</ol>
+<div class="section" id="home-page-customisable-charts">
+<span id="home-page"></span><h3>Home page customisable charts<a class="headerlink" href="#home-page-customisable-charts" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/HomePage.gif"><img alt="Home page charts" class="align-center" src="_images/HomePage.gif" style="width: 100%;" /></a>
+</div>
+<div class="section" id="sessions-workload">
+<span id="sparklines"></span><h3>Sessions workload<a class="headerlink" href="#sessions-workload" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/Sparklines.gif"><img alt="Customisable charts and queries statistics" class="align-center" src="_images/Sparklines.gif" style="width: 100%;" /></a>
+</div>
+</div>
 <div class="section" id="feb-01-2021-v2021-02">
 <h2><strong>Feb 01, 2021 (v2021.02)</strong><a class="headerlink" href="#feb-01-2021-v2021-02" title="Permalink to this headline">¶</a></h2>
 <h3>Features</h3><ol class="arabic">
@@ -435,6 +486,11 @@ Show Source
     </p>
     <ul>
 <li><a class="reference internal" href="#">Release notes</a><ul>
+<li><a class="reference internal" href="#apr-01-2021-v2021-04"><strong>Apr 01, 2021 (v2021.04)</strong></a><ul>
+<li><a class="reference internal" href="#home-page-customisable-charts">Home page customisable charts</a></li>
+<li><a class="reference internal" href="#sessions-workload">Sessions workload</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#feb-01-2021-v2021-02"><strong>Feb 01, 2021 (v2021.02)</strong></a></li>
 <li><a class="reference internal" href="#dec-09-2020-v2020-12"><strong>Dec 09, 2020 (v2020.12)</strong></a></li>
 <li><a class="reference internal" href="#may-11-2020-v1-6-0"><strong>May 11, 2020 (v1.6.0)</strong></a><ul>
