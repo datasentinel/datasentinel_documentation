@@ -46,7 +46,7 @@ The top queries feature allows you to identify the most consuming queries accord
     <h4>The dedicated dashboard displays the information in a multi-dimensional way with Time selection, Time zooming and Tag filtering</h4>
 
 .. image:: ../images/top_queries.png
-   :alt: Top queries video on youtube https://youtu.be/6ofxbr-tdUY
+   :alt: Top queries video on youtube https://youtu.be/cdk2hFAaWp8
    :width: 100%
    :align: center
-   :target: https://youtu.be/6ofxbr-tdUY
+   :target: https://youtu.be/cdk2hFAaWp8

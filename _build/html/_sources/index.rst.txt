@@ -1,5 +1,5 @@
 Documentation
-===========================
+==============
 
 .. figure:: images/datasentinel_logo.png
    :alt: Performance tool for Postgresql
@@ -14,7 +14,7 @@ Documentation
 .. note::
    | Datasentinel is available from PostgreSQL version **9.4**
    | 
-   | The cloud application is available at `https://app.datasentinel.io <https://app.datasentinel.io>`_
+   | Live demo is available at `https://demo.datasentinel.io <https://demo.datasentinel.io>`_
 
 
 .. figure:: images/datasentinelHeader.png
@@ -69,3 +69,4 @@ Documentation
 
 
 :ref:`support`
+

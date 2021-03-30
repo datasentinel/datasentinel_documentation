@@ -19,10 +19,10 @@ Sessions workload
     <h4>The dedicated dashboard displays the information in a multi-dimensional way with Time selection, Time zooming and Tag filtering</h4>
 
 .. image:: ../images/sessions_workload.png
-   :alt: Sessions workload video on youtube https://youtu.be/uRaB9088ymA
+   :alt: Sessions workload video on youtube https://youtu.be/W9V8E6poJFI
    :width: 100%
    :align: center
-   :target: https://youtu.be/uRaB9088ymA
+   :target: https://youtu.be/W9V8E6poJFI
 
 
 .. raw:: html 
