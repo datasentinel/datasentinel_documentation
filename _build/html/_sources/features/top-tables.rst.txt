@@ -67,7 +67,7 @@ Top Indexes
     <h4>Both dashboards (Tables and Indexes) display the information in a multi-dimensional way with Time selection, Time zooming and Tag filtering</h4>
 
 .. image:: ../images/top_tables.png
-   :alt: Top tables video on youtube https://youtu.be/VEI_DH12hAo
+   :alt: Top tables video on youtube https://youtu.be/tpvVm92AHZU
    :width: 100%
    :align: center
-   :target: https://youtu.be/VEI_DH12hAo
+   :target: https://youtu.be/tpvVm92AHZU
