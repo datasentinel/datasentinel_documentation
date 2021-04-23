@@ -4,7 +4,24 @@
 Upgrade Datasentinel
 ********************
 
-Procedure to upgrade your on-premises platform and agents if you use local agents
+Procedure to upgrade your on-premises platform, grafana framework and agents (if you use local agents).
+
+Each component can be upgraded separately.
+You will find with each release the minimum version of the agent necessary to take into account the new features. See the  :ref:`release-notes`
+
+Download URLs
+
+• Grafana https://app.datasentinel.io/ds-api/download/patch-grafana-datasentinel.tar.gz
+• Datasentinel Platform https://app.datasentinel.io/ds-api/download/patch-datasentinel.tar.gz
+•
+•	Agent RHEL8 https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel8.tar.gz
+•	Agent RHEL7 https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel7.tar.gz
+•	Agent RHEL6 https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel6.tar.gz
+•	Agent Debian Buster https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-buster.tar.gz
+•	Agent Debian Stretch https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-stretch.tar.gz
+•	Agent Debian Jessie https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-jessie.tar.gz
+
+
 
 1. Platform upgrade
 *******************
@@ -123,40 +140,7 @@ Output example
    }
 
 
-2. Agent upgrade
-*******************
-
-.. note:: 
-   | The upgrade of an agent is done by the total replacement of the old version
-
-
-Download the agent compressed file corresponding to your OS version
-
-
-.. note:: 
-   | Actions:
-   | stop the agent, replace or remove the old directory, restart it
-
-Example
-
-
-.. code-block:: bash
-
-   cd <<PARENT_DIRECTORY>>
-   export DATASENTINEL_PATH="`pwd`/datasentinel"
-   export LD_LIBRARY_PATH=$DATASENTINEL_PATH/lib
-   export PATH=$DATASENTINEL_PATH:$PATH
-   datasentinel stop agent
-   rm -fr datasentinel/
-   tar xvzf /tmp/datasentinel-agent-rhel7.tar.gz 
-   datasentinel start agent
-   datasentinel status agent
-
-.. note:: 
-   | The current configuration is kept
-
-
-3. Grafana upgrade
+2. Grafana upgrade
 ******************
 
 * Uncompress the downloaded file
@@ -265,3 +249,35 @@ Output example
          }
       ]
       }
+
+3. Agent upgrade
+*******************
+
+.. note:: 
+   | The upgrade of an agent is done by the total replacement of the old version
+
+
+Download the agent compressed file corresponding to your OS version
+
+
+.. note:: 
+   | Actions:
+   | stop the agent, replace or remove the old directory, restart it
+
+Example
+
+
+.. code-block:: bash
+
+   cd <<PARENT_DIRECTORY>>
+   export DATASENTINEL_PATH="`pwd`/datasentinel"
+   export LD_LIBRARY_PATH=$DATASENTINEL_PATH/lib
+   export PATH=$DATASENTINEL_PATH:$PATH
+   datasentinel stop agent
+   rm -fr datasentinel/
+   tar xvzf /tmp/datasentinel-agent-rhel7.tar.gz 
+   datasentinel start agent
+   datasentinel status agent
+
+.. note:: 
+   | The current configuration is kept

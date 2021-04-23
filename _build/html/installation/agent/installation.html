@@ -284,7 +284,7 @@ Show Source
 <ul class="simple">
 <li><p>Connect to your user interface URL with a admin user.</p></li>
 <li><p>Go to Tools submenu and click on agents.</p></li>
-<li><p>Download the agent (tar.gz format, available for redhat/centos, debia, ubuntu)</p></li>
+<li><p>Download the agent (tar.gz format, available for redhat/centos, debian, ubuntu)</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -304,8 +304,51 @@ datasentinel start agent
 </pre></div>
 </div>
 </div>
+<div class="section" id="test-the-status">
+<h2>3. Test the status<a class="headerlink" href="#test-the-status" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>datasentinel status agent
+</pre></div>
+</div>
+<ul>
+<li><p>Output</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Copyright <span class="m">2021</span> <span class="o">(</span>c<span class="o">)</span> datasentinel- All rights reserved        www.datasentinel.io
+<span class="o">================================================================================</span>
+
+               Agent
+                  Version : <span class="m">2</span>.6.0
+                     Port : <span class="m">8282</span>
+               Start <span class="nb">time</span> : <span class="m">2021</span>-04-21 <span class="m">07</span>:45:53
+         Collection rate : high
+   Table monitoring limit : <span class="m">1000</span>
+            Sql max size : <span class="m">256000</span>
+
+               Proxy
+                     host :
+                     port : <span class="m">0</span>
+                     user :
+               password :
+
+            Upload
+                     host : upload_server
+                     port : <span class="m">443</span>
+
+         Connections
+               declared : <span class="m">0</span>
+                  running : <span class="m">0</span>
+            not running : <span class="m">0</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The agent is running but the CLI responds NO? Check this point <a class="reference internal" href="../../agent/faq_agent.html#agent-faq-status"><span class="std std-ref">12. The agent is running but the CLI responds NO?</span></a></p>
+</div>
+</div>
 <div class="section" id="token-and-upload-server">
-<h2>3. Token and upload server<a class="headerlink" href="#token-and-upload-server" title="Permalink to this headline">¶</a></h2>
+<h2>4. Token and upload server<a class="headerlink" href="#token-and-upload-server" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line">A token is required in order to communicate with the repository</div>
 <div class="line">Copy the token value directly from the user interface (Agents submenu)</div>
@@ -333,7 +376,7 @@ datasentinel <span class="nb">set</span> token &lt;&lt;token_value&gt;&gt;
 </div>
 </div>
 <div class="section" id="upload-server-and-token-validity">
-<h2>4. Upload server and token validity<a class="headerlink" href="#upload-server-and-token-validity" title="Permalink to this headline">¶</a></h2>
+<h2>5. Upload server and token validity<a class="headerlink" href="#upload-server-and-token-validity" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line">It also checks the communication between the agent and the server</div>
 </div>
@@ -342,7 +385,7 @@ datasentinel <span class="nb">set</span> token &lt;&lt;token_value&gt;&gt;
 </div>
 </div>
 <div class="section" id="postgresql-user">
-<h2>5. Postgresql user<a class="headerlink" href="#postgresql-user" title="Permalink to this headline">¶</a></h2>
+<h2>6. Postgresql user<a class="headerlink" href="#postgresql-user" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>For versions less than 10, the user must have the role superuser</p>
@@ -363,7 +406,7 @@ grant pg_monitor,pg_read_all_settings,pg_read_all_stats to datasentinel<span cla
 </div>
 </div>
 <div class="section" id="pg-hba-conf">
-<h2>6. pg_hba.conf<a class="headerlink" href="#pg-hba-conf" title="Permalink to this headline">¶</a></h2>
+<h2>7. pg_hba.conf<a class="headerlink" href="#pg-hba-conf" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Add authorization for the user datasentinel to connect to all databases with a password</p></li>
 </ul>
@@ -382,7 +425,7 @@ host    all             datasentinel    <span class="m">127</span>.0.0.1/0      
 </ul>
 </div>
 <div class="section" id="postgresql-instance">
-<h2>7. Postgresql instance<a class="headerlink" href="#postgresql-instance" title="Permalink to this headline">¶</a></h2>
+<h2>8. Postgresql instance<a class="headerlink" href="#postgresql-instance" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat &gt; myInstance.json <span class="s">&lt;&lt;EOF</span>
 <span class="s">{</span>
 <span class="s">  &quot;host&quot;: &quot;host_name&quot;,</span>
@@ -412,7 +455,7 @@ host    all             datasentinel    <span class="m">127</span>.0.0.1/0      
 </div>
 </div>
 <div class="section" id="useful-cli-commands">
-<h2>8. Useful CLI commands<a class="headerlink" href="#useful-cli-commands" title="Permalink to this headline">¶</a></h2>
+<h2>9. Useful CLI commands<a class="headerlink" href="#useful-cli-commands" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>See how to use the <a class="reference internal" href="../../agent/CLI.html#agent-cli"><span class="std std-ref">CLI</span></a></p>
@@ -436,64 +479,78 @@ host    all             datasentinel    <span class="m">127</span>.0.0.1/0      
 <ul class="simple">
 <li><p>Output</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Copyright <span class="m">2019</span> <span class="o">(</span>c<span class="o">)</span> datasentinel- All rights reserved        www.datasentinel.io
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Copyright <span class="m">2021</span> <span class="o">(</span>c<span class="o">)</span> datasentinel- All rights reserved        www.datasentinel.io
 <span class="o">================================================================================</span>
 
    Agent:
-      - start agent
-      - stop agent
-      - status agent
-      - <span class="nb">set</span> port &lt;port number&gt;
+         - start agent
+         - stop agent
+         - status agent
+         - <span class="nb">set</span> port &lt;port number&gt;
+         - <span class="nb">set</span> collection-rate &lt;low<span class="p">|</span>high&gt;
+               low: The sessions collection is <span class="k">done</span> every <span class="m">10</span> seconds
+               high: The sessions collection is <span class="k">done</span> every second  <span class="o">(</span>Default value<span class="o">)</span>
+               If the datasentinel extension is not installed, the collection-rate is automatically adujusted to low value
+         - <span class="nb">set</span> tables-monitoring-limit <span class="o">(</span>default <span class="m">1000</span><span class="o">)</span>
+               The agent monitors the activity of tables and indexes <span class="k">if</span> the number of tables <span class="k">in</span> the connection is less than the defined limit
+         - <span class="nb">set</span> sql-max-size <span class="o">(</span>default <span class="m">256000</span><span class="o">)</span>
+               Only useful when the datasentinel extension is not installed!
+               The agent analyzes each sql during the sampling of active sessions <span class="o">(</span>pg_stat_activity<span class="o">)</span>
+               to calculate an identifier <span class="o">(</span>md5<span class="o">)</span>.
+               If the size of the analyzed sql exceeds the limit, the sql text will be truncated
 
    Connections: when the connections are disabled, the agent is disconnected.
-      - <span class="nb">enable</span> all
-      - disable all
+         - <span class="nb">enable</span> all
+         - disable all
 
    Connection:
-      - add connection &lt;name&gt; -f &lt;json file&gt;
-      - update connection &lt;name&gt; -f &lt;json file&gt;
-             json example: <span class="o">{</span>
-                             <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;hostname&quot;</span>,
-                             <span class="s2">&quot;port&quot;</span>: <span class="m">4587</span>,
-                             <span class="s2">&quot;user&quot;</span>: <span class="s2">&quot;username&quot;</span>,
-                             <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;value&quot;</span>,
-                             <span class="s2">&quot;tags&quot;</span>: <span class="s2">&quot;key=value,key=value,...&quot;</span>
-                           <span class="o">}</span>
+         - add connection &lt;name&gt; -f &lt;json file&gt;
+         - update connection &lt;name&gt; -f &lt;json file&gt;
+               json example: <span class="o">{</span>
+                              <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;hostname&quot;</span>,
+                              <span class="s2">&quot;port&quot;</span>: <span class="m">4587</span>,
+                              <span class="s2">&quot;user&quot;</span>: <span class="s2">&quot;username&quot;</span>,
+                              <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;value&quot;</span>,
+                              <span class="s2">&quot;tags&quot;</span>: <span class="s2">&quot;key=value,key=value,...&quot;</span>
+                              <span class="o">}</span>
 
-      - delete connection &lt;name&gt;
-      - <span class="nb">enable</span> connection &lt;name&gt;
-      - disable connection &lt;name&gt;
+         - update connection &lt;name&gt; samples &lt;on<span class="p">|</span>off&gt; <span class="o">(</span>default on<span class="o">)</span>
+               collect and send sample queries, with literal values <span class="k">if</span> present
 
-      - show connections
-      - show connection &lt;name&gt;
+         - delete connection &lt;name&gt;
+         - <span class="nb">enable</span> connection &lt;name&gt;
+         - disable connection &lt;name&gt;
+
+         - show connections
+         - show connection &lt;name&gt;
 
    Dump connection <span class="k">in</span> JSON format:
-      - dump connection &lt;name&gt;
+         - dump connection &lt;name&gt;
 
-    Upload server:
-      - <span class="nb">set</span> server &lt;host&gt; &lt;port&gt;
-      - show server
-      - <span class="nb">test</span> server
+   Upload server:
+         - <span class="nb">set</span> server &lt;host&gt; &lt;port&gt;
+         - show server
+         - <span class="nb">test</span> server
 
-    Token:
-      - <span class="nb">set</span> token &lt;value&gt;
-      - show token
+   Token:
+         - <span class="nb">set</span> token &lt;value&gt;
+         - show token
 
-    Proxy:
-      - <span class="nb">set</span> proxy -f &lt;json file&gt;
-             json example: <span class="o">{</span>
-                             <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;hostname&quot;</span>,
-                             <span class="s2">&quot;port&quot;</span>: <span class="m">4587</span>,
-                             <span class="s2">&quot;user&quot;</span>: <span class="s2">&quot;username (optional)&quot;</span>,
-                             <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;value (optional)&quot;</span>,
-                           <span class="o">}</span>
-      - delete proxy
-      - show proxy
+   Proxy:
+         - <span class="nb">set</span> proxy -f &lt;json file&gt;
+               json example: <span class="o">{</span>
+                              <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;hostname&quot;</span>,
+                              <span class="s2">&quot;port&quot;</span>: <span class="m">4587</span>,
+                              <span class="s2">&quot;user&quot;</span>: <span class="s2">&quot;username (optional)&quot;</span>,
+                              <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;value (optional)&quot;</span>
+                              <span class="o">}</span>
+         - delete proxy
+         - show proxy
 </pre></div>
 </div>
 </div>
 <div class="section" id="api">
-<h2>9. API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<h2>10. API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>All operations are available through <a class="reference internal" href="../../agent/API.html#agent-apis"><span class="std std-ref">API</span></a>.</p>
@@ -536,7 +593,7 @@ host    all             datasentinel    <span class="m">127</span>.0.0.1/0      
 </div>
 </div>
 <div class="section" id="internal-storage">
-<h2>10. Internal storage<a class="headerlink" href="#internal-storage" title="Permalink to this headline">¶</a></h2>
+<h2>11. Internal storage<a class="headerlink" href="#internal-storage" title="Permalink to this headline">¶</a></h2>
 <p>The agent stores its configuration on the hidden directory <strong>.datasentinel</strong> under the user home.</p>
 <p>Most of the operations need a token to be passed in the headers calls.</p>
 <p>2 files are present:</p>
@@ -563,14 +620,15 @@ host    all             datasentinel    <span class="m">127</span>.0.0.1/0      
 <li><a class="reference internal" href="#">Agent installation</a><ul>
 <li><a class="reference internal" href="#download-the-agent">1. Download the agent</a></li>
 <li><a class="reference internal" href="#start-the-agent">2. Start the agent</a></li>
-<li><a class="reference internal" href="#token-and-upload-server">3. Token and upload server</a></li>
-<li><a class="reference internal" href="#upload-server-and-token-validity">4. Upload server and token validity</a></li>
-<li><a class="reference internal" href="#postgresql-user">5. Postgresql user</a></li>
-<li><a class="reference internal" href="#pg-hba-conf">6. pg_hba.conf</a></li>
-<li><a class="reference internal" href="#postgresql-instance">7. Postgresql instance</a></li>
-<li><a class="reference internal" href="#useful-cli-commands">8. Useful CLI commands</a></li>
-<li><a class="reference internal" href="#api">9. API</a></li>
-<li><a class="reference internal" href="#internal-storage">10. Internal storage</a></li>
+<li><a class="reference internal" href="#test-the-status">3. Test the status</a></li>
+<li><a class="reference internal" href="#token-and-upload-server">4. Token and upload server</a></li>
+<li><a class="reference internal" href="#upload-server-and-token-validity">5. Upload server and token validity</a></li>
+<li><a class="reference internal" href="#postgresql-user">6. Postgresql user</a></li>
+<li><a class="reference internal" href="#pg-hba-conf">7. pg_hba.conf</a></li>
+<li><a class="reference internal" href="#postgresql-instance">8. Postgresql instance</a></li>
+<li><a class="reference internal" href="#useful-cli-commands">9. Useful CLI commands</a></li>
+<li><a class="reference internal" href="#api">10. API</a></li>
+<li><a class="reference internal" href="#internal-storage">11. Internal storage</a></li>
 </ul>
 </li>
 </ul>

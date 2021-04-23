@@ -260,7 +260,21 @@ Show Source
         
   <div class="section" id="upgrade-datasentinel">
 <span id="upgrade"></span><h1>Upgrade Datasentinel<a class="headerlink" href="#upgrade-datasentinel" title="Permalink to this headline">¶</a></h1>
-<p>Procedure to upgrade your on-premises platform and agents if you use local agents</p>
+<p>Procedure to upgrade your on-premises platform, grafana framework and agents (if you use local agents).</p>
+<p>Each component can be upgraded separately.
+You will find with each release the minimum version of the agent necessary to take into account the new features. See the  <a class="reference internal" href="../../release-notes.html#release-notes"><span class="std std-ref">Release notes</span></a></p>
+<p>Download URLs</p>
+<ul class="simple">
+<li><p>Grafana <a class="reference external" href="https://app.datasentinel.io/ds-api/download/patch-grafana-datasentinel.tar.gz">https://app.datasentinel.io/ds-api/download/patch-grafana-datasentinel.tar.gz</a></p></li>
+<li><p>Datasentinel Platform <a class="reference external" href="https://app.datasentinel.io/ds-api/download/patch-datasentinel.tar.gz">https://app.datasentinel.io/ds-api/download/patch-datasentinel.tar.gz</a></p></li>
+<li></li>
+<li><p>Agent RHEL8 <a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel8.tar.gz">https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel8.tar.gz</a></p></li>
+<li><p>Agent RHEL7 <a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel7.tar.gz">https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel7.tar.gz</a></p></li>
+<li><p>Agent RHEL6 <a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel6.tar.gz">https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel6.tar.gz</a></p></li>
+<li><p>Agent Debian Buster <a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-buster.tar.gz">https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-buster.tar.gz</a></p></li>
+<li><p>Agent Debian Stretch <a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-stretch.tar.gz">https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-stretch.tar.gz</a></p></li>
+<li><p>Agent Debian Jessie <a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-jessie.tar.gz">https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-jessie.tar.gz</a></p></li>
+</ul>
 <div class="section" id="platform-upgrade">
 <h2>1. Platform upgrade<a class="headerlink" href="#platform-upgrade" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -376,43 +390,8 @@ Datasentinel update finished
 </pre></div>
 </div>
 </div>
-<div class="section" id="agent-upgrade">
-<h2>2. Agent upgrade<a class="headerlink" href="#agent-upgrade" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<div class="line-block">
-<div class="line">The upgrade of an agent is done by the total replacement of the old version</div>
-</div>
-</div>
-<p>Download the agent compressed file corresponding to your OS version</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<div class="line-block">
-<div class="line">Actions:</div>
-<div class="line">stop the agent, replace or remove the old directory, restart it</div>
-</div>
-</div>
-<p>Example</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="s">&lt;&lt;PARENT_DIRECTORY&gt;&gt;</span>
-<span class="s">export DATASENTINEL_PA</span>TH<span class="o">=</span><span class="s2">&quot;`pwd`/datasentinel&quot;</span>
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$DATASENTINEL_PATH</span>/lib
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$DATASENTINEL_PATH</span>:<span class="nv">$PATH</span>
-datasentinel stop agent
-rm -fr datasentinel/
-tar xvzf /tmp/datasentinel-agent-rhel7.tar.gz
-datasentinel start agent
-datasentinel status agent
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<div class="line-block">
-<div class="line">The current configuration is kept</div>
-</div>
-</div>
-</div>
 <div class="section" id="grafana-upgrade">
-<h2>3. Grafana upgrade<a class="headerlink" href="#grafana-upgrade" title="Permalink to this headline">¶</a></h2>
+<h2>2. Grafana upgrade<a class="headerlink" href="#grafana-upgrade" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Uncompress the downloaded file</p></li>
 </ul>
@@ -519,6 +498,41 @@ Grafana update finished
 </pre></div>
 </div>
 </div>
+<div class="section" id="agent-upgrade">
+<h2>3. Agent upgrade<a class="headerlink" href="#agent-upgrade" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">The upgrade of an agent is done by the total replacement of the old version</div>
+</div>
+</div>
+<p>Download the agent compressed file corresponding to your OS version</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">Actions:</div>
+<div class="line">stop the agent, replace or remove the old directory, restart it</div>
+</div>
+</div>
+<p>Example</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="s">&lt;&lt;PARENT_DIRECTORY&gt;&gt;</span>
+<span class="s">export DATASENTINEL_PA</span>TH<span class="o">=</span><span class="s2">&quot;`pwd`/datasentinel&quot;</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$DATASENTINEL_PATH</span>/lib
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$DATASENTINEL_PATH</span>:<span class="nv">$PATH</span>
+datasentinel stop agent
+rm -fr datasentinel/
+tar xvzf /tmp/datasentinel-agent-rhel7.tar.gz
+datasentinel start agent
+datasentinel status agent
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">The current configuration is kept</div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -532,8 +546,8 @@ Grafana update finished
     <ul>
 <li><a class="reference internal" href="#">Upgrade Datasentinel</a><ul>
 <li><a class="reference internal" href="#platform-upgrade">1. Platform upgrade</a></li>
-<li><a class="reference internal" href="#agent-upgrade">2. Agent upgrade</a></li>
-<li><a class="reference internal" href="#grafana-upgrade">3. Grafana upgrade</a></li>
+<li><a class="reference internal" href="#grafana-upgrade">2. Grafana upgrade</a></li>
+<li><a class="reference internal" href="#agent-upgrade">3. Agent upgrade</a></li>
 </ul>
 </li>
 </ul>

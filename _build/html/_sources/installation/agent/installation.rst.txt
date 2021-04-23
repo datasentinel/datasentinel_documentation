@@ -19,7 +19,7 @@ Agent installation
 
 - Connect to your user interface URL with a admin user.
 - Go to Tools submenu and click on agents.
-- Download the agent (tar.gz format, available for redhat/centos, debia, ubuntu)
+- Download the agent (tar.gz format, available for redhat/centos, debian, ubuntu)
 
 .. note::
    If you use our on-premises platform, the agents are available in the directory **/datasentinel/download**
@@ -38,7 +38,50 @@ Agent installation
    export PATH=$DATASENTINEL_PATH:$PATH
    datasentinel start agent
 
-3. Token and upload server
+3. Test the status
+******************
+
+.. code-block:: bash
+
+   datasentinel status agent
+
+- Output
+  
+   .. code-block:: bash
+
+         Copyright 2021 (c) datasentinel- All rights reserved        www.datasentinel.io
+         ================================================================================
+         
+                        Agent
+                           Version : 2.6.0                                             
+                              Port : 8282                                              
+                        Start time : 2021-04-21 07:45:53                               
+                  Collection rate : high                                              
+            Table monitoring limit : 1000                                              
+                     Sql max size : 256000                                            
+         
+                        Proxy
+                              host :                                                   
+                              port : 0                                                 
+                              user :                                                   
+                        password :                                                   
+         
+                     Upload
+                              host : upload_server                                      
+                              port : 443                                               
+         
+                  Connections
+                        declared : 0                                                 
+                           running : 0                                                 
+                     not running : 0                                                 
+
+
+.. warning::
+
+   The agent is running but the CLI responds NO? Check this point :ref:`agent-faq-status`
+
+
+4. Token and upload server
 **************************
 
 | A token is required in order to communicate with the repository
@@ -59,7 +102,7 @@ Agent installation
    - cert_datasentinel.pem
    - key_datasentinel.pem
 
-4. Upload server and token validity
+5. Upload server and token validity
 ***********************************
 
 | It also checks the communication between the agent and the server
@@ -69,7 +112,7 @@ Agent installation
     datasentinel show token
 
 
-5. Postgresql user
+6. Postgresql user
 ******************
 
 .. warning::
@@ -90,7 +133,7 @@ Agent installation
    grant pg_monitor,pg_read_all_settings,pg_read_all_stats to datasentinel;
 
 
-6. pg_hba.conf
+7. pg_hba.conf
 **************
 
 - Add authorization for the user datasentinel to connect to all databases with a password
@@ -105,7 +148,7 @@ Agent installation
 
 - Reload the configuration
 
-7. Postgresql instance
+8. Postgresql instance
 **********************
 
 .. code-block:: bash
@@ -132,7 +175,7 @@ Agent installation
    | A script is present in the **datasentinel** subdirectory as an example. (connection_example.sh)
 
 
-8. Useful CLI commands
+9. Useful CLI commands
 **********************
 
 .. note::
@@ -157,62 +200,77 @@ Agent installation
 
 .. code-block:: bash
 
-   Copyright 2019 (c) datasentinel- All rights reserved        www.datasentinel.io
-   ================================================================================
+      Copyright 2021 (c) datasentinel- All rights reserved        www.datasentinel.io
+      ================================================================================
 
-      Agent:
-         - start agent
-         - stop agent
-         - status agent
-         - set port <port number>
-
-      Connections: when the connections are disabled, the agent is disconnected.
-         - enable all
-         - disable all
-
-      Connection:
-         - add connection <name> -f <json file>
-         - update connection <name> -f <json file>
-                json example: {
-                                "host": "hostname",
-                                "port": 4587,
-                                "user": "username",
-                                "password": "value",
-                                "tags": "key=value,key=value,..."
-                              }
-
-         - delete connection <name>
-         - enable connection <name>
-         - disable connection <name>
-
-         - show connections
-         - show connection <name>
-
-      Dump connection in JSON format:
-         - dump connection <name> 
-
-       Upload server:
-         - set server <host> <port>
-         - show server
-         - test server
-
-       Token:
-         - set token <value>
-         - show token
+         Agent:
+               - start agent
+               - stop agent
+               - status agent
+               - set port <port number>
+               - set collection-rate <low|high>
+                     low: The sessions collection is done every 10 seconds
+                     high: The sessions collection is done every second  (Default value)
+                     If the datasentinel extension is not installed, the collection-rate is automatically adujusted to low value 
+               - set tables-monitoring-limit (default 1000)
+                     The agent monitors the activity of tables and indexes if the number of tables in the connection is less than the defined limit
+               - set sql-max-size (default 256000)
+                     Only useful when the datasentinel extension is not installed!
+                     The agent analyzes each sql during the sampling of active sessions (pg_stat_activity) 
+                     to calculate an identifier (md5).
+                     If the size of the analyzed sql exceeds the limit, the sql text will be truncated
          
-       Proxy:
-         - set proxy -f <json file>
-                json example: {
-                                "host": "hostname",
-                                "port": 4587,
-                                "user": "username (optional)",
-                                "password": "value (optional)",
-                              }
-         - delete proxy
-         - show proxy
+         Connections: when the connections are disabled, the agent is disconnected.
+               - enable all
+               - disable all
 
-9. API
-******
+         Connection:
+               - add connection <name> -f <json file>
+               - update connection <name> -f <json file>
+                     json example: {
+                                    "host": "hostname",
+                                    "port": 4587,
+                                    "user": "username",
+                                    "password": "value",
+                                    "tags": "key=value,key=value,..."
+                                    }
+
+               - update connection <name> samples <on|off> (default on)
+                     collect and send sample queries, with literal values if present
+
+               - delete connection <name>
+               - enable connection <name>
+               - disable connection <name>
+
+               - show connections
+               - show connection <name>
+         
+         Dump connection in JSON format:
+               - dump connection <name>  
+
+         Upload server:
+               - set server <host> <port>
+               - show server
+               - test server
+
+         Token:
+               - set token <value>
+               - show token
+               
+         Proxy:
+               - set proxy -f <json file>
+                     json example: {
+                                    "host": "hostname",
+                                    "port": 4587,
+                                    "user": "username (optional)",
+                                    "password": "value (optional)"
+                                    }
+               - delete proxy
+               - show proxy
+
+
+10. API
+********
 
 .. note:: 
    All operations are available through :ref:`agent-apis`.
@@ -253,7 +311,7 @@ Agent installation
     }
   }
 
-10. Internal storage
+11. Internal storage
 ********************
 
 The agent stores its configuration on the hidden directory **.datasentinel** under the user home.

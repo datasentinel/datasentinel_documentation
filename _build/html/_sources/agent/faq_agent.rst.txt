@@ -140,6 +140,9 @@ You can change this value by adjusting the parameter **table-monitoring-limit** 
     postgres         | pg_stat_statements
     (1 row)
 
+
+.. _agent-faq-status:
+
 12. The agent is running but the CLI responds NO?
 ****************************************************************************
 
