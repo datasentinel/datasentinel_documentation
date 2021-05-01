@@ -11,7 +11,7 @@ Connection API
 - API can be reached at **https://<<datasentinel_platform_server>>**
 
 .. warning::
-   | Connection API is only available for an **on-premises** installation and if you want to use the **agentless** feature
+   | Connection API is only available for an **on-premises** installation and if you want to use the **Agentless** feature
    | 
    | If you prefer installing each agent locally, then adding a connection is done at the agent level with the agent :ref:`agent-cli` or with agent :ref:`agent-apis`.
 

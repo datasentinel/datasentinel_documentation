@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>Installation &#8212; Datasentinel</title>
+    <title>Adding a connection &#8212; Datasentinel</title>
 
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
@@ -25,15 +25,16 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="On-premises platform installation" href="platform/installation.html" />
-    <link rel="prev" title="Which architecture to choose?" href="../architecture.html" /> 
+    <link rel="next" title="Upgrade Datasentinel" href="platform/upgrade.html" />
+    <link rel="prev" title="PostgreSQL user" href="postgresql_user.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
-            <a class="mdl-navigation__link is-active">Installation</a>
+            <a class="mdl-navigation__link" href="index.html">Installation</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">Adding a connection</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -56,7 +57,7 @@
         
 <a id="button-show-source"
     class="mdl-button mdl-js-button mdl-button--icon"
-    href="../_sources/installation/index.rst.txt" rel="nofollow">
+    href="../_sources/installation/adding_connection.rst.txt" rel="nofollow">
 <i class="material-icons">code</i>
 </a>
 <div class="mdl-tooltip" data-mdl-for="button-show-source">
@@ -108,12 +109,12 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="../architecture.html">Which architecture to choose?</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="platform/installation.html">On-premises platform installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="platform/agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="agent/installation.html">Agent installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="postgresql_user.html">PostgreSQL user</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adding_connection.html">Adding a connection</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Adding a connection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="platform/upgrade.html">Upgrade Datasentinel</a></li>
 </ul>
 </li>
@@ -192,12 +193,12 @@ Show Source
 <li class="toctree-l1"><a class="reference internal" href="../architecture.html">Which architecture to choose?</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="platform/installation.html">On-premises platform installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="platform/agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="agent/installation.html">Agent installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="postgresql_user.html">PostgreSQL user</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adding_connection.html">Adding a connection</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Adding a connection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="platform/upgrade.html">Upgrade Datasentinel</a></li>
 </ul>
 </li>
@@ -259,30 +260,41 @@ Show Source
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="adding-a-connection">
+<span id="adding-connection"></span><h1>Adding a connection<a class="headerlink" href="#adding-a-connection" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="agent-based">
+<h2>1. Agent-based<a class="headerlink" href="#agent-based" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">Datasentinel needs the <strong>pg_stat_statements</strong> extension to be installed in your PostgreSQL instances</div>
+<div class="line">See <a class="reference internal" href="agent/installation.html#agent-installation"><span class="std std-ref">Agent installation</span></a> if you want to use the API to add a new connection</div>
 </div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+</div>
+<div class="section" id="agentless">
+<h2>2. Agentless<a class="headerlink" href="#agentless" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">Extensions need to be installed in the <strong>postgres</strong> database of your instances</div>
+<div class="line">You can use the API to add a new connection</div>
+<div class="line">See <a class="reference internal" href="../features/connection-api.html#connection-api"><span class="std std-ref">Connection API</span></a></div>
 </div>
 </div>
-<p>Datasentinel is composed of 1 repository (SaaS or on-premises) and agents which upload data.</p>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
+<p><strong>Steps to add a connection in the User interface</strong></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="platform/installation.html">On-premises platform installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="platform/agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agent/installation.html">Agent installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="postgresql_user.html">PostgreSQL user</a></li>
-<li class="toctree-l1"><a class="reference internal" href="adding_connection.html">Adding a connection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="platform/upgrade.html">Upgrade Datasentinel</a></li>
+<li><p>Open tools menu</p>
+<blockquote>
+<div><img alt="Agentless settings" class="align-left" src="../_images/tools_icon1.png" />
+</div></blockquote>
+</li>
+<li><p>Click on <strong>Agentless settings</strong></p>
+<blockquote>
+<div><blockquote>
+<div><img alt="../_images/tools_menu1.png" class="align-left" src="../_images/tools_menu1.png" />
+</div></blockquote>
+<a class="reference internal image-reference" href="../_images/agentless2.gif"><img alt="connection management" class="align-center" src="../_images/agentless2.gif" style="width: 100%;" /></a>
+</div></blockquote>
+</li>
 </ul>
 </div>
 </div>
@@ -291,23 +303,36 @@ Show Source
         </div>
         <div class="side-doc-outline">
             <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">Adding a connection</a><ul>
+<li><a class="reference internal" href="#agent-based">1. Agent-based</a></li>
+<li><a class="reference internal" href="#agentless">2. Agentless</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
             </div>
         </div>
 
       <div class="clearer"></div>
     </div><div class="pagenation">
-     <a id="button-prev" href="../architecture.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+     <a id="button-prev" href="postgresql_user.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
          <i class="pagenation-arrow-L material-icons">arrow_back</i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>Which architecture to choose?</div>
+            <div>PostgreSQL user</div>
          </div>
      </a>
-     <a id="button-next" href="platform/installation.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="platform/upgrade.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
         <i class="pagenation-arrow-R material-icons">arrow_forward</i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>On-premises platform installation</div>
+            <div>Upgrade Datasentinel</div>
         </div>
      </a>
   </div>

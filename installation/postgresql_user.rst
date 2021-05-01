@@ -1,7 +1,8 @@
 .. _postgresql-user:
 
+
 ***************
-Postgresql user 
+PostgreSQL user 
 ***************
 
 Prerequisite

@@ -17,5 +17,6 @@ Datasentinel is composed of 1 repository (SaaS or on-premises) and agents which 
    platform/agentbasedOrAgentless
    agent/installation
    postgresql_user
+   adding_connection
    platform/upgrade
 
