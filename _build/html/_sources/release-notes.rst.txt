@@ -4,6 +4,18 @@
 Release notes
 ******************
 
+**May 01, 2021 (v2021.05)**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. raw:: html
+
+   <h3>Features</h3>
+
+1. | **High Availability Architecture**
+   | You can now monitor your entire architecture (master + read only replicas) `See our Blog Post <https://www.datasentinel.io/blog/post/ha_cluster/>`_ 
+
+Minimum Agent version : 2.6.0
+
+
 **Apr 01, 2021 (v2021.04)**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. raw:: html
