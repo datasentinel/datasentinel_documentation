@@ -20,20 +20,24 @@ You need to have a linux machine **Red Hat or centos 7**:
 
 
 .. note::
-   | The platform is composed of several components packaged in a single file **install-datasentinel-platform.tar.gz** (size 550 MB)
-   | All the components are packaged under the user **datasentinel**
-   | Installation less than 5 minutes
+   | The platform is composed of several components packaged in a single file **install-datasentinel-platform-latest.tar.gz** (size 550 MB)
 
-.. image:: architecture.png
-   :scale: 100 %
-   :align: center
 
-1. Uncompress
+1. Download
+***********
+
+Download the installation file at https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-latest.tar.gz
+
+.. code-block:: bash
+
+   wget https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-latest.tar.gz
+
+2. Uncompress
 *************
 
 .. code-block:: bash
 
-   tar xvzf {{ downloaded file name }}.tar.gz
+   tar xvzf install-datasentinel-platform-latest.tar.gz
 
 3 files are created
 
@@ -46,7 +50,7 @@ You need to have a linux machine **Red Hat or centos 7**:
    | If not installed, you can install nginx with the included rpm file -> **yum localinstall nginx-1.18.0-1.el7.ngx.x86_64.rpm**
 
 
-2. Install
+3. Install
 **********
 
 | Run the shell script
@@ -97,8 +101,13 @@ You need to have a linux machine **Red Hat or centos 7**:
    | The login is **datasentinel**
    | The password is given by datasentinel team
 
-3. Components
+4. Components
 *************
+
+.. image:: architecture.png
+   :scale: 100 %
+   :align: center
+
 
 Datasentinel uses the following components:
 
@@ -113,7 +122,7 @@ Datasentinel uses the following components:
    | Each component is restarted automatically with a system service 
    | located on **/usr/lib/systemd/system**
 
-4. Components management
+5. Components management
 ************************
 
 Start
@@ -153,7 +162,7 @@ Output
    datasentinel_postgresql.service                                    loaded active running   PostgreSQL 10 database server
    nginx.service                                                      loaded active running   The nginx HTTP and reverse proxy server
 
-4. Useful log files
+6. Useful log files
 ********************
 
 .. note:: 

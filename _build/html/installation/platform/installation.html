@@ -113,7 +113,8 @@ Show Source
 <li class="toctree-l2 current"><a class="current reference internal" href="#">On-premises platform installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../agent/installation.html">Agent installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../postgresql_user.html">Postgresql user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postgresql_user.html">PostgreSQL user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adding_connection.html">Adding a connection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrade Datasentinel</a></li>
 </ul>
 </li>
@@ -196,7 +197,8 @@ Show Source
 <li class="toctree-l2 current"><a class="current reference internal" href="#">On-premises platform installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../agent/installation.html">Agent installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../postgresql_user.html">Postgresql user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postgresql_user.html">PostgreSQL user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adding_connection.html">Adding a connection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrade Datasentinel</a></li>
 </ul>
 </li>
@@ -275,15 +277,19 @@ Show Source
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">The platform is composed of several components packaged in a single file <strong>install-datasentinel-platform.tar.gz</strong> (size 550 MB)</div>
-<div class="line">All the components are packaged under the user <strong>datasentinel</strong></div>
-<div class="line">Installation less than 5 minutes</div>
+<div class="line">The platform is composed of several components packaged in a single file <strong>install-datasentinel-platform-latest.tar.gz</strong> (size 550 MB)</div>
 </div>
 </div>
-<a class="reference internal image-reference" href="../../_images/architecture.png"><img alt="../../_images/architecture.png" class="align-center" src="../../_images/architecture.png" style="width: 952.0px; height: 432.0px;" /></a>
+<div class="section" id="download">
+<h2>1. Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
+<p>Download the installation file at <a class="reference external" href="https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-latest.tar.gz">https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-latest.tar.gz</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-latest.tar.gz
+</pre></div>
+</div>
+</div>
 <div class="section" id="uncompress">
-<h2>1. Uncompress<a class="headerlink" href="#uncompress" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvzf <span class="o">{{</span> downloaded file name <span class="o">}}</span>.tar.gz
+<h2>2. Uncompress<a class="headerlink" href="#uncompress" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvzf install-datasentinel-platform-latest.tar.gz
 </pre></div>
 </div>
 <p>3 files are created</p>
@@ -300,7 +306,7 @@ Show Source
 </div>
 </div>
 <div class="section" id="install">
-<h2>2. Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<h2>3. Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line">Run the shell script</div>
 </div>
@@ -363,7 +369,8 @@ Show Source
 </div>
 </div>
 <div class="section" id="components">
-<h2>3. Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<h2>4. Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../../_images/architecture.png"><img alt="../../_images/architecture.png" class="align-center" src="../../_images/architecture.png" style="width: 952.0px; height: 432.0px;" /></a>
 <p>Datasentinel uses the following components:</p>
 <ul class="simple">
 <li><p>Nginx web server</p></li>
@@ -382,7 +389,7 @@ Show Source
 </div>
 </div>
 <div class="section" id="components-management">
-<h2>4. Components management<a class="headerlink" href="#components-management" title="Permalink to this headline">¶</a></h2>
+<h2>5. Components management<a class="headerlink" href="#components-management" title="Permalink to this headline">¶</a></h2>
 <p>Start</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl start datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend datasentinel_dispatcher nginx
 </pre></div>
@@ -409,7 +416,7 @@ nginx.service                                                      loaded active
 </div>
 </div>
 <div class="section" id="useful-log-files">
-<h2>4. Useful log files<a class="headerlink" href="#useful-log-files" title="Permalink to this headline">¶</a></h2>
+<h2>6. Useful log files<a class="headerlink" href="#useful-log-files" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
@@ -460,11 +467,12 @@ nginx.service                                                      loaded active
     </p>
     <ul>
 <li><a class="reference internal" href="#">On-premises platform installation</a><ul>
-<li><a class="reference internal" href="#uncompress">1. Uncompress</a></li>
-<li><a class="reference internal" href="#install">2. Install</a></li>
-<li><a class="reference internal" href="#components">3. Components</a></li>
-<li><a class="reference internal" href="#components-management">4. Components management</a></li>
-<li><a class="reference internal" href="#useful-log-files">4. Useful log files</a></li>
+<li><a class="reference internal" href="#download">1. Download</a></li>
+<li><a class="reference internal" href="#uncompress">2. Uncompress</a></li>
+<li><a class="reference internal" href="#install">3. Install</a></li>
+<li><a class="reference internal" href="#components">4. Components</a></li>
+<li><a class="reference internal" href="#components-management">5. Components management</a></li>
+<li><a class="reference internal" href="#useful-log-files">6. Useful log files</a></li>
 </ul>
 </li>
 </ul>
