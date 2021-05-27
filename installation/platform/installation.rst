@@ -22,6 +22,19 @@ You need to have a linux machine **Red Hat or centos 7**:
 .. note::
    | The platform is composed of several components packaged in a single file **install-datasentinel-platform-latest.tar.gz** (size 550 MB)
 
+1. License
+***********
+
+A license key is required to use Datasentinel.
+
+Obtain a Datasentinel license key:
+
+- Users who want to try Datasentinel with a 30-day trial can obtain a license key on the `Trial page <https://www.datasentinel.io/#/freetrial>`_
+
+- Existing customers can obtain their license key from Datasentinel Support: support@datasentinel.io
+
+See How to update the :ref:`token` to enable the license key.
+
 
 1. Download
 ***********
@@ -32,7 +45,7 @@ Download the installation file at https://app.datasentinel.io/ds-api/download/in
 
    wget https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-latest.tar.gz
 
-2. Uncompress
+3. Uncompress
 *************
 
 .. code-block:: bash
@@ -50,7 +63,7 @@ Download the installation file at https://app.datasentinel.io/ds-api/download/in
    | If not installed, you can install nginx with the included rpm file -> **yum localinstall nginx-1.18.0-1.el7.ngx.x86_64.rpm**
 
 
-3. Install
+4. Install
 **********
 
 | Run the shell script
@@ -101,7 +114,7 @@ Download the installation file at https://app.datasentinel.io/ds-api/download/in
    | The login is **datasentinel**
    | The password is given by datasentinel team
 
-4. Components
+5. Components
 *************
 
 .. image:: architecture.png
@@ -122,7 +135,7 @@ Datasentinel uses the following components:
    | Each component is restarted automatically with a system service 
    | located on **/usr/lib/systemd/system**
 
-5. Components management
+6. Components management
 ************************
 
 Start
@@ -162,7 +175,7 @@ Output
    datasentinel_postgresql.service                                    loaded active running   PostgreSQL 10 database server
    nginx.service                                                      loaded active running   The nginx HTTP and reverse proxy server
 
-6. Useful log files
+7. Useful log files
 ********************
 
 .. note:: 

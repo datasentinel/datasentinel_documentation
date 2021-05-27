@@ -280,6 +280,16 @@ Show Source
 <div class="line">The platform is composed of several components packaged in a single file <strong>install-datasentinel-platform-latest.tar.gz</strong> (size 550 MB)</div>
 </div>
 </div>
+<div class="section" id="license">
+<h2>1. License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>A license key is required to use Datasentinel.</p>
+<p>Obtain a Datasentinel license key:</p>
+<ul class="simple">
+<li><p>Users who want to try Datasentinel with a 30-day trial can obtain a license key on the <a class="reference external" href="https://www.datasentinel.io/#/freetrial">Trial page</a></p></li>
+<li><p>Existing customers can obtain their license key from Datasentinel Support: <a class="reference external" href="mailto:support&#37;&#52;&#48;datasentinel&#46;io">support<span>&#64;</span>datasentinel<span>&#46;</span>io</a></p></li>
+</ul>
+<p>See How to update the <a class="reference internal" href="../../token.html#token"><span class="std std-ref">Token</span></a> to enable the license key.</p>
+</div>
 <div class="section" id="download">
 <h2>1. Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
 <p>Download the installation file at <a class="reference external" href="https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-latest.tar.gz">https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-latest.tar.gz</a></p>
@@ -288,7 +298,7 @@ Show Source
 </div>
 </div>
 <div class="section" id="uncompress">
-<h2>2. Uncompress<a class="headerlink" href="#uncompress" title="Permalink to this headline">¶</a></h2>
+<h2>3. Uncompress<a class="headerlink" href="#uncompress" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvzf install-datasentinel-platform-latest.tar.gz
 </pre></div>
 </div>
@@ -306,7 +316,7 @@ Show Source
 </div>
 </div>
 <div class="section" id="install">
-<h2>3. Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<h2>4. Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line">Run the shell script</div>
 </div>
@@ -369,7 +379,7 @@ Show Source
 </div>
 </div>
 <div class="section" id="components">
-<h2>4. Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<h2>5. Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="../../_images/architecture.png"><img alt="../../_images/architecture.png" class="align-center" src="../../_images/architecture.png" style="width: 952.0px; height: 432.0px;" /></a>
 <p>Datasentinel uses the following components:</p>
 <ul class="simple">
@@ -389,7 +399,7 @@ Show Source
 </div>
 </div>
 <div class="section" id="components-management">
-<h2>5. Components management<a class="headerlink" href="#components-management" title="Permalink to this headline">¶</a></h2>
+<h2>6. Components management<a class="headerlink" href="#components-management" title="Permalink to this headline">¶</a></h2>
 <p>Start</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl start datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend datasentinel_dispatcher nginx
 </pre></div>
@@ -416,7 +426,7 @@ nginx.service                                                      loaded active
 </div>
 </div>
 <div class="section" id="useful-log-files">
-<h2>6. Useful log files<a class="headerlink" href="#useful-log-files" title="Permalink to this headline">¶</a></h2>
+<h2>7. Useful log files<a class="headerlink" href="#useful-log-files" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
@@ -467,12 +477,13 @@ nginx.service                                                      loaded active
     </p>
     <ul>
 <li><a class="reference internal" href="#">On-premises platform installation</a><ul>
+<li><a class="reference internal" href="#license">1. License</a></li>
 <li><a class="reference internal" href="#download">1. Download</a></li>
-<li><a class="reference internal" href="#uncompress">2. Uncompress</a></li>
-<li><a class="reference internal" href="#install">3. Install</a></li>
-<li><a class="reference internal" href="#components">4. Components</a></li>
-<li><a class="reference internal" href="#components-management">5. Components management</a></li>
-<li><a class="reference internal" href="#useful-log-files">6. Useful log files</a></li>
+<li><a class="reference internal" href="#uncompress">3. Uncompress</a></li>
+<li><a class="reference internal" href="#install">4. Install</a></li>
+<li><a class="reference internal" href="#components">5. Components</a></li>
+<li><a class="reference internal" href="#components-management">6. Components management</a></li>
+<li><a class="reference internal" href="#useful-log-files">7. Useful log files</a></li>
 </ul>
 </li>
 </ul>
