@@ -125,7 +125,7 @@ User interface connection management
 
    <h3>Features</h3>
 
-1. | Added Reporting. (Here is an example :download:`pdf <features/workload_example.pdf>`)
+1. | Added Reporting. (Here is an example :download:`pdf <API/workload_example.pdf>`)
    | :ref:`export workload`
    | You can also generate your report with :ref:`api`
 2. The Datasentinel extension is no longer required. (Required only when you choose the **high** level of collection). See :doc:`features/sessions-workload`

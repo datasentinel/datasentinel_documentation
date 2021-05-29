@@ -127,7 +127,7 @@ You can change this value by adjusting the parameter **table-monitoring-limit** 
 
 
 11. How can i verify that pg_stat_statements is installed?
-*********************************************************
+**********************************************************
 
 .. warning::
    | The extension needs to be installed in the **postgres** database.
@@ -144,7 +144,7 @@ You can change this value by adjusting the parameter **table-monitoring-limit** 
 .. _agent-faq-status:
 
 12. The agent is running but the CLI responds NO?
-****************************************************************************
+***************************************************
 
 .. code-block:: bash
 

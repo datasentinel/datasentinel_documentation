@@ -79,205 +79,240 @@ In order to use user and role API, you need to generate an access token.
     }
 
 **Add a user**
-********************************
+**************
 
 .. raw:: html
 
-   <h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/pool/pg-instances/{{pg_name}}</span></h6>
+   <h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/ds-users</span></h6>
 
 - Example 
 
 .. code:: bash
 
   export TOKEN=<<user_token>>
-  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request POST 'https://<<datasentinel_platform_server>>/ds-api/pool/pg-instances/crm-production' -d @body.json
+  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request POST 'https://<<datasentinel_platform_server>>/ds-api/ds-users' -d @body.json
 
 - Request example (body.json)
 
 .. code:: bash
 
     {
-      "host": "pg-crm-2031",
-      "port": 9342,
-      "user": "datasentinel",
-      "password": "password",
-      "tags": "datacenter=paris,provider=aws,environment=production"
+      "email": "userName@myCompany.com",
+      "password": "myPassword",
+      "privilege": "admin",
+      "profile": "data admin",
+      "live_360": 1,
+      "role": "No restriction",
     }
 
 - Parameters:
 
-    | pg_name: Unique connection identifier name
+    | **Required**
+    | email: User email used to connect to Datasentinel
+    | password : User password
     |
-    | host : PostgreSQL host name
-    | port: PostgreSQL port number 
-    |
-    | user: PostgreSQL user
-    | password: PostgreSQL user password
-    |
-    | tags: list of key,value pairs (completely customisable)
+    | **Optional**
+    | "privilege": read, read write or admin (default: **admin**) 
+    | "profile":  developer or data admin (default: **data admin**)
+    | "live_360": 0 or 1 (default: **1**) 
+    | "role":  Role name (default: **No restriction**)
+
+
 
 - Response
 
 .. code:: bash
 
     {
-        "status": "Connection created and connected!"
+      "status": "User with login userName created successfully"
     }
 
+- Privilege parameter 
+  
+3 privileges are available. A privilege needs to be assigned to a user
 
-**Display connection**
++---------------------------------------+--------------------------------------------------------------------------------------------------+
+| Privilege                             | Description                                                                                      |
++=======================================+==================================================================================================+
+| read                                  | - Read only acces to datasentinel                                                                |
++---------------------------------------+--------------------------------------------------------------------------------------------------+
+| read write                            | - Read only acces to datasentinel                                                                |
+|                                       | - Kill sessions                                                                                  |
++---------------------------------------+--------------------------------------------------------------------------------------------------+
+| admin                                 | - Read only acces to datasentinel                                                                |
+|                                       | - Kill sessions                                                                                  |
+|                                       | - Agent, postgreSQL instance management                                                          |
+|                                       | - User management                                                                                |
+|                                       | - Datasentinel configuration management                                                          |
++---------------------------------------+--------------------------------------------------------------------------------------------------+
+
+- Profile parameter 
+
+2 profiles are available. A profile needs to be assigned to a user
+
++---------------------------------------+--------------------------------------------------------------------------------------------------+
+| Profile                               | Description                                                                                      |
++=======================================+==================================================================================================+
+| developer                             | - Access limited to sessions workload and top queries features                                   |
++---------------------------------------+--------------------------------------------------------------------------------------------------+
+| data admin                            | - Access unlimited                                                                               |
++---------------------------------------+--------------------------------------------------------------------------------------------------+
+
+- live_360 parameter 
+
+Live360 feature allows you to connect directly to the instances to have real-time information (See :ref:`live_360`)
+
++---------------------------------------+--------------------------------------------------------------------------------------------------+
+| Value                                 | Description                                                                                      |
++=======================================+==================================================================================================+
+| 0                                     | Not allowed                                                                                      |
++---------------------------------------+--------------------------------------------------------------------------------------------------+
+| 1                                     | Allowed                                                                                          |
++---------------------------------------+--------------------------------------------------------------------------------------------------+
+
+- role parameter
+
+Assign an existing role if you want to enable the **Role based access** feature, which allows you to restrict access to a subset of the perimeter of your PostgreSQL instances. 
+You define roles with specific filters (Server, PG instance, datacenter, application, environment, etc, ...).
+
+
+
+**Display user**
 **********************
 
 .. raw:: html
 
-   <h6 ><span style="margin-left:30px;font-weight:bold;color: #3f6ed8">GET</span><span style="color:#3f6ed8">&nbsp;/ds-api/pool/pg-instances/{{pg_name}}</span></h6>
+   <h6 ><span style="margin-left:30px;font-weight:bold;color: #3f6ed8">GET</span><span style="color:#3f6ed8">&nbsp;/ds-api/ds-users/{{email}}</span></h6>
 
 - Example 
 
 .. code:: bash
 
   export TOKEN=<<user_token>>
-  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request GET 'https://<<datasentinel_platform_server>>/ds-api/pool/pg-instances/crm-production'
+  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request GET 'https://<<datasentinel_platform_server>>/ds-api/ds-users/userName@myCompany.com'
 
 - Parameters:
 
-    | pg_name: Unique connection identifier name
+    | email: User email
+
+- Response
+
+.. code:: bash
+
+    {
+        "id": 54,
+        "login": "username",
+        "email": "userName@myCompany.com",
+        "profile": "data admin",
+        "privilege": "admin",
+        "role": "No restriction",
+        "live_360": 1
+    }
+
+**Update user**
+***************
+
+.. raw:: html
+
+   <h6 ><span style="margin-left:30px;font-weight:bold;color: #ff8c69">PUT</span><span style="color:#ff8c69">&nbsp;/ds-api/ds-users/{{email}}</span></h6>
+
+- Example 
+
+.. code:: bash
+
+  export TOKEN=<<user_token>>
+  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request PUT 'https://<<datasentinel_platform_server>>/ds-api/ds-users/userName@myCompany.com'  -d @body.json
+
+- Request example (body.json)
+
+.. code:: bash
+
+    {
+      "privilege": "read",
+      "live_360": 0
+    }
+
+- Parameters:
+
+    | email: User email
+    |
+    | **Optional**
+    | "password": User password 
+    | "privilege": read, read write or admin
+    | "profile":  developer or data admin
+    | "live_360": 0 or 1
+    | "role":  Role name
+
+- Response
+
+.. code:: bash
+
+    {
+      "status": "User updated successfully!"
+    }
+
+**Delete user**
+**********************
+
+.. raw:: html
+
+   <h6 ><span style="margin-left:30px;font-weight:bold;color: gray">DELETE</span><span style="color:gray">&nbsp;/ds-api/ds-users/{{email}}</span></h6>
+
+- Example 
+
+.. code:: bash
+
+  export TOKEN=<<user_token>>
+  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request DELETE 'https://<<datasentinel_platform_server>>/ds-api/ds-users/userName@myCompany.com'
+
+- Parameters:
+
+    | email: User email
 
 - Response
 
 .. code:: bash
 
   {
-        "connected": true,
-        "enabled": true,
-        "host": "pg-crm-2031",
-        "name": "crm-production",
-        "password": "password",
-        "port": 9342,
-        "tags": "datacenter=paris,provider=aws,environment=production",
-        "user": "datasentinel"
-    }
+    "message": "User deleted"
+  }
 
-**Update connection**
+
+**Display all users**
 **********************
 
 .. raw:: html
 
-   <h6 ><span style="margin-left:30px;font-weight:bold;color: #ff8c69">PUT</span><span style="color:#ff8c69">&nbsp;/ds-api/pool/pg-instances/{{pg_name}}</span></h6>
+   <h6 ><span style="margin-left:30px;font-weight:bold;color: #3f6ed8">GET</span><span style="color:#3f6ed8">&nbsp;/ds-api/ds-users</span></h6>
 
 - Example 
 
 .. code:: bash
 
   export TOKEN=<<user_token>>
-  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request PUT 'https://<<datasentinel_platform_server>>/ds-api/pool/pg-instances/crm-production'  -d @body.json
-
-- Request example (body.json)
-
-.. code:: bash
-
-    {
-      "host": "pg-crm-2031",
-      "port": 9342,
-      "user": "datasentinel",
-      "password": "password",
-      "tags": "datacenter=paris,provider=aws,environment=production"
-    }
-
-- Parameters:
-
-    | pg_name: Unique connection identifier name
-    |
-    | host : PostgreSQL host name
-    | port: PostgreSQL port number 
-    |
-    | user: PostgreSQL user
-    | password: PostgreSQL user password
-    |
-    | tags: list of key,value pairs (completely customisable)
+  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request GET 'https://<<datasentinel_platform_server>>/ds-api/ds-users'
 
 - Response
 
 .. code:: bash
 
-    {
-        "status": "Connection updated!"
-    }
-
-**Disable connection**
-**********************
-
-.. raw:: html
-
-   <h6 ><span style="margin-left:30px;font-weight:bold;color: gray">PATCH</span><span style="color:gray">&nbsp;/ds-api/pool/pg-instances/{{pg_name}}/disable</span></h6>
-
-- Example 
-
-.. code:: bash
-
-  export TOKEN=<<user_token>>
-  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request PATCH 'https://<<datasentinel_platform_server>>/ds-api/pool/pg-instances/crm-production/disable'
-
-- Parameters:
-
-    | pg_name: Unique connection identifier name
-
-- Response
-
-.. code:: bash
-
-    {
-        "status": "Connection disabled!"
-    }
-
-**Enable connection**
-**********************
-
-.. raw:: html
-
-   <h6 ><span style="margin-left:30px;font-weight:bold;color: gray">PATCH</span><span style="color:gray">&nbsp;/ds-api/pool/pg-instances/{{pg_name}}/enable</span></h6>
-
-- Example 
-
-.. code:: bash
-
-  export TOKEN=<<user_token>>
-  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request PATCH 'https://<<datasentinel_platform_server>>/ds-api/pool/pg-instances/crm-production/enable'
-
-- Parameters:
-
-    | pg_name: Unique connection identifier name
-
-- Response
-
-.. code:: bash
-
-    {
-        "status": "Connection enabled!"
-    }
-
-**Delete connection**
-**********************
-
-.. raw:: html
-
-   <h6 ><span style="margin-left:30px;font-weight:bold;color: gray">DELETE</span><span style="color:gray">&nbsp;/ds-api/pool/pg-instances/{{pg_name}}</span></h6>
-
-- Example 
-
-.. code:: bash
-
-  export TOKEN=<<user_token>>
-  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request DELETE 'https://<<datasentinel_platform_server>>/ds-api/pool/pg-instances/crm-production'
-
-- Parameters:
-
-    | pg_name: Unique connection identifier name
-
-- Response
-
-.. code:: bash
-
-    {
-        "status": "Connection deleted!"
-    }
+    [
+      {
+          "id": 2,
+          "login": "datasentinel",
+          "email": "contact@datasentinel.io",
+          "profile": "data admin",
+          "privilege": "admin",
+          "role": "No restriction",
+          "live_360": 1
+      },
+      {
+          "id": 54,
+          "login": "username",
+          "email": "userName@myCompany.com",
+          "profile": "data admin",
+          "privilege": "read",
+          "role": "No restriction",
+          "live_360": 0
+      }
+  ]    

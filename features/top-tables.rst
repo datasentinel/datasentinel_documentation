@@ -48,7 +48,7 @@ Top Tables
 - Drill-down into a selected table to view its historical statistics as well as its index statistics.
 
 Top Indexes
-==========
+===========
 
 - Finely analyze your indexes among the following dimension
     * Index scans

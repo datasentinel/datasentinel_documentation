@@ -33,7 +33,7 @@ Features
    :caption: Agentless configuration
 
    agentless
-   connection-api   
+   ../API/connection-api   
 
 
 

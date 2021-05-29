@@ -1,11 +1,6 @@
 API
 ===
 
-.. image:: ../images/youtubeLogo.png
-   :alt: PostgreSQL performance monitoring platform for PostgreSQL
-   :align: center
-   :target: https://www.youtube.com/channel/UCQAUzutfsKoh5b3uK93i5Pw
-
 .. raw:: html 
 
     <h4></h4>
