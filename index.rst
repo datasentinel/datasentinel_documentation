@@ -52,6 +52,11 @@ Documentation
 .. toctree::
    :hidden:
 
+   API/index
+
+.. toctree::
+   :hidden:
+
    marketplaces/index
 
 .. toctree::

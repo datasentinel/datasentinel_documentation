@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>Connection API &#8212; Datasentinel</title>
+    <title>User and Role API &#8212; Datasentinel</title>
 
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
@@ -26,15 +26,15 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Cloud marketplaces" href="../marketplaces/index.html" />
-    <link rel="prev" title="Agentless" href="agentless.html" /> 
+    <link rel="prev" title="Workload API" href="APIs.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
     <div class="mdl-layout__header-row">
         
         <nav class="mdl-navigation breadcrumb">
-            <a class="mdl-navigation__link" href="index.html">Features</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link is-active">Connection API</a>
+            <a class="mdl-navigation__link" href="index.html">API</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active">User and Role API</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -57,7 +57,7 @@
         
 <a id="button-show-source"
     class="mdl-button mdl-js-button mdl-button--icon"
-    href="../_sources/features/connection-api.rst.txt" rel="nofollow">
+    href="../_sources/API/user-role-api.rst.txt" rel="nofollow">
 <i class="material-icons">code</i>
 </a>
 <div class="mdl-tooltip" data-mdl-for="button-show-source">
@@ -122,9 +122,9 @@ Show Source
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../extensions/index.html">Extensions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../extensions/pg-stat-statements.html">pg_stat_statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/execution-plans.html">Execution plans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../extensions/system-stats.html">system_stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html">datasentinel extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/installation.html">datasentinel extension</a></li>
 </ul>
 </li>
 </ul>
@@ -136,17 +136,23 @@ Show Source
 </ul>
 </li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/index.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../features/sessions-workload.html">Sessions workload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/top-queries.html">Top Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/live360.html">Live 360°</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/top-tables.html">Top Tables / Indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/user-management.html">User management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/execution-plans.html">Execution plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/agentless.html">Agentless</a></li>
+</ul>
+</li>
+</ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="sessions-workload.html">Sessions workload</a></li>
-<li class="toctree-l2"><a class="reference internal" href="top-queries.html">Top Queries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="live360.html">Live 360°</a></li>
-<li class="toctree-l2"><a class="reference internal" href="top-tables.html">Top Tables / Indexes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user-management.html">User management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
-<li class="toctree-l2"><a class="reference internal" href="APIs.html">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="agentless.html">Agentless</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Connection API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="APIs.html">Workload API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">User and Role API</a></li>
 </ul>
 </li>
 </ul>
@@ -206,9 +212,9 @@ Show Source
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../extensions/index.html">Extensions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../extensions/pg-stat-statements.html">pg_stat_statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/execution-plans.html">Execution plans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../extensions/system-stats.html">system_stats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html">datasentinel extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/installation.html">datasentinel extension</a></li>
 </ul>
 </li>
 </ul>
@@ -220,17 +226,23 @@ Show Source
 </ul>
 </li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../features/index.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../features/sessions-workload.html">Sessions workload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/top-queries.html">Top Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/live360.html">Live 360°</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/top-tables.html">Top Tables / Indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/user-management.html">User management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/execution-plans.html">Execution plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features/agentless.html">Agentless</a></li>
+</ul>
+</li>
+</ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Features</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="sessions-workload.html">Sessions workload</a></li>
-<li class="toctree-l2"><a class="reference internal" href="top-queries.html">Top Queries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="live360.html">Live 360°</a></li>
-<li class="toctree-l2"><a class="reference internal" href="top-tables.html">Top Tables / Indexes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user-management.html">User management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="execution-plans.html">Execution plans</a></li>
-<li class="toctree-l2"><a class="reference internal" href="APIs.html">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="agentless.html">Agentless</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Connection API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="APIs.html">Workload API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">User and Role API</a></li>
 </ul>
 </li>
 </ul>
@@ -260,21 +272,13 @@ Show Source
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="connection-api">
-<span id="id1"></span><h1>Connection API<a class="headerlink" href="#connection-api" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="user-and-role-api">
+<span id="user-api"></span><h1>User and Role API<a class="headerlink" href="#user-and-role-api" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="endpoints">
 <h2><strong>Endpoints</strong><a class="headerlink" href="#endpoints" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>API can be reached at <strong>https://&lt;&lt;datasentinel_platform_server&gt;&gt;</strong></p></li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<div class="line-block">
-<div class="line">Connection API is only available for an <strong>on-premises</strong> installation and if you want to use the <strong>Agentless</strong> feature</div>
-<div class="line"><br /></div>
-<div class="line">If you prefer installing each agent locally, then adding a connection is done at the agent level with the agent <a class="reference internal" href="../agent/CLI.html#agent-cli"><span class="std std-ref">CLI</span></a> or with agent <a class="reference internal" href="../agent/API.html#agent-apis"><span class="std std-ref">API</span></a>.</div>
-</div>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
@@ -286,17 +290,9 @@ Show Source
 </div>
 <div class="section" id="user-token-generation">
 <h2><strong>User token generation</strong><a class="headerlink" href="#user-token-generation" title="Permalink to this headline">¶</a></h2>
-<p>In order to use connection API, you need to generate an access token.
+<p>In order to use user and role API, you need to generate an access token.
 <strong>The access token is valid for 1 day</strong></p>
-<h6><span style="margin-left:30px;font-weight:bold; color: #45d6b5">POST</span>&nbsp;/ds-api/user-token/{organization}</h6><ul>
-<li><p>Path parameter:</p>
-<blockquote>
-<div><div class="line-block">
-<div class="line">The organization you belong to, only necessary if you use the SAAS architecture</div>
-<div class="line"><strong>If you have an on-premises installation, do not set the parameter</strong></div>
-</div>
-</div></blockquote>
-</li>
+<h6><span style="margin-left:30px;font-weight:bold; color: #45d6b5">POST</span>&nbsp;/ds-api/user-token</h6><ul>
 <li><p>Authentication</p>
 <blockquote>
 <div><div class="line-block">
@@ -307,7 +303,7 @@ Show Source
 </li>
 <li><p>Example</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -u myUser:myPassword -k -X POST https://<span class="s">&lt;&lt;datasentinel_platform_server&gt;&gt;/d</span>s-api/user-token/myOrganization
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -u myUser:myPassword -k -X POST https://<span class="s">&lt;&lt;datasentinel_platform_server&gt;&gt;/d</span>s-api/user-token
 </pre></div>
 </div>
 <ul class="simple">
@@ -347,8 +343,8 @@ Show Source
 </pre></div>
 </div>
 </div>
-<div class="section" id="add-a-connection">
-<h2><strong>Add a connection</strong><a class="headerlink" href="#add-a-connection" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-a-user">
+<h2><strong>Add a user</strong><a class="headerlink" href="#add-a-user" title="Permalink to this headline">¶</a></h2>
 <h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/pool/pg-instances/{{pg_name}}</span></h6><ul class="simple">
 <li><p>Example</p></li>
 </ul>
@@ -555,11 +551,11 @@ Show Source
       <span class="caption-text">Table Of Contents</span>
     </p>
     <ul>
-<li><a class="reference internal" href="#">Connection API</a><ul>
+<li><a class="reference internal" href="#">User and Role API</a><ul>
 <li><a class="reference internal" href="#endpoints"><strong>Endpoints</strong></a></li>
 <li><a class="reference internal" href="#user-token-generation"><strong>User token generation</strong></a></li>
 <li><a class="reference internal" href="#display-user-token"><strong>Display User token</strong></a></li>
-<li><a class="reference internal" href="#add-a-connection"><strong>Add a connection</strong></a></li>
+<li><a class="reference internal" href="#add-a-user"><strong>Add a user</strong></a></li>
 <li><a class="reference internal" href="#display-connection"><strong>Display connection</strong></a></li>
 <li><a class="reference internal" href="#update-connection"><strong>Update connection</strong></a></li>
 <li><a class="reference internal" href="#disable-connection"><strong>Disable connection</strong></a></li>
@@ -575,11 +571,11 @@ Show Source
 
       <div class="clearer"></div>
     </div><div class="pagenation">
-     <a id="button-prev" href="agentless.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+     <a id="button-prev" href="APIs.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
          <i class="pagenation-arrow-L material-icons">arrow_back</i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>Agentless</div>
+            <div>Workload API</div>
          </div>
      </a>
      <a id="button-next" href="../marketplaces/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">

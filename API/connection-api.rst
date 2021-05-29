@@ -29,12 +29,7 @@ In order to use connection API, you need to generate an access token.
 
 .. raw:: html
 
-   <h6><span style="margin-left:30px;font-weight:bold; color: #45d6b5">POST</span>&nbsp;/ds-api/user-token/{organization}</h6>
-
-- Path parameter:
-
-   | The organization you belong to, only necessary if you use the SAAS architecture
-   | **If you have an on-premises installation, do not set the parameter**
+   <h6><span style="margin-left:30px;font-weight:bold; color: #45d6b5">POST</span>&nbsp;/ds-api/user-token</h6>
 
 - Authentication
 
@@ -45,7 +40,7 @@ In order to use connection API, you need to generate an access token.
 
 .. code:: bash
   
-  curl -u myUser:myPassword -k -X POST https://<<datasentinel_platform_server>>/ds-api/user-token/myOrganization
+  curl -u myUser:myPassword -k -X POST https://<<datasentinel_platform_server>>/ds-api/user-token
 
 
 - Response

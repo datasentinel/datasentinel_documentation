@@ -25,7 +25,6 @@ Features
    top-tables
    user-management
    execution-plans
-   APIs
 
 
 
