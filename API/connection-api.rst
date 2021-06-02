@@ -1,8 +1,8 @@
 .. _connection_api:
 
-**************
-Connection API
-**************
+*************************
+Connection Management API
+*************************
 
 
 **Endpoints**

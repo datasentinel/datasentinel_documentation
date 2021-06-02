@@ -11,5 +11,6 @@ API
    :caption: Contents
 
    connection-api
+   role-api
+   user-api
    APIs
-   user-role-api

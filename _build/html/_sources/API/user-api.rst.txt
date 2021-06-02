@@ -1,8 +1,8 @@
 .. _user_api:
 
-*****************
-User and Role API
-*****************
+*******************
+User Management API
+*******************
 
 
 **Endpoints**
@@ -173,7 +173,8 @@ Live360 feature allows you to connect directly to the instances to have real-tim
 - role parameter
 
 Assign an existing role if you want to enable the **Role based access** feature, which allows you to restrict access to a subset of the perimeter of your PostgreSQL instances. 
-You define roles with specific filters (Server, PG instance, datacenter, application, environment, etc, ...).
+You define roles with specific filters (Server, PG instance, datacenter, application, environment, etc, ...). 
+See :ref:`role_api`
 
 
 

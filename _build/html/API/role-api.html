@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>User and Role API &#8212; Datasentinel</title>
+    <title>Role Based Access API &#8212; Datasentinel</title>
 
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/material-icons.css" type="text/css" />
@@ -25,8 +25,8 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Cloud marketplaces" href="../marketplaces/index.html" />
-    <link rel="prev" title="Workload API" href="APIs.html" /> 
+    <link rel="next" title="User Management API" href="user-api.html" />
+    <link rel="prev" title="API" href="index.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
@@ -34,7 +34,7 @@
         
         <nav class="mdl-navigation breadcrumb">
             <a class="mdl-navigation__link" href="index.html">API</a><i class="material-icons">navigate_next</i>
-            <a class="mdl-navigation__link is-active">User and Role API</a>
+            <a class="mdl-navigation__link is-active">Role Based Access API</a>
         </nav>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
@@ -57,7 +57,7 @@
         
 <a id="button-show-source"
     class="mdl-button mdl-js-button mdl-button--icon"
-    href="../_sources/API/user-role-api.rst.txt" rel="nofollow">
+    href="../_sources/API/role-api.rst.txt" rel="nofollow">
 <i class="material-icons">code</i>
 </a>
 <div class="mdl-tooltip" data-mdl-for="button-show-source">
@@ -145,15 +145,16 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../features/user-management.html">User management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features/execution-plans.html">Execution plans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features/agentless.html">Agentless</a></li>
-<li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection Management API</a></li>
 </ul>
 </li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection Management API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Role Based Access API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-api.html">User Management API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="APIs.html">Workload API</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">User and Role API</a></li>
 </ul>
 </li>
 </ul>
@@ -236,15 +237,16 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../features/user-management.html">User management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features/execution-plans.html">Execution plans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../features/agentless.html">Agentless</a></li>
-<li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection Management API</a></li>
 </ul>
 </li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connection-api.html">Connection Management API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Role Based Access API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-api.html">User Management API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="APIs.html">Workload API</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">User and Role API</a></li>
 </ul>
 </li>
 </ul>
@@ -274,8 +276,17 @@ Show Source
     <div class="document">
         <div class="page-content">
         
-  <div class="section" id="user-and-role-api">
-<span id="user-api"></span><h1>User and Role API<a class="headerlink" href="#user-and-role-api" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="role-based-access-api">
+<span id="role-api"></span><h1>Role Based Access API<a class="headerlink" href="#role-based-access-api" title="Permalink to this headline">¶</a></h1>
+<p><strong>Role based access</strong> is a feature allowing you to limit access to a subset of your PostgreSQL instances.</p>
+<p>To enable this feature:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Use predefined tags or associate new tags with your PostgreSQL clusters (See <a class="reference external" href="https://www.datasentinel.io/blog/post/tags/">How to use tags</a>)</p></li>
+<li><p>Create a role with a condition on one or more tags</p></li>
+<li><p>Assign the Role to a User</p></li>
+</ol>
+</div></blockquote>
 <div class="section" id="endpoints">
 <h2><strong>Endpoints</strong><a class="headerlink" href="#endpoints" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -345,25 +356,34 @@ Show Source
 </pre></div>
 </div>
 </div>
-<div class="section" id="add-a-user">
-<h2><strong>Add a user</strong><a class="headerlink" href="#add-a-user" title="Permalink to this headline">¶</a></h2>
-<h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/ds-users</span></h6><ul class="simple">
+<div class="section" id="add-a-role">
+<h2><strong>Add a role</strong><a class="headerlink" href="#add-a-role" title="Permalink to this headline">¶</a></h2>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/roles</span></h6><ul class="simple">
 <li><p>Example</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
-<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request POST &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/ds-users&#39; -d @body.json</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request POST &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/roles&#39; -d @body.json</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Request example (body.json)</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;email&quot;</span>: <span class="s2">&quot;userName@myCompany.com&quot;</span>,
-  <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;myPassword&quot;</span>,
-  <span class="s2">&quot;privilege&quot;</span>: <span class="s2">&quot;admin&quot;</span>,
-  <span class="s2">&quot;profile&quot;</span>: <span class="s2">&quot;data admin&quot;</span>,
-  <span class="s2">&quot;live_360&quot;</span>: <span class="m">1</span>,
-  <span class="s2">&quot;role&quot;</span>: <span class="s2">&quot;No restriction&quot;</span>,
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  <span class="o">{</span>
+  <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;MyNewRole&quot;</span>,
+  <span class="s2">&quot;access&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;filters&quot;</span>: <span class="o">[</span>
+                <span class="o">{</span>
+                    <span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;pg_version&quot;</span>,
+                    <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;11.8&quot;</span>
+                <span class="o">}</span>,
+                <span class="o">{</span>
+                    <span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;environment&quot;</span>,
+                    <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;production&quot;</span>
+                <span class="o">}</span>
+            <span class="o">]</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -372,168 +392,125 @@ Show Source
 <blockquote>
 <div><div class="line-block">
 <div class="line"><strong>Required</strong></div>
-<div class="line">email: User email used to connect to Datasentinel</div>
-<div class="line">password : User password</div>
+<div class="line">name: Role name</div>
 <div class="line"><br /></div>
-<div class="line"><strong>Optional</strong></div>
-<div class="line">“privilege”: read, read write or admin (default: <strong>admin</strong>)</div>
-<div class="line">“profile”:  developer or data admin (default: <strong>data admin</strong>)</div>
-<div class="line">“live_360”: 0 or 1 (default: <strong>1</strong>)</div>
-<div class="line">“role”:  Role name (default: <strong>No restriction</strong>)</div>
+<div class="line">access : filter array</div>
+<div class="line">Must be :</div>
+<div class="line-block">
+<div class="line">{ “filters” : tag / value array }</div>
+<div class="line"><br /></div>
+</div>
+<div class="line"><strong>Tags must exist and be associated with one or more instances</strong></div>
 </div>
 </div></blockquote>
 </li>
+</ul>
+<p><strong>Examples</strong></p>
+<p>You want to define a role based access on production only instances <strong>AND</strong> located in London datacenter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;access&quot;</span>: <span class="o">[</span>
+ <span class="o">{</span>
+    <span class="s2">&quot;filters&quot;</span>:
+      <span class="o">[</span>
+              <span class="o">{</span><span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;environment&quot;</span>, <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;production&quot;</span><span class="o">}</span>,
+              <span class="o">{</span><span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;datacenter&quot;</span>, <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;london&quot;</span><span class="o">}</span>
+      <span class="o">]</span>
+ <span class="o">}</span>
+<span class="o">]</span>
+</pre></div>
+</div>
+<p>You want to define a role based access on development <strong>OR</strong> uat instances :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;access&quot;</span>: <span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">&quot;filters&quot;</span>:
+      <span class="o">[</span>
+        <span class="o">{</span> <span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;environment&quot;</span>, <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;development&quot;</span> <span class="o">}</span>
+      <span class="o">]</span>
+  <span class="o">}</span>,
+  <span class="o">{</span>
+    <span class="s2">&quot;filters&quot;</span>:
+      <span class="o">[</span>
+        <span class="o">{</span> <span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;environment&quot;</span>, <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;uat&quot;</span> <span class="o">}</span>
+      <span class="o">]</span>
+  <span class="o">}</span>,
+<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>You can combine Multiples AND / OR conditions</strong></p>
+<ul class="simple">
 <li><p>Response</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;User with login userName created successfully&quot;</span>
+  <span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;Role name MyNewRole created successfully&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Privilege parameter</p></li>
-</ul>
-<p>3 privileges are available. A privilege needs to be assigned to a user</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 28%" />
-<col style="width: 72%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Privilege</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>read</p></td>
-<td><ul class="simple">
-<li><p>Read only acces to datasentinel</p></li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td><p>read write</p></td>
-<td><ul class="simple">
-<li><p>Read only acces to datasentinel</p></li>
-<li><p>Kill sessions</p></li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><td><p>admin</p></td>
-<td><ul class="simple">
-<li><p>Read only acces to datasentinel</p></li>
-<li><p>Kill sessions</p></li>
-<li><p>Agent, postgreSQL instance management</p></li>
-<li><p>User management</p></li>
-<li><p>Datasentinel configuration management</p></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<ul class="simple">
-<li><p>Profile parameter</p></li>
-</ul>
-<p>2 profiles are available. A profile needs to be assigned to a user</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 28%" />
-<col style="width: 72%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Profile</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>developer</p></td>
-<td><ul class="simple">
-<li><p>Access limited to sessions workload and top queries features</p></li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td><p>data admin</p></td>
-<td><ul class="simple">
-<li><p>Access unlimited</p></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<ul class="simple">
-<li><p>live_360 parameter</p></li>
-</ul>
-<p>Live360 feature allows you to connect directly to the instances to have real-time information (See <a class="reference internal" href="../features/live360.html#live-360"><span class="std std-ref">Live 360°</span></a>)</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 28%" />
-<col style="width: 72%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Value</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>0</p></td>
-<td><p>Not allowed</p></td>
-</tr>
-<tr class="row-odd"><td><p>1</p></td>
-<td><p>Allowed</p></td>
-</tr>
-</tbody>
-</table>
-<ul class="simple">
-<li><p>role parameter</p></li>
-</ul>
-<p>Assign an existing role if you want to enable the <strong>Role based access</strong> feature, which allows you to restrict access to a subset of the perimeter of your PostgreSQL instances.
-You define roles with specific filters (Server, PG instance, datacenter, application, environment, etc, …).</p>
 </div>
-<div class="section" id="display-user">
-<h2><strong>Display user</strong><a class="headerlink" href="#display-user" title="Permalink to this headline">¶</a></h2>
-<h6 ><span style="margin-left:30px;font-weight:bold;color: #3f6ed8">GET</span><span style="color:#3f6ed8">&nbsp;/ds-api/ds-users/{{email}}</span></h6><ul class="simple">
+<div class="section" id="display-role">
+<h2><strong>Display Role</strong><a class="headerlink" href="#display-role" title="Permalink to this headline">¶</a></h2>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: #3f6ed8">GET</span><span style="color:#3f6ed8">&nbsp;/ds-api/roles/{{ role }}</span></h6><ul class="simple">
 <li><p>Example</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
-<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request GET &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/ds-users/userName@myCompany.com&#39;</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request GET &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/roles/myRole&#39;</span>
 </pre></div>
 </div>
 <ul>
 <li><p>Parameters:</p>
 <blockquote>
 <div><div class="line-block">
-<div class="line">email: User email</div>
+<div class="line">role: Role name</div>
 </div>
 </div></blockquote>
 </li>
 <li><p>Response</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-    <span class="s2">&quot;id&quot;</span>: <span class="m">54</span>,
-    <span class="s2">&quot;login&quot;</span>: <span class="s2">&quot;username&quot;</span>,
-    <span class="s2">&quot;email&quot;</span>: <span class="s2">&quot;userName@myCompany.com&quot;</span>,
-    <span class="s2">&quot;profile&quot;</span>: <span class="s2">&quot;data admin&quot;</span>,
-    <span class="s2">&quot;privilege&quot;</span>: <span class="s2">&quot;admin&quot;</span>,
-    <span class="s2">&quot;role&quot;</span>: <span class="s2">&quot;No restriction&quot;</span>,
-    <span class="s2">&quot;live_360&quot;</span>: <span class="m">1</span>
+<span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;myRole&quot;</span>,
+<span class="s2">&quot;access&quot;</span>: <span class="o">[</span>
+    <span class="o">{</span>
+        <span class="s2">&quot;filters&quot;</span>: <span class="o">[</span>
+            <span class="o">{</span>
+                <span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;pg_instance&quot;</span>,
+                <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;51.15.233.24@agentLess6&quot;</span>
+            <span class="o">}</span>
+        <span class="o">]</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+        <span class="s2">&quot;filters&quot;</span>: <span class="o">[</span>
+            <span class="o">{</span>
+                <span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;pg_instance&quot;</span>,
+                <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;51.158.104.206@agentLess11&quot;</span>
+            <span class="o">}</span>
+        <span class="o">]</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
 <span class="o">}</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="update-user">
-<h2><strong>Update user</strong><a class="headerlink" href="#update-user" title="Permalink to this headline">¶</a></h2>
-<h6 ><span style="margin-left:30px;font-weight:bold;color: #ff8c69">PUT</span><span style="color:#ff8c69">&nbsp;/ds-api/ds-users/{{email}}</span></h6><ul class="simple">
+<div class="section" id="update-role">
+<h2><strong>Update Role</strong><a class="headerlink" href="#update-role" title="Permalink to this headline">¶</a></h2>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: #ff8c69">PUT</span><span style="color:#ff8c69">&nbsp;/ds-api/roles/{{ role }}</span></h6><ul class="simple">
 <li><p>Example</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
-<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request PUT &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/ds-users/userName@myCompany.com&#39;  -d @body.json</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request PUT &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/roles/MyNewRole&#39;  -d @body.json</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Request example (body.json)</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;privilege&quot;</span>: <span class="s2">&quot;read&quot;</span>,
-  <span class="s2">&quot;live_360&quot;</span>: <span class="m">0</span>
+<span class="s2">&quot;access&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+          <span class="s2">&quot;filters&quot;</span>: <span class="o">[</span>
+              <span class="o">{</span>
+                  <span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;environment&quot;</span>,
+                  <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;production&quot;</span>
+              <span class="o">}</span>
+          <span class="o">]</span>
+      <span class="o">}</span>
+  <span class="o">]</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -541,32 +518,32 @@ You define roles with specific filters (Server, PG instance, datacenter, applica
 <li><p>Parameters:</p>
 <blockquote>
 <div><div class="line-block">
-<div class="line">email: User email</div>
+<div class="line">Role: Role name</div>
 <div class="line"><br /></div>
-<div class="line"><strong>Optional</strong></div>
-<div class="line">“password”: User password</div>
-<div class="line">“privilege”: read, read write or admin</div>
-<div class="line">“profile”:  developer or data admin</div>
-<div class="line">“live_360”: 0 or 1</div>
-<div class="line">“role”:  Role name</div>
+<div class="line">access : filter array</div>
+<div class="line">Must be :</div>
+<div class="line-block">
+<div class="line">{ “filters” : tag / value array }</div>
+<div class="line"><br /></div>
+</div>
 </div>
 </div></blockquote>
 </li>
 <li><p>Response</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;User updated successfully!&quot;</span>
+  <span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;Role name MyNewRole updated successfully&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="delete-user">
-<h2><strong>Delete user</strong><a class="headerlink" href="#delete-user" title="Permalink to this headline">¶</a></h2>
-<h6 ><span style="margin-left:30px;font-weight:bold;color: gray">DELETE</span><span style="color:gray">&nbsp;/ds-api/ds-users/{{email}}</span></h6><ul class="simple">
+<div class="section" id="delete-role">
+<h2><strong>Delete Role</strong><a class="headerlink" href="#delete-role" title="Permalink to this headline">¶</a></h2>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: gray">DELETE</span><span style="color:gray">&nbsp;/ds-api/roles/{{ role }}</span></h6><ul class="simple">
 <li><p>Example</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
-<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request DELETE &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/ds-users/userName@myCompany.com&#39;</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request DELETE &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/roles/MyNewRole&#39;</span>
 </pre></div>
 </div>
 <ul>
@@ -580,42 +557,62 @@ You define roles with specific filters (Server, PG instance, datacenter, applica
 <li><p>Response</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;User deleted&quot;</span>
+  <span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;Role name MyNewRole deleted successfully&quot;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="display-all-users">
-<h2><strong>Display all users</strong><a class="headerlink" href="#display-all-users" title="Permalink to this headline">¶</a></h2>
-<h6 ><span style="margin-left:30px;font-weight:bold;color: #3f6ed8">GET</span><span style="color:#3f6ed8">&nbsp;/ds-api/ds-users</span></h6><ul class="simple">
+<div class="section" id="display-all-roles">
+<h2><strong>Display all Roles</strong><a class="headerlink" href="#display-all-roles" title="Permalink to this headline">¶</a></h2>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: #3f6ed8">GET</span><span style="color:#3f6ed8">&nbsp;/ds-api/roles</span></h6><ul class="simple">
 <li><p>Example</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
-<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request GET &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/ds-users&#39;</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request GET &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/roles&#39;</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Response</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  <span class="o">[</span>
-    <span class="o">{</span>
-        <span class="s2">&quot;id&quot;</span>: <span class="m">2</span>,
-        <span class="s2">&quot;login&quot;</span>: <span class="s2">&quot;datasentinel&quot;</span>,
-        <span class="s2">&quot;email&quot;</span>: <span class="s2">&quot;contact@datasentinel.io&quot;</span>,
-        <span class="s2">&quot;profile&quot;</span>: <span class="s2">&quot;data admin&quot;</span>,
-        <span class="s2">&quot;privilege&quot;</span>: <span class="s2">&quot;admin&quot;</span>,
-        <span class="s2">&quot;role&quot;</span>: <span class="s2">&quot;No restriction&quot;</span>,
-        <span class="s2">&quot;live_360&quot;</span>: <span class="m">1</span>
-    <span class="o">}</span>,
-    <span class="o">{</span>
-        <span class="s2">&quot;id&quot;</span>: <span class="m">54</span>,
-        <span class="s2">&quot;login&quot;</span>: <span class="s2">&quot;username&quot;</span>,
-        <span class="s2">&quot;email&quot;</span>: <span class="s2">&quot;userName@myCompany.com&quot;</span>,
-        <span class="s2">&quot;profile&quot;</span>: <span class="s2">&quot;data admin&quot;</span>,
-        <span class="s2">&quot;privilege&quot;</span>: <span class="s2">&quot;read&quot;</span>,
-        <span class="s2">&quot;role&quot;</span>: <span class="s2">&quot;No restriction&quot;</span>,
-        <span class="s2">&quot;live_360&quot;</span>: <span class="m">0</span>
-    <span class="o">}</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;myRole&quot;</span>,
+      <span class="s2">&quot;access&quot;</span>: <span class="o">[</span>
+          <span class="o">{</span>
+              <span class="s2">&quot;filters&quot;</span>: <span class="o">[</span>
+                  <span class="o">{</span>
+                      <span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;pg_instance&quot;</span>,
+                      <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;51.15.233.24@agentLess6&quot;</span>
+                  <span class="o">}</span>
+              <span class="o">]</span>
+          <span class="o">}</span>,
+          <span class="o">{</span>
+              <span class="s2">&quot;filters&quot;</span>: <span class="o">[</span>
+                  <span class="o">{</span>
+                      <span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;pg_instance&quot;</span>,
+                      <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;51.158.104.206@agentLess11&quot;</span>
+                  <span class="o">}</span>
+              <span class="o">]</span>
+          <span class="o">}</span>
+      <span class="o">]</span>
+  <span class="o">}</span>,
+  <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;testrole&quot;</span>,
+      <span class="s2">&quot;access&quot;</span>: <span class="o">[</span>
+          <span class="o">{</span>
+              <span class="s2">&quot;filters&quot;</span>: <span class="o">[</span>
+                  <span class="o">{</span>
+                      <span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;pg_version&quot;</span>,
+                      <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;11.8&quot;</span>
+                  <span class="o">}</span>,
+                  <span class="o">{</span>
+                      <span class="s2">&quot;tag&quot;</span>: <span class="s2">&quot;pg_instance&quot;</span>,
+                      <span class="s2">&quot;value&quot;</span>: <span class="s2">&quot;51.15.233.24@agentLess6&quot;</span>
+                  <span class="o">}</span>
+              <span class="o">]</span>
+          <span class="o">}</span>
+      <span class="o">]</span>
+  <span class="o">}</span>
 <span class="o">]</span>
 </pre></div>
 </div>
@@ -631,15 +628,15 @@ You define roles with specific filters (Server, PG instance, datacenter, applica
       <span class="caption-text">Table Of Contents</span>
     </p>
     <ul>
-<li><a class="reference internal" href="#">User and Role API</a><ul>
+<li><a class="reference internal" href="#">Role Based Access API</a><ul>
 <li><a class="reference internal" href="#endpoints"><strong>Endpoints</strong></a></li>
 <li><a class="reference internal" href="#user-token-generation"><strong>User token generation</strong></a></li>
 <li><a class="reference internal" href="#display-user-token"><strong>Display User token</strong></a></li>
-<li><a class="reference internal" href="#add-a-user"><strong>Add a user</strong></a></li>
-<li><a class="reference internal" href="#display-user"><strong>Display user</strong></a></li>
-<li><a class="reference internal" href="#update-user"><strong>Update user</strong></a></li>
-<li><a class="reference internal" href="#delete-user"><strong>Delete user</strong></a></li>
-<li><a class="reference internal" href="#display-all-users"><strong>Display all users</strong></a></li>
+<li><a class="reference internal" href="#add-a-role"><strong>Add a role</strong></a></li>
+<li><a class="reference internal" href="#display-role"><strong>Display Role</strong></a></li>
+<li><a class="reference internal" href="#update-role"><strong>Update Role</strong></a></li>
+<li><a class="reference internal" href="#delete-role"><strong>Delete Role</strong></a></li>
+<li><a class="reference internal" href="#display-all-roles"><strong>Display all Roles</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -650,18 +647,18 @@ You define roles with specific filters (Server, PG instance, datacenter, applica
 
       <div class="clearer"></div>
     </div><div class="pagenation">
-     <a id="button-prev" href="APIs.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+     <a id="button-prev" href="index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
          <i class="pagenation-arrow-L material-icons">arrow_back</i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>Workload API</div>
+            <div>API</div>
          </div>
      </a>
-     <a id="button-next" href="../marketplaces/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="user-api.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
         <i class="pagenation-arrow-R material-icons">arrow_forward</i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>Cloud marketplaces</div>
+            <div>User Management API</div>
         </div>
      </a>
   </div>
