@@ -349,18 +349,17 @@ Show Source
 </div>
 <div class="section" id="add-a-user">
 <h2><strong>Add a user</strong><a class="headerlink" href="#add-a-user" title="Permalink to this headline">¶</a></h2>
-<h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/ds-users</span></h6><ul class="simple">
+<h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/ds-users/{{email}}</span></h6><ul class="simple">
 <li><p>Example</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
-<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request POST &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/ds-users&#39; -d @body.json</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request POST &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/ds-users/userName@myCompany.com&#39; -d @body.json</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Request example (body.json)</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-  <span class="s2">&quot;email&quot;</span>: <span class="s2">&quot;userName@myCompany.com&quot;</span>,
   <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;myPassword&quot;</span>,
   <span class="s2">&quot;privilege&quot;</span>: <span class="s2">&quot;admin&quot;</span>,
   <span class="s2">&quot;profile&quot;</span>: <span class="s2">&quot;data admin&quot;</span>,

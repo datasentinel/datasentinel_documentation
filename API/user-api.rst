@@ -83,21 +83,20 @@ In order to use user and role API, you need to generate an access token.
 
 .. raw:: html
 
-   <h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/ds-users</span></h6>
+   <h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/ds-users/{{email}}</span></h6>
 
 - Example 
 
 .. code:: bash
 
   export TOKEN=<<user_token>>
-  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request POST 'https://<<datasentinel_platform_server>>/ds-api/ds-users' -d @body.json
+  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request POST 'https://<<datasentinel_platform_server>>/ds-api/ds-users/userName@myCompany.com' -d @body.json
 
 - Request example (body.json)
 
 .. code:: bash
 
     {
-      "email": "userName@myCompany.com",
       "password": "myPassword",
       "privilege": "admin",
       "profile": "data admin",

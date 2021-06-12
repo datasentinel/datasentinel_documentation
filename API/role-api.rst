@@ -91,21 +91,20 @@ In order to use user and role API, you need to generate an access token.
 
 .. raw:: html
 
-   <h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/roles</span></h6>
+   <h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/roles/{{ role }}</span></h6>
 
 - Example 
 
 .. code:: bash
 
   export TOKEN=<<user_token>>
-  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request POST 'https://<<datasentinel_platform_server>>/ds-api/roles' -d @body.json
+  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request POST 'https://<<datasentinel_platform_server>>/ds-api/roles/MyNewRole' -d @body.json
 
 - Request example (body.json)
 
 .. code:: bash
 
     {
-    "name": "MyNewRole",
     "access": [
           {
               "filters": [
@@ -124,8 +123,7 @@ In order to use user and role API, you need to generate an access token.
 
 - Parameters:
 
-    | **Required**
-    | name: Role name
+    | role: Role name
     | 
     | access : filter array
     | Must be :
@@ -357,3 +355,38 @@ You want to define a role based access on development **OR** uat instances :
           ]
       }
     ]   
+  
+
+**Display assigned users**
+***************************
+  
+.. raw:: html
+
+    <h6 ><span style="margin-left:30px;font-weight:bold;color: #3f6ed8">GET</span><span style="color:#3f6ed8">&nbsp;/ds-api/roles/{{ role }}/users</span></h6>
+
+- Example 
+
+.. code:: bash
+
+  export TOKEN=<<user_token>>
+  curl -k --header "user-token: $TOKEN" --header 'Content-Type: application/json' --request GET 'https://<<datasentinel_platform_server>>/ds-api/roles/myRole/users'
+
+- Parameters:
+
+    | role: Role name
+
+- Response
+
+.. code:: bash
+
+    [
+      {
+          "id": 70,
+          "login": "username",
+          "email": "userName@myCompany.com",
+          "profile": "data admin",
+          "privilege": "admin",
+          "role": "myRole",
+          "live_360": 1
+      }
+    ]

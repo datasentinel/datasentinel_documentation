@@ -358,18 +358,17 @@ Show Source
 </div>
 <div class="section" id="add-a-role">
 <h2><strong>Add a role</strong><a class="headerlink" href="#add-a-role" title="Permalink to this headline">¶</a></h2>
-<h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/roles</span></h6><ul class="simple">
+<h6 ><span style="margin-left:30px;font-weight:bold;color: #45d6b5">POST</span><span style="color:#45d6b5">&nbsp;/ds-api/roles/{{ role }}</span></h6><ul class="simple">
 <li><p>Example</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
-<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request POST &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/roles&#39; -d @body.json</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request POST &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/roles/MyNewRole&#39; -d @body.json</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Request example (body.json)</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  <span class="o">{</span>
-  <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;MyNewRole&quot;</span>,
   <span class="s2">&quot;access&quot;</span>: <span class="o">[</span>
         <span class="o">{</span>
             <span class="s2">&quot;filters&quot;</span>: <span class="o">[</span>
@@ -391,8 +390,7 @@ Show Source
 <li><p>Parameters:</p>
 <blockquote>
 <div><div class="line-block">
-<div class="line"><strong>Required</strong></div>
-<div class="line">name: Role name</div>
+<div class="line">role: Role name</div>
 <div class="line"><br /></div>
 <div class="line">access : filter array</div>
 <div class="line">Must be :</div>
@@ -617,6 +615,39 @@ Show Source
 </pre></div>
 </div>
 </div>
+<div class="section" id="display-assigned-users">
+<h2><strong>Display assigned users</strong><a class="headerlink" href="#display-assigned-users" title="Permalink to this headline">¶</a></h2>
+<h6 ><span style="margin-left:30px;font-weight:bold;color: #3f6ed8">GET</span><span style="color:#3f6ed8">&nbsp;/ds-api/roles/{{ role }}/users</span></h6><ul class="simple">
+<li><p>Example</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;user_token&gt;&gt;</span>
+<span class="s">curl -k --header &quot;user</span>-token: <span class="nv">$TOKEN</span><span class="s2">&quot; --header &#39;Content-Type: application/json&#39; --request GET &#39;https://&lt;&lt;datasentinel_platform_server&gt;&gt;/ds-api/roles/myRole/users&#39;</span>
+</pre></div>
+</div>
+<ul>
+<li><p>Parameters:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">role: Role name</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Response</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+  <span class="o">{</span>
+      <span class="s2">&quot;id&quot;</span>: <span class="m">70</span>,
+      <span class="s2">&quot;login&quot;</span>: <span class="s2">&quot;username&quot;</span>,
+      <span class="s2">&quot;email&quot;</span>: <span class="s2">&quot;userName@myCompany.com&quot;</span>,
+      <span class="s2">&quot;profile&quot;</span>: <span class="s2">&quot;data admin&quot;</span>,
+      <span class="s2">&quot;privilege&quot;</span>: <span class="s2">&quot;admin&quot;</span>,
+      <span class="s2">&quot;role&quot;</span>: <span class="s2">&quot;myRole&quot;</span>,
+      <span class="s2">&quot;live_360&quot;</span>: <span class="m">1</span>
+  <span class="o">}</span>
+<span class="o">]</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -637,6 +668,7 @@ Show Source
 <li><a class="reference internal" href="#update-role"><strong>Update Role</strong></a></li>
 <li><a class="reference internal" href="#delete-role"><strong>Delete Role</strong></a></li>
 <li><a class="reference internal" href="#display-all-roles"><strong>Display all Roles</strong></a></li>
+<li><a class="reference internal" href="#display-assigned-users"><strong>Display assigned users</strong></a></li>
 </ul>
 </li>
 </ul>
