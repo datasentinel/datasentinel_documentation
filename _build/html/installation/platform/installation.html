@@ -370,16 +370,31 @@ Show Source
 <p class="admonition-title">Note</p>
 <div class="line-block">
 <div class="line">At the end of the script, the datasentinel repository should be UP and RUNNING.</div>
-<div class="line"><br /></div>
-<div class="line">You should be able to connect to the user interface.</div>
-<div class="line">Open a brower and type <strong>https://&lt;&lt;your-hostname&gt;&gt;</strong></div>
-<div class="line">The login is <strong>datasentinel</strong></div>
-<div class="line">The password is given by datasentinel team</div>
 </div>
 </div>
+</div>
+<div class="section" id="user-interface">
+<h2>5. User interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h2>
+<p>Once the installation is terminated, connect to the UI:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>url <a class="reference external" href="https:/">https:/</a>/&lt;&lt;server_name&gt;&gt;</p></li>
+<li><p>user: datasentinel</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">The password is displayed at the end of the installation.</div>
+</div>
+</div>
+</div>
+<div class="section" id="update-the-license">
+<h2>6. Update the license<a class="headerlink" href="#update-the-license" title="Permalink to this headline">¶</a></h2>
+<p>You need to update the license in order to start using Datasentinel. See How to update the <a class="reference internal" href="../../token.html#token"><span class="std std-ref">Token</span></a></p>
 </div>
 <div class="section" id="components">
-<h2>5. Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<h2>7. Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="../../_images/architecture.png"><img alt="../../_images/architecture.png" class="align-center" src="../../_images/architecture.png" style="width: 952.0px; height: 432.0px;" /></a>
 <p>Datasentinel uses the following components:</p>
 <ul class="simple">
@@ -399,7 +414,7 @@ Show Source
 </div>
 </div>
 <div class="section" id="components-management">
-<h2>6. Components management<a class="headerlink" href="#components-management" title="Permalink to this headline">¶</a></h2>
+<h2>8. Components management<a class="headerlink" href="#components-management" title="Permalink to this headline">¶</a></h2>
 <p>Start</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl start datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend datasentinel_dispatcher nginx
 </pre></div>
@@ -426,7 +441,7 @@ nginx.service                                                      loaded active
 </div>
 </div>
 <div class="section" id="useful-log-files">
-<h2>7. Useful log files<a class="headerlink" href="#useful-log-files" title="Permalink to this headline">¶</a></h2>
+<h2>9. Useful log files<a class="headerlink" href="#useful-log-files" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
@@ -481,9 +496,11 @@ nginx.service                                                      loaded active
 <li><a class="reference internal" href="#download">1. Download</a></li>
 <li><a class="reference internal" href="#uncompress">3. Uncompress</a></li>
 <li><a class="reference internal" href="#install">4. Install</a></li>
-<li><a class="reference internal" href="#components">5. Components</a></li>
-<li><a class="reference internal" href="#components-management">6. Components management</a></li>
-<li><a class="reference internal" href="#useful-log-files">7. Useful log files</a></li>
+<li><a class="reference internal" href="#user-interface">5. User interface</a></li>
+<li><a class="reference internal" href="#update-the-license">6. Update the license</a></li>
+<li><a class="reference internal" href="#components">7. Components</a></li>
+<li><a class="reference internal" href="#components-management">8. Components management</a></li>
+<li><a class="reference internal" href="#useful-log-files">9. Useful log files</a></li>
 </ul>
 </li>
 </ul>

@@ -17,13 +17,18 @@ Agent installation
 1. Download the agent
 *********************
 
-- Connect to your user interface URL with a admin user.
-- Go to Tools submenu and click on agents.
-- Download the agent (tar.gz format, available for redhat/centos, debian, ubuntu)
+Download the latest version of agents.
+
+•	 `RedHat/Centos 8 <https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel8.tar.gz>`_ 
+•	 `RedHat/Centos 7 <https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel7.tar.gz>`_ 
+•	 `RedHat/Centos 6 <https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel6.tar.gz>`_ 
+•	 `Debian Buster <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-buster.tar.gz>`_ 
+•	 `Debian Stretch <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-stretch.tar.gz>`_ 
+•	 `Debian Jessie <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-jessie.tar.gz>`_ 
 
 .. note::
-   If you use our on-premises platform, the agents are available in the directory **/datasentinel/download**
-
+   | For other distributons, please contact us at support@datasentinel.io
+   | The agent is available on linux only
 
 2. Start the agent
 ******************

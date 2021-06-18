@@ -108,13 +108,26 @@ Download the installation file at https://app.datasentinel.io/ds-api/download/in
 
 .. note:: 
    | At the end of the script, the datasentinel repository should be UP and RUNNING.
-   | 
-   | You should be able to connect to the user interface.
-   | Open a brower and type **https://<<your-hostname>>**
-   | The login is **datasentinel**
-   | The password is given by datasentinel team
 
-5. Components
+
+5. User interface
+********************
+
+Once the installation is terminated, connect to the UI:
+
+   * url https://<<server_name>>
+   * user: datasentinel
+
+.. note::
+   | The password is displayed at the end of the installation.
+
+6. Update the license
+**********************
+
+You need to update the license in order to start using Datasentinel. See How to update the :ref:`token`
+
+
+7. Components
 *************
 
 .. image:: architecture.png
@@ -135,7 +148,7 @@ Datasentinel uses the following components:
    | Each component is restarted automatically with a system service 
    | located on **/usr/lib/systemd/system**
 
-6. Components management
+8. Components management
 ************************
 
 Start
@@ -175,7 +188,9 @@ Output
    datasentinel_postgresql.service                                    loaded active running   PostgreSQL 10 database server
    nginx.service                                                      loaded active running   The nginx HTTP and reverse proxy server
 
-7. Useful log files
+   
+
+9. Useful log files
 ********************
 
 .. note:: 

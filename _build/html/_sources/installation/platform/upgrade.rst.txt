@@ -13,14 +13,16 @@ Download URLs
 
 • Grafana https://app.datasentinel.io/ds-api/download/patch-grafana-datasentinel.tar.gz
 • Datasentinel Platform https://app.datasentinel.io/ds-api/download/patch-datasentinel.tar.gz
-•
-•	Agent RHEL8 https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel8.tar.gz
-•	Agent RHEL7 https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel7.tar.gz
-•	Agent RHEL6 https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel6.tar.gz
-•	Agent Debian Buster https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-buster.tar.gz
-•	Agent Debian Stretch https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-stretch.tar.gz
-•	Agent Debian Jessie https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-jessie.tar.gz
 
+
+Download the latest version of agents
+
+•	 `RedHat/Centos 8 <https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel8.tar.gz>`_ 
+•	 `RedHat/Centos 7 <https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel7.tar.gz>`_ 
+•	 `RedHat/Centos 6 <https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel6.tar.gz>`_ 
+•	 `Debian Buster <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-buster.tar.gz>`_ 
+•	 `Debian Stretch <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-stretch.tar.gz>`_ 
+•	 `Debian Jessie <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-jessie.tar.gz>`_ 
 
 
 1. Platform upgrade

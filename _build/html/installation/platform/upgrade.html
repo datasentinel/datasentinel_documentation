@@ -26,7 +26,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Extensions" href="../../extensions/index.html" />
-    <link rel="prev" title="Postgresql user" href="../postgresql_user.html" /> 
+    <link rel="prev" title="Adding a connection" href="../adding_connection.html" /> 
   </head>
 <body>
     <div class="mdl-layout mdl-js-layout  mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
@@ -113,7 +113,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="installation.html">On-premises platform installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../agent/installation.html">Agent installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../postgresql_user.html">Postgresql user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postgresql_user.html">PostgreSQL user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adding_connection.html">Adding a connection</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Upgrade Datasentinel</a></li>
 </ul>
 </li>
@@ -196,7 +197,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="installation.html">On-premises platform installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="agentbasedOrAgentless.html">Agent-based or Agentless?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../agent/installation.html">Agent installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../postgresql_user.html">Postgresql user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../postgresql_user.html">PostgreSQL user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../adding_connection.html">Adding a connection</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Upgrade Datasentinel</a></li>
 </ul>
 </li>
@@ -267,13 +269,15 @@ You will find with each release the minimum version of the agent necessary to ta
 <ul class="simple">
 <li><p>Grafana <a class="reference external" href="https://app.datasentinel.io/ds-api/download/patch-grafana-datasentinel.tar.gz">https://app.datasentinel.io/ds-api/download/patch-grafana-datasentinel.tar.gz</a></p></li>
 <li><p>Datasentinel Platform <a class="reference external" href="https://app.datasentinel.io/ds-api/download/patch-datasentinel.tar.gz">https://app.datasentinel.io/ds-api/download/patch-datasentinel.tar.gz</a></p></li>
-<li></li>
-<li><p>Agent RHEL8 <a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel8.tar.gz">https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel8.tar.gz</a></p></li>
-<li><p>Agent RHEL7 <a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel7.tar.gz">https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel7.tar.gz</a></p></li>
-<li><p>Agent RHEL6 <a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel6.tar.gz">https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel6.tar.gz</a></p></li>
-<li><p>Agent Debian Buster <a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-buster.tar.gz">https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-buster.tar.gz</a></p></li>
-<li><p>Agent Debian Stretch <a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-stretch.tar.gz">https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-stretch.tar.gz</a></p></li>
-<li><p>Agent Debian Jessie <a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-jessie.tar.gz">https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-jessie.tar.gz</a></p></li>
+</ul>
+<p>Download the latest version of agents</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel8.tar.gz">RedHat/Centos 8</a></p></li>
+<li><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel7.tar.gz">RedHat/Centos 7</a></p></li>
+<li><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel6.tar.gz">RedHat/Centos 6</a></p></li>
+<li><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-buster.tar.gz">Debian Buster</a></p></li>
+<li><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-stretch.tar.gz">Debian Stretch</a></p></li>
+<li><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-jessie.tar.gz">Debian Jessie</a></p></li>
 </ul>
 <div class="section" id="platform-upgrade">
 <h2>1. Platform upgrade<a class="headerlink" href="#platform-upgrade" title="Permalink to this headline">¶</a></h2>
@@ -558,11 +562,11 @@ datasentinel status agent
 
       <div class="clearer"></div>
     </div><div class="pagenation">
-     <a id="button-prev" href="../postgresql_user.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+     <a id="button-prev" href="../adding_connection.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
          <i class="pagenation-arrow-L material-icons">arrow_back</i>
          <div class="pagenation-text">
             <span class="pagenation-direction">Previous</span>
-            <div>Postgresql user</div>
+            <div>Adding a connection</div>
          </div>
      </a>
      <a id="button-next" href="../../extensions/index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
