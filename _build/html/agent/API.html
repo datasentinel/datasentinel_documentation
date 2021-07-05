@@ -592,7 +592,7 @@ Show Source
 <h6><span style="margin-left:30px;font-weight:bold; color: #3f6ed8">GET</span>&nbsp;/api/connections</h6><ul class="simple">
 <li><p>Example</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -k -X GET https://pg-sales-0223:8282/api/connections
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -k --header <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> -X GET https://pg-sales-0223:8282/api/connections
 </pre></div>
 </div>
 <ul class="simple">
@@ -702,7 +702,7 @@ Show Source
 </li>
 <li><p>Example</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -k -X GET https://pg-sales-0223:8383/api/connections/sales_prod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -k --header <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> -X GET https://pg-sales-0223:8383/api/connections/sales_prod
 </pre></div>
 </div>
 <ul class="simple">
@@ -733,7 +733,7 @@ Show Source
 </li>
 <li><p>Example</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -k -X DELETE https://pg-sales-0223:8383/api/connections/sales_prod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -k --header <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> -X DELETE https://pg-sales-0223:8383/api/connections/sales_prod
 </pre></div>
 </div>
 <ul class="simple">

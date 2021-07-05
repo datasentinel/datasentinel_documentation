@@ -383,7 +383,7 @@ Show
 
 .. code:: bash
   
-  curl -k -X GET https://pg-sales-0223:8282/api/connections
+  curl -k --header "api-token: $TOKEN" -X GET https://pg-sales-0223:8282/api/connections
 
 
 - Response
@@ -509,7 +509,7 @@ Show
 
 .. code:: bash
   
-  curl -k -X GET https://pg-sales-0223:8383/api/connections/sales_prod
+  curl -k --header "api-token: $TOKEN" -X GET https://pg-sales-0223:8383/api/connections/sales_prod
 
 
 - Response
@@ -543,7 +543,7 @@ Delete
 
 .. code:: bash
   
-  curl -k -X DELETE https://pg-sales-0223:8383/api/connections/sales_prod
+  curl -k --header "api-token: $TOKEN" -X DELETE https://pg-sales-0223:8383/api/connections/sales_prod
 
 
 - Response
