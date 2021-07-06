@@ -19,12 +19,12 @@ Agent installation
 
 Download the latest version of agents.
 
-•	 `RedHat/Centos 8 <https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel8.tar.gz>`_ 
-•	 `RedHat/Centos 7 <https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel7.tar.gz>`_ 
-•	 `RedHat/Centos 6 <https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel6.tar.gz>`_ 
-•	 `Debian Buster <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-buster.tar.gz>`_ 
-•	 `Debian Stretch <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-stretch.tar.gz>`_ 
-•	 `Debian Jessie <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-jessie.tar.gz>`_ 
+•	 `RedHat/Centos 8 <https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel8-latest.tar.gz>`_ 
+•	 `RedHat/Centos 7 <https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel7-latest.tar.gz>`_ 
+•	 `RedHat/Centos 6 <https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel6-latest.tar.gz>`_ 
+•	 `Debian Buster <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-buster-latest.tar.gz>`_ 
+•	 `Debian Stretch <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-stretch-latest.tar.gz>`_ 
+•	 `Debian Jessie <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-jessie-latest.tar.gz>`_ 
 
 .. note::
    | For other distributons, please contact us at support@datasentinel.io
