@@ -30,6 +30,11 @@ Download the latest version of agents.
    | For other distributons, please contact us at support@datasentinel.io
    | The agent is available on linux only
 
+
+.. note::
+   | The agent is also available as a container image on `Docker Hub <https://hub.docker.com/repository/docker/datasentinel/datasentinel-agent>`_
+
+
 2. Start the agent
 ******************
 
@@ -43,7 +48,7 @@ Download the latest version of agents.
    export PATH=$DATASENTINEL_PATH:$PATH
    datasentinel start agent
 
-3. Test the status
+1. Test the status
 ******************
 
 .. code-block:: bash
@@ -83,10 +88,16 @@ Download the latest version of agents.
 
 .. warning::
 
-   The agent is running but the CLI responds NO? Check this point :ref:`agent-faq-status`
+   The agent is running but the CLI responds NO? Check this point :ref:`agent-faq-status` 
+
+   The agent registers its server name to the platform. This allows the platform to communicate with the agent. It also allows the agent CLI to run correctly.
+   
+   If the server name is unknown (not present in dns servers for example), you can set this environement variable below, before starting the agent.
+
+   export DATASENTINEL_AGENT_HOST=172.16.250.199
 
 
-4. Token and upload server
+1. Token and upload server
 **************************
 
 | A token is required in order to communicate with the repository
