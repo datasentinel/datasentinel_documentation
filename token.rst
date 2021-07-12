@@ -4,6 +4,14 @@
 Token
 *****
 
+.. note::
+
+    | A license key is required to use Datasentinel.
+    | 
+    | If you don't have one, you can ask for a  `Free 30-days Trial <https://www.datasentinel.io/#/freetrial>`_
+    |
+    
+  
 .. warning::
 
     | Agents need a valid token to authenticate and communicate with the platform

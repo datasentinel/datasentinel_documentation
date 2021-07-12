@@ -11,9 +11,12 @@ You will find with each release the minimum version of the agent necessary to ta
 
 Download URLs
 
-• Grafana https://app.datasentinel.io/ds-api/download/patch-grafana-datasentinel.tar.gz
-• Datasentinel Platform https://app.datasentinel.io/ds-api/download/patch-datasentinel.tar.gz
+Download the latest patch of the platform
 
+•	 `RedHat/Centos 7 <https://app.datasentinel.io/ds-api/download/patch-datasentinel-rhel7-latest.tar.gz>`_ 
+•	 `RedHat/Rocky linux 8 <https://app.datasentinel.io/ds-api/download/patch-datasentinel-rocky8-latest.tar.gz>`_ 
+•	 `Debian Buster <https://app.datasentinel.io/ds-api/download/patch-datasentinel-debian-buster-latest.tar.gz>`_ 
+•	 `Debian Stretch <https://app.datasentinel.io/ds-api/download/patch-datasentinel-debian-stretch-latest.tar.gz>`_ 
 
 Download the latest version of agents
 
@@ -23,6 +26,9 @@ Download the latest version of agents
 •	 `Debian Buster <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-buster-latest.tar.gz>`_ 
 •	 `Debian Stretch <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-stretch-latest.tar.gz>`_ 
 •	 `Debian Jessie <https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-jessie-latest.tar.gz>`_ 
+
+
+Grafana https://app.datasentinel.io/ds-api/download/patch-grafana-datasentinel.tar.gz
 
 
 1. Platform upgrade
