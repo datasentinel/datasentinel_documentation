@@ -14,8 +14,11 @@ Agent FAQ
 
     - Centos, RHEL 6
     - Centos, RHEL 7
+    - Centos, RHEL 8
     - Debian 8 (Jessie)
     - Debian 9 (Stretch)
+    - Debian 10 (Buster)
+    - Ubuntu
 
 | If the agent is not available in your current linux distribution, please ask us to deploy a new agent.
 

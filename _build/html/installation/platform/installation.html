@@ -278,10 +278,20 @@ Show Source
         
   <div class="section" id="on-premises-platform-installation">
 <span id="on-prem-installation"></span><h1>On-premises platform installation<a class="headerlink" href="#on-premises-platform-installation" title="Permalink to this headline">¶</a></h1>
-<h4>See our Blog entry <a href="https://www.datasentinel.io/blog/post/start/" target="_hblank">Getting started with Datasentinel on-premises</a><br><br></h4>
-
+<h4>See our Blog entry <a href="https://www.datasentinel.io/blog/post/start/" target="_hblank">Getting started with Datasentinel on-premises</a><br><br></h4><dl class="simple">
+<dt>The platform is available on:</dt><dd><ul class="simple">
+<li><p>Linux RHEL7, Centos7</p></li>
+<li><p>Linux RHEL8, Rocky linux 8</p></li>
+<li><p>Linux Debian Buster</p></li>
+<li><p>Linux Debian Stretch</p></li>
+</ul>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">Please contact us at <a class="reference external" href="mailto:support&#37;&#52;&#48;datasentinel&#46;io">support<span>&#64;</span>datasentinel<span>&#46;</span>io</a> if you want to install Datasentinel on another linux system</div>
+</div>
 <h3>Prerequisites</h3><dl class="simple">
-<dt>You need to have a linux machine <strong>Red Hat or centos 7</strong>:</dt><dd><ul class="simple">
+<dt>You need to have a machine with:</dt><dd><ul class="simple">
 <li><p>Nginx web server preinstalled</p></li>
 <li><p>&gt;= 4 CPUS</p></li>
 <li><p>&gt;= 16 GB RAM</p></li>
@@ -293,9 +303,34 @@ Show Source
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">The platform is composed of several components packaged in a single file <strong>install-datasentinel-platform-latest.tar.gz</strong> (size 550 MB)</div>
+<div class="line">The platform is composed of several components packaged in a single file <strong>install-datasentinel-platform-&lt;&lt;OS&gt;&gt;-latest.tar.gz</strong> (size 550 MB)</div>
 </div>
 </div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>OS</p></th>
+<th class="head"><p>File to download</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RHEL7, Centos7</p></td>
+<td><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-rhel7-latest.tar.gz">install-datasentinel-platform-rhel7-latest.tar.gz</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>RHEL8, Rocky Linux 8</p></td>
+<td><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-rocky8-latest.tar.gz">install-datasentinel-platform-rocky8-latest.tar.gz</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Debian Buster</p></td>
+<td><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-debian-buster-latest.tar.gz">install-datasentinel-platform-debian-buster-latest.tar.gz</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Debian Stretch</p></td>
+<td><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-debian-stretch-latest.tar.gz">install-datasentinel-platform-debian-stretch-latest.tar.gz</a></p></td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="license">
 <h2>1. License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
 <p>A license key is required to use Datasentinel.</p>
@@ -308,31 +343,34 @@ Show Source
 </div>
 <div class="section" id="download">
 <h2>1. Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
-<p>Download the installation file at <a class="reference external" href="https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-latest.tar.gz">https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-latest.tar.gz</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-latest.tar.gz
+<p>Download the installation file</p>
+<p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-rhel7-latest.tar.gz
 </pre></div>
 </div>
 </div>
 <div class="section" id="uncompress">
 <h2>3. Uncompress<a class="headerlink" href="#uncompress" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvzf install-datasentinel-platform-latest.tar.gz
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvzf install-datasentinel-platform-rhel7-latest.tar.gz
 </pre></div>
 </div>
-<p>3 files are created</p>
+<p>2 files are created</p>
 <ul class="simple">
 <li><p>init_datasentinel.sh</p></li>
 <li><p>datasentinel-platform.tar.gz</p></li>
-<li><p>nginx-1.18.0-1.el7.ngx.x86_64.rpm</p></li>
 </ul>
+<p>and
+- nginx-1.18.0-1.el7.ngx.x86_64.rpm on RHEL systems</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
-<div class="line">If not installed, you can install nginx with the included rpm file -&gt; <strong>yum localinstall nginx-1.18.0-1.el7.ngx.x86_64.rpm</strong></div>
+<div class="line">On RHEL systems, if not installed, you can install nginx with the included rpm or deb file -&gt; <strong>yum localinstall nginx-1.18.0-1.el7.ngx.x86_64.rpm</strong></div>
+<div class="line">On Debian systems, you need to install <strong>nginx</strong></div>
 </div>
 </div>
 </div>
 <div class="section" id="install">
-<h2>4. Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<h2>1. Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line">Run the shell script</div>
 </div>
@@ -386,16 +424,31 @@ Show Source
 <p class="admonition-title">Note</p>
 <div class="line-block">
 <div class="line">At the end of the script, the datasentinel repository should be UP and RUNNING.</div>
-<div class="line"><br /></div>
-<div class="line">You should be able to connect to the user interface.</div>
-<div class="line">Open a brower and type <strong>https://&lt;&lt;your-hostname&gt;&gt;</strong></div>
-<div class="line">The login is <strong>datasentinel</strong></div>
-<div class="line">The password is given by datasentinel team</div>
 </div>
 </div>
+</div>
+<div class="section" id="user-interface">
+<h2>5. User interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h2>
+<p>Once the installation is terminated, connect to the UI:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>url <a class="reference external" href="https:/">https:/</a>/&lt;&lt;server_name&gt;&gt;</p></li>
+<li><p>user: datasentinel</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">The password is displayed at the end of the installation.</div>
+</div>
+</div>
+</div>
+<div class="section" id="update-the-license">
+<h2>6. Update the license<a class="headerlink" href="#update-the-license" title="Permalink to this headline">¶</a></h2>
+<p>You need to update the license in order to start using Datasentinel. See How to update the <a class="reference internal" href="../../token.html#token"><span class="std std-ref">Token</span></a></p>
 </div>
 <div class="section" id="components">
-<h2>5. Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<h2>7. Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="../../_images/architecture.png"><img alt="../../_images/architecture.png" class="align-center" src="../../_images/architecture.png" style="width: 952.0px; height: 432.0px;" /></a>
 <p>Datasentinel uses the following components:</p>
 <ul class="simple">
@@ -415,7 +468,7 @@ Show Source
 </div>
 </div>
 <div class="section" id="components-management">
-<h2>6. Components management<a class="headerlink" href="#components-management" title="Permalink to this headline">¶</a></h2>
+<h2>8. Components management<a class="headerlink" href="#components-management" title="Permalink to this headline">¶</a></h2>
 <p>Start</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl start datasentinel_influxdb datasentinel_postgresql datasentinel_grafana datasentinel_backend datasentinel_dispatcher nginx
 </pre></div>
@@ -442,7 +495,7 @@ nginx.service                                                      loaded active
 </div>
 </div>
 <div class="section" id="useful-log-files">
-<h2>7. Useful log files<a class="headerlink" href="#useful-log-files" title="Permalink to this headline">¶</a></h2>
+<h2>9. Useful log files<a class="headerlink" href="#useful-log-files" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <div class="line-block">
@@ -496,10 +549,12 @@ nginx.service                                                      loaded active
 <li><a class="reference internal" href="#license">1. License</a></li>
 <li><a class="reference internal" href="#download">1. Download</a></li>
 <li><a class="reference internal" href="#uncompress">3. Uncompress</a></li>
-<li><a class="reference internal" href="#install">4. Install</a></li>
-<li><a class="reference internal" href="#components">5. Components</a></li>
-<li><a class="reference internal" href="#components-management">6. Components management</a></li>
-<li><a class="reference internal" href="#useful-log-files">7. Useful log files</a></li>
+<li><a class="reference internal" href="#install">1. Install</a></li>
+<li><a class="reference internal" href="#user-interface">5. User interface</a></li>
+<li><a class="reference internal" href="#update-the-license">6. Update the license</a></li>
+<li><a class="reference internal" href="#components">7. Components</a></li>
+<li><a class="reference internal" href="#components-management">8. Components management</a></li>
+<li><a class="reference internal" href="#useful-log-files">9. Useful log files</a></li>
 </ul>
 </li>
 </ul>

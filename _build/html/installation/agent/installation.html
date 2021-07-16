@@ -299,14 +299,27 @@ Show Source
 </div>
 <div class="section" id="download-the-agent">
 <h2>1. Download the agent<a class="headerlink" href="#download-the-agent" title="Permalink to this headline">¶</a></h2>
+<p>Download the latest version of agents.</p>
 <ul class="simple">
-<li><p>Connect to your user interface URL with a admin user.</p></li>
-<li><p>Go to Tools submenu and click on agents.</p></li>
-<li><p>Download the agent (tar.gz format, available for redhat/centos, debian, ubuntu)</p></li>
+<li><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel8-latest.tar.gz">RedHat/Centos 8</a></p></li>
+<li><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel7-latest.tar.gz">RedHat/Centos 7</a></p></li>
+<li><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-rhel6-latest.tar.gz">RedHat/Centos 6</a></p></li>
+<li><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-buster-latest.tar.gz">Debian Buster</a></p></li>
+<li><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-stretch-latest.tar.gz">Debian Stretch</a></p></li>
+<li><p><a class="reference external" href="https://app.datasentinel.io/ds-api/download/datasentinel-agent-debian-jessie-latest.tar.gz">Debian Jessie</a></p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you use our on-premises platform, the agents are available in the directory <strong>/datasentinel/download</strong></p>
+<div class="line-block">
+<div class="line">For other distributons, please contact us at <a class="reference external" href="mailto:support&#37;&#52;&#48;datasentinel&#46;io">support<span>&#64;</span>datasentinel<span>&#46;</span>io</a></div>
+<div class="line">The agent is available on linux only</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">The agent is also available as a container image on <a class="reference external" href="https://hub.docker.com/repository/docker/datasentinel/datasentinel-agent">Docker Hub</a></div>
+</div>
 </div>
 </div>
 <div class="section" id="start-the-agent">
@@ -323,7 +336,7 @@ datasentinel start agent
 </div>
 </div>
 <div class="section" id="test-the-status">
-<h2>3. Test the status<a class="headerlink" href="#test-the-status" title="Permalink to this headline">¶</a></h2>
+<h2>1. Test the status<a class="headerlink" href="#test-the-status" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>datasentinel status agent
 </pre></div>
 </div>
@@ -363,10 +376,13 @@ datasentinel start agent
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The agent is running but the CLI responds NO? Check this point <a class="reference internal" href="../../agent/faq_agent.html#agent-faq-status"><span class="std std-ref">12. The agent is running but the CLI responds NO?</span></a></p>
+<p>The agent registers its server name to the platform. This allows the platform to communicate with the agent. It also allows the agent CLI to run correctly.</p>
+<p>If the server name is unknown (not present in dns servers for example), you can set this environement variable below, before starting the agent.</p>
+<p>export DATASENTINEL_AGENT_HOST=172.16.250.199</p>
 </div>
 </div>
 <div class="section" id="token-and-upload-server">
-<h2>4. Token and upload server<a class="headerlink" href="#token-and-upload-server" title="Permalink to this headline">¶</a></h2>
+<h2>1. Token and upload server<a class="headerlink" href="#token-and-upload-server" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line">A token is required in order to communicate with the repository</div>
 <div class="line">Copy the token value directly from the user interface (Agents submenu)</div>
@@ -638,8 +654,8 @@ host    all             datasentinel    <span class="m">127</span>.0.0.1/0      
 <li><a class="reference internal" href="#">Agent installation</a><ul>
 <li><a class="reference internal" href="#download-the-agent">1. Download the agent</a></li>
 <li><a class="reference internal" href="#start-the-agent">2. Start the agent</a></li>
-<li><a class="reference internal" href="#test-the-status">3. Test the status</a></li>
-<li><a class="reference internal" href="#token-and-upload-server">4. Token and upload server</a></li>
+<li><a class="reference internal" href="#test-the-status">1. Test the status</a></li>
+<li><a class="reference internal" href="#token-and-upload-server">1. Token and upload server</a></li>
 <li><a class="reference internal" href="#upload-server-and-token-validity">5. Upload server and token validity</a></li>
 <li><a class="reference internal" href="#postgresql-user">6. Postgresql user</a></li>
 <li><a class="reference internal" href="#pg-hba-conf">7. pg_hba.conf</a></li>

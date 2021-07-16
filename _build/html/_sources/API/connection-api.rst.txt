@@ -8,7 +8,7 @@ Connection Management API
 **Endpoints**
 *************
 
-- API can be reached at **https://<<datasentinel_platform_server>>**
+- API can be reached at **https://<<datasentinel_platform_server>>/ds-api/**
 
 .. warning::
    | Connection API is only available for an **on-premises** installation and if you want to use the **Agentless** feature

@@ -4,8 +4,29 @@
 Release notes
 ******************
 
+**August 01, 2021 (v2021.07)**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. raw:: html
+
+   <h3>Features</h3>
+
+1. | User and Role management with API 
+2. | The platform is now available on Debian Buster and Debian Stretch distributions (see :ref:`on_prem_installation`) 
+3. | The agent is available as a container image (See `Docker Hub <https://hub.docker.com/r/datasentinel/datasentinel-agent>`_)
+
+
+.. raw:: html
+
+   <h3>Fixes</h3>
+
+1. | Live360 module: 
+   | When switching to a new PostgreSQL cluster, Datasentinel now selects automatically **All** databases when the keeped database selection does not exist, avoiding an error.
+
+Minimum Agent version : 2.6.0
+
 **May 01, 2021 (v2021.05)**
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. raw:: html
 
    <h3>Features</h3>

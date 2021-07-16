@@ -287,10 +287,10 @@ Show Source
 <div class="section" id="endpoints">
 <h2><strong>Endpoints</strong><a class="headerlink" href="#endpoints" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p>Agent APIs can be reached at <strong>&lt;&lt;http_mode&gt;&gt;://&lt;&lt;host_name&gt;&gt;:&lt;&lt;port_number&gt;&gt;</strong></p>
+<li><p>Agent API can be reached at <strong>&lt;&lt;http_mode&gt;&gt;://&lt;&lt;host_name&gt;&gt;:&lt;&lt;port_number&gt;&gt;</strong></p>
 <blockquote>
 <div><div class="line-block">
-<div class="line"><strong>http_mode</strong> http or https</div>
+<div class="line"><strong>http_mode</strong> http or https (default https)</div>
 <div class="line"><strong>host_name</strong> The host where the agent is installed</div>
 <div class="line"><strong>port_number</strong> By default 8282 (updatable)</div>
 </div>
@@ -472,7 +472,7 @@ Show Source
 <li><p>Example</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;datasentinel_token&gt;&gt;</span>
-<span class="s">curl -k --head</span>er <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> -X PUT https://pg-sales-0223:8282/api/server -f body.json
+<span class="s">curl -k --head</span>er <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> --header <span class="s1">&#39;Content-Type: application/json&#39;</span> -X PUT https://pg-sales-0223:8282/api/server -d @body.json
 </pre></div>
 </div>
 <ul class="simple">
@@ -538,7 +538,7 @@ Show Source
 <li><p>Example</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;datasentinel_token&gt;&gt;</span>
-<span class="s">curl -k --head</span>er <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> --header <span class="s1">&#39;Content-Type: application/json&#39;</span> -X POST https://pg-sales-0223:8282/api/proxy -f body.json
+<span class="s">curl -k --head</span>er <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> --header <span class="s1">&#39;Content-Type: application/json&#39;</span> -X POST https://pg-sales-0223:8282/api/proxy -d @body.json
 </pre></div>
 </div>
 <ul class="simple">
@@ -608,7 +608,7 @@ Show Source
 <h6><span style="margin-left:30px;font-weight:bold; color: #3f6ed8">GET</span>&nbsp;/api/connections</h6><ul class="simple">
 <li><p>Example</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -k -X GET https://pg-sales-0223:8282/api/connections
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -k --header <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> -X GET https://pg-sales-0223:8282/api/connections
 </pre></div>
 </div>
 <ul class="simple">
@@ -681,7 +681,7 @@ Show Source
 <li><p>Example</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;datasentinel_token&gt;&gt;</span>
-<span class="s">curl -k --head</span>er <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> --header <span class="s1">&#39;Content-Type: application/json&#39;</span> --request POST <span class="s1">&#39;https://pg-sales-0223:8383/api/connections/sales_prod&#39;</span> -f body.json
+<span class="s">curl -k --head</span>er <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> --header <span class="s1">&#39;Content-Type: application/json&#39;</span> --request POST <span class="s1">&#39;https://pg-sales-0223:8383/api/connections/sales_prod&#39;</span> -d @body.json
 </pre></div>
 </div>
 <ul class="simple">
@@ -718,7 +718,7 @@ Show Source
 </li>
 <li><p>Example</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -k -X GET https://pg-sales-0223:8383/api/connections/sales_prod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -k --header <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> -X GET https://pg-sales-0223:8383/api/connections/sales_prod
 </pre></div>
 </div>
 <ul class="simple">
@@ -749,7 +749,7 @@ Show Source
 </li>
 <li><p>Example</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -k -X DELETE https://pg-sales-0223:8383/api/connections/sales_prod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -k --header <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> -X DELETE https://pg-sales-0223:8383/api/connections/sales_prod
 </pre></div>
 </div>
 <ul class="simple">
@@ -824,7 +824,7 @@ Show Source
 <li><p>Example</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TOKEN</span><span class="o">=</span><span class="s">&lt;&lt;datasentinel_token&gt;&gt;</span>
-<span class="s">curl -k --head</span>er <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> --header <span class="s1">&#39;Content-Type: application/json&#39;</span> --request PUT <span class="s1">&#39;https://pg-sales-0223:8383/api/connections/sales_prod&#39;</span> -f body.json
+<span class="s">curl -k --head</span>er <span class="s2">&quot;api-token: </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> --header <span class="s1">&#39;Content-Type: application/json&#39;</span> --request PUT <span class="s1">&#39;https://pg-sales-0223:8383/api/connections/sales_prod&#39;</span> -d @body.json
 </pre></div>
 </div>
 <ul class="simple">

@@ -8,7 +8,7 @@ Workload API
 **Endpoints**
 *************
 
-- API can be reached at **https://<<datasentinel_platform_server>>**
+- API can be reached at **https://<<datasentinel_platform_server>>/ds-api/**
 
 .. note::
    | If you use the SaaS architecture, the server is **app.datasentinel.io**

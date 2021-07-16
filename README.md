@@ -3,7 +3,7 @@
 
 ### [Datasentinel](https://www.datasentinel.io) is a unique and innovative performance tool for Postgresql
 
-### [Cloud application](https://app.datasentinel.io) (Live demo available)
+### Explore all the features on our [Live Demo](https://demo.datasentinel.io) site
 
 
 # Datasentinel Documentation

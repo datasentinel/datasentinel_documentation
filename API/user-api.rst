@@ -8,7 +8,7 @@ User Management API
 **Endpoints**
 *************
 
-- API can be reached at **https://<<datasentinel_platform_server>>**
+- API can be reached at **https://<<datasentinel_platform_server>>/ds-api/**
 
 .. note::
    | A toolkit, wich provides examples of use, is available on `Github <https://github.com/datasentinel/datasentinel_toolkit>`_

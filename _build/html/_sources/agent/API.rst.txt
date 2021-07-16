@@ -10,9 +10,9 @@ API
 **Endpoints**
 *************
 
-- Agent APIs can be reached at **<<http_mode>>://<<host_name>>:<<port_number>>**
+- Agent API can be reached at **<<http_mode>>://<<host_name>>:<<port_number>>**
 
-   | **http_mode** http or https
+   | **http_mode** http or https (default https)
    | **host_name** The host where the agent is installed
    | **port_number** By default 8282 (updatable)
 
@@ -218,7 +218,7 @@ Set
 .. code:: bash
   
   export TOKEN=<<datasentinel_token>>
-  curl -k --header "api-token: $TOKEN" -X PUT https://pg-sales-0223:8282/api/server -f body.json
+  curl -k --header "api-token: $TOKEN" --header 'Content-Type: application/json' -X PUT https://pg-sales-0223:8282/api/server -d @body.json
 
 - Request example (body.json)
 
@@ -298,7 +298,7 @@ Set
 .. code:: bash
   
   export TOKEN=<<datasentinel_token>>
-  curl -k --header "api-token: $TOKEN" --header 'Content-Type: application/json' -X POST https://pg-sales-0223:8282/api/proxy -f body.json
+  curl -k --header "api-token: $TOKEN" --header 'Content-Type: application/json' -X POST https://pg-sales-0223:8282/api/proxy -d @body.json
 
 - Request example (body.json)
 
@@ -383,7 +383,7 @@ Show
 
 .. code:: bash
   
-  curl -k -X GET https://pg-sales-0223:8282/api/connections
+  curl -k --header "api-token: $TOKEN" -X GET https://pg-sales-0223:8282/api/connections
 
 
 - Response
@@ -470,7 +470,7 @@ Add
 .. code:: bash
 
   export TOKEN=<<datasentinel_token>>
-  curl -k --header "api-token: $TOKEN" --header 'Content-Type: application/json' --request POST 'https://pg-sales-0223:8383/api/connections/sales_prod' -f body.json
+  curl -k --header "api-token: $TOKEN" --header 'Content-Type: application/json' --request POST 'https://pg-sales-0223:8383/api/connections/sales_prod' -d @body.json
 
 - Request example (body.json)
 
@@ -509,7 +509,7 @@ Show
 
 .. code:: bash
   
-  curl -k -X GET https://pg-sales-0223:8383/api/connections/sales_prod
+  curl -k --header "api-token: $TOKEN" -X GET https://pg-sales-0223:8383/api/connections/sales_prod
 
 
 - Response
@@ -543,7 +543,7 @@ Delete
 
 .. code:: bash
   
-  curl -k -X DELETE https://pg-sales-0223:8383/api/connections/sales_prod
+  curl -k --header "api-token: $TOKEN" -X DELETE https://pg-sales-0223:8383/api/connections/sales_prod
 
 
 - Response
@@ -626,7 +626,7 @@ Update
 .. code:: bash
 
   export TOKEN=<<datasentinel_token>>
-  curl -k --header "api-token: $TOKEN" --header 'Content-Type: application/json' --request PUT 'https://pg-sales-0223:8383/api/connections/sales_prod' -f body.json
+  curl -k --header "api-token: $TOKEN" --header 'Content-Type: application/json' --request PUT 'https://pg-sales-0223:8383/api/connections/sales_prod' -d @body.json
 
 - Request example (body.json)
 

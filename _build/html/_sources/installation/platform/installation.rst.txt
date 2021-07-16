@@ -9,9 +9,23 @@ On-premises platform installation
 
    <h4>See our Blog entry <a href="https://www.datasentinel.io/blog/post/start/" target="_hblank">Getting started with Datasentinel on-premises</a><br><br></h4>
 
+
+The platform is available on:
+   - Linux RHEL7, Centos7
+   - Linux RHEL8, Rocky linux 8
+   - Linux Debian Buster
+   - Linux Debian Stretch
+
+
+.. note::
+| Please contact us at support@datasentinel.io if you want to install Datasentinel on another linux system
+   
+
+.. raw:: html
+
    <h3>Prerequisites</h3>
 
-You need to have a linux machine **Red Hat or centos 7**:
+You need to have a machine with:
     - Nginx web server preinstalled
     - >= 4 CPUS 
     - >= 16 GB RAM
@@ -20,7 +34,21 @@ You need to have a linux machine **Red Hat or centos 7**:
 
 
 .. note::
-   | The platform is composed of several components packaged in a single file **install-datasentinel-platform-latest.tar.gz** (size 550 MB)
+   | The platform is composed of several components packaged in a single file **install-datasentinel-platform-<<OS>>-latest.tar.gz** (size 550 MB)
+
+
++-----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| OS                                      | File to download                                                                                                                                                       |
++=========================================+========================================================================================================================================================================+
+| RHEL7, Centos7                          |  `install-datasentinel-platform-rhel7-latest.tar.gz <https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-rhel7-latest.tar.gz>`_                  |
++-----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| RHEL8, Rocky Linux 8                    | `install-datasentinel-platform-rocky8-latest.tar.gz <https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-rocky8-latest.tar.gz>`_                 |
++-----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Debian Buster                           | `install-datasentinel-platform-debian-buster-latest.tar.gz <https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-debian-buster-latest.tar.gz>`_   |
++-----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Debian Stretch                          | `install-datasentinel-platform-debian-stretch-latest.tar.gz <https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-debian-stretch-latest.tar.gz>`_ |
++-----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 
 1. License
 ***********
@@ -39,31 +67,36 @@ See How to update the :ref:`token` to enable the license key.
 1. Download
 ***********
 
-Download the installation file at https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-latest.tar.gz
+Download the installation file 
+
+Example:
 
 .. code-block:: bash
 
-   wget https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-latest.tar.gz
+   wget https://app.datasentinel.io/ds-api/download/install-datasentinel-platform-rhel7-latest.tar.gz
 
 3. Uncompress
 *************
 
 .. code-block:: bash
 
-   tar xvzf install-datasentinel-platform-latest.tar.gz
+   tar xvzf install-datasentinel-platform-rhel7-latest.tar.gz
 
-3 files are created
+2 files are created
 
 - init_datasentinel.sh
 - datasentinel-platform.tar.gz
-- nginx-1.18.0-1.el7.ngx.x86_64.rpm
+
+and 
+- nginx-1.18.0-1.el7.ngx.x86_64.rpm on RHEL systems
 
 
 .. note::
-   | If not installed, you can install nginx with the included rpm file -> **yum localinstall nginx-1.18.0-1.el7.ngx.x86_64.rpm**
+   | On RHEL systems, if not installed, you can install nginx with the included rpm or deb file -> **yum localinstall nginx-1.18.0-1.el7.ngx.x86_64.rpm**
+   | On Debian systems, you need to install **nginx**
 
 
-4. Install
+1. Install
 **********
 
 | Run the shell script
@@ -108,13 +141,26 @@ Download the installation file at https://app.datasentinel.io/ds-api/download/in
 
 .. note:: 
    | At the end of the script, the datasentinel repository should be UP and RUNNING.
-   | 
-   | You should be able to connect to the user interface.
-   | Open a brower and type **https://<<your-hostname>>**
-   | The login is **datasentinel**
-   | The password is given by datasentinel team
 
-5. Components
+
+5. User interface
+********************
+
+Once the installation is terminated, connect to the UI:
+
+   * url https://<<server_name>>
+   * user: datasentinel
+
+.. note::
+   | The password is displayed at the end of the installation.
+
+6. Update the license
+**********************
+
+You need to update the license in order to start using Datasentinel. See How to update the :ref:`token`
+
+
+7. Components
 *************
 
 .. image:: architecture.png
@@ -135,7 +181,7 @@ Datasentinel uses the following components:
    | Each component is restarted automatically with a system service 
    | located on **/usr/lib/systemd/system**
 
-6. Components management
+8. Components management
 ************************
 
 Start
@@ -175,7 +221,9 @@ Output
    datasentinel_postgresql.service                                    loaded active running   PostgreSQL 10 database server
    nginx.service                                                      loaded active running   The nginx HTTP and reverse proxy server
 
-7. Useful log files
+   
+
+9. Useful log files
 ********************
 
 .. note:: 

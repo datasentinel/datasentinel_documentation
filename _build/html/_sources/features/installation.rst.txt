@@ -43,21 +43,13 @@ datasentinel extension
    yum install -y https://yum.postgresql.org/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
    yum install -y postgresql10-devel postgresql10-contrib
 
-- Version 11
+- Version 11+
 
 .. code-block:: bash
 
    yum install -y https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
    yum install -y centos-release-scl
    yum install -y postgresql11-devel postgresql11-llvmjit llvm-toolset-7
-
-- Version 12
-
-.. code-block:: bash
-
-   yum install -y https://download.postgresql.org/pub/repos/yum/12/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
-   yum install -y centos-release-scl
-   yum install -y postgresql12-devel postgresql12-llvmjit llvm-toolset-7
 
 - All (to compile the extension)
 
@@ -70,41 +62,18 @@ datasentinel extension
 
 - Download the source files from the user interface (Agents submenu)
 
+- The extension can also be downloaded here https://github.com/datasentinel/datasentinel_extension 
+
 .. note::
    You can also copy directly copy the file **datasentinel-extension.tar.gz** from the directory **/datasentinel/download**
 
-3. Compile and deploy
+1. Compile and deploy
 *********************
 
-- Version < 9.6 (example done with 9.4)
-
 .. code-block:: bash
 
-   export PATH=/usr/pgsql-9.4/bin:$PATH
+   export PATH=/usr/pgsql-{{PostgreSQL-version}}/bin:$PATH
 
-- Version 9.6
-
-.. code-block:: bash
-
-   export PATH=/usr/pgsql-9.6/bin:$PATH
-
-- Version 10
-
-.. code-block:: bash
-
-   export PATH=/usr/pgsql-10/bin:$PATH
-
-- Version 11
-
-.. code-block:: bash
-
-   export PATH=/usr/pgsql-11/bin:$PATH
-
-- Version 12
-
-.. code-block:: bash
-
-   export PATH=/usr/pgsql-12/bin:$PATH
 
 - All
 
@@ -144,39 +113,17 @@ datasentinel extension
 5. Restart postgresql
 *********************
 
-- Version 9.6
-
-.. code-block:: bash
-
-   systemctl restart postgresql
-
-- Version 10
-
-.. code-block:: bash
-
-   systemctl restart postgresql-10
-
-- Version 11
-
-.. code-block:: bash
-
-   systemctl restart postgresql-11
-
-- Version 12
-
-.. code-block:: bash
-
-   systemctl restart postgresql-12
+You need to restart the cluster
 
 6. Create the extensions
 ************************
 
-- connect as a superuser
+- connect as a superuser in the **postgres** database
 
 .. code-block:: bash
 
-    CREATE EXTENSION pg_stat_statements;
-    CREATE EXTENSION datasentinel;
+   CREATE EXTENSION IF NOT EXISTS pg_stat_statements;
+   CREATE EXTENSION datasentinel;
    
 .. note::
 

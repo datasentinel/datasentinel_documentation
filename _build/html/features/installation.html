@@ -320,19 +320,11 @@ yum install -y postgresql10-devel postgresql10-contrib
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Version 11</p></li>
+<li><p>Version 11+</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install -y https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 yum install -y centos-release-scl
 yum install -y postgresql11-devel postgresql11-llvmjit llvm-toolset-7
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 12</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install -y https://download.postgresql.org/pub/repos/yum/12/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
-yum install -y centos-release-scl
-yum install -y postgresql12-devel postgresql12-llvmjit llvm-toolset-7
 </pre></div>
 </div>
 <ul class="simple">
@@ -346,6 +338,7 @@ yum install -y postgresql12-devel postgresql12-llvmjit llvm-toolset-7
 <h2>2. Download source files<a class="headerlink" href="#download-source-files" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Download the source files from the user interface (Agents submenu)</p></li>
+<li><p>The extension can also be downloaded here <a class="reference external" href="https://github.com/datasentinel/datasentinel_extension">https://github.com/datasentinel/datasentinel_extension</a></p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -353,35 +346,8 @@ yum install -y postgresql12-devel postgresql12-llvmjit llvm-toolset-7
 </div>
 </div>
 <div class="section" id="compile-and-deploy">
-<h2>3. Compile and deploy<a class="headerlink" href="#compile-and-deploy" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Version &lt; 9.6 (example done with 9.4)</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/pgsql-9.4/bin:<span class="nv">$PATH</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 9.6</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/pgsql-9.6/bin:<span class="nv">$PATH</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 10</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/pgsql-10/bin:<span class="nv">$PATH</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 11</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/pgsql-11/bin:<span class="nv">$PATH</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 12</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/pgsql-12/bin:<span class="nv">$PATH</span>
+<h2>1. Compile and deploy<a class="headerlink" href="#compile-and-deploy" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/pgsql-<span class="o">{{</span>PostgreSQL-version<span class="o">}}</span>/bin:<span class="nv">$PATH</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -421,37 +387,14 @@ pg_stat_statements.track <span class="o">=</span> all
 </div>
 <div class="section" id="restart-postgresql">
 <h2>5. Restart postgresql<a class="headerlink" href="#restart-postgresql" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Version 9.6</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl restart postgresql
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 10</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl restart postgresql-10
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 11</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl restart postgresql-11
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Version 12</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl restart postgresql-12
-</pre></div>
-</div>
+<p>You need to restart the cluster</p>
 </div>
 <div class="section" id="create-the-extensions">
 <h2>6. Create the extensions<a class="headerlink" href="#create-the-extensions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>connect as a superuser</p></li>
+<li><p>connect as a superuser in the <strong>postgres</strong> database</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CREATE EXTENSION pg_stat_statements<span class="p">;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CREATE EXTENSION IF NOT EXISTS pg_stat_statements<span class="p">;</span>
 CREATE EXTENSION datasentinel<span class="p">;</span>
 </pre></div>
 </div>
@@ -480,7 +423,7 @@ CREATE EXTENSION datasentinel<span class="p">;</span>
 <li><a class="reference internal" href="#">datasentinel extension</a><ul>
 <li><a class="reference internal" href="#install-the-libraries">1. Install the libraries</a></li>
 <li><a class="reference internal" href="#download-source-files">2. Download source files</a></li>
-<li><a class="reference internal" href="#compile-and-deploy">3. Compile and deploy</a></li>
+<li><a class="reference internal" href="#compile-and-deploy">1. Compile and deploy</a></li>
 <li><a class="reference internal" href="#modify-postgresql-conf">4. Modify postgresql.conf</a></li>
 <li><a class="reference internal" href="#restart-postgresql">5. Restart postgresql</a></li>
 <li><a class="reference internal" href="#create-the-extensions">6. Create the extensions</a></li>
